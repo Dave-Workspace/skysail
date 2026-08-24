@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-index: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating Background Particles Animation */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0,0,0,0) 70%);
+            animation: float 8s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+        body::after {
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, rgba(0,0,0,0) 70%);
+            animation-delay: -4s;
+            right: 10%;
+            top: 10%;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-30px) scale(1.1); }
+        }
+
+        /* Main Container Card */
+        .container {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            z-index: 2;
+        }
+
+        /* Animated Icon */
+        .icon-box {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .icon {
+            font-size: 4rem;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        .glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: #6366f1;
+            filter: blur(40px);
+            opacity: 0.5;
+            border-radius: 50%;
+            animation: glowPulse 2s infinite ease-in-out;
+            z-index: -1;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.3); }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Animated Progress Bar */
+        .progress-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 100px;
+            padding: 4px;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+            height: 8px;
+            border-radius: 100px;
+            width: 75%; /* Set your progress here */
+            position: relative;
+            animation: loadIn 1.5s ease-out forwards;
+        }
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        @keyframes loadIn {
+            from { width: 0%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon-box">
+            <div class="glow"></div>
+            <div class="icon">🚧</div>
+        </div>
+        
+        <h1>Coming Soon</h1>
+        <p>We are working hard behind the scenes to build something amazing. Check back soon for the official launch!</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="progress-text">
+            <span>Progress</span>
+            <span>75%</span>
+        </div>
+    </div>
+
+</body>
+</html>
