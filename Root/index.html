@@ -1,0 +1,4399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-Y404KZ61CH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y404KZ61CH');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Gateway to Canada - Canboards</title>
+    <link rel="icon" type="image/png" href="Images/Favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/reorganized_css.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .site-section {
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .site-section {
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        /* How section image styling */
+        .how-section .process-img {
+            max-width: 900px;
+            height: auto;
+        }
+
+        /* --- Hero: restore stacking + fix 991px layout ---
+                                                                  Replace the previous injected block with this.
+                                                                  Leaves your 72px / 40px font rules intact in reorganized_css.css. */
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+            /* Keep original wave / fog stacking */
+            .hero-section::before,
+            .hero-section::after {
+                z-index: 5;
+                pointer-events: none;
+            }
+
+            .hero-section .hero-fog-layer {
+                z-index: 20;
+                pointer-events: none;
+            }
+
+            /* Make sure the fog layer keeps its blur/blend */
+            .hero-section .hero-fog-layer {
+                z-index: 20;
+                backdrop-filter: blur(6px) saturate(95%);
+                -webkit-backdrop-filter: blur(6px) saturate(95%);
+            }
+
+            .hero-section .container,
+            .hero-section .hero-content {
+                position: relative;
+                z-index: 30;
+            }
+
+            /* Centered content cap — allows headings to size naturally */
+            .hero-section .hero-content {
+                margin: 0 auto;
+                width: 100%;
+                max-width: 1200px; /* cap to avoid uncontrolled bleed */
+                padding-left: 16px;
+                padding-right: 16px;
+                text-align: center;
+            }
+
+            /* Keep decorative images visually behind the content */
+            .hero-section .hero-img-box {
+                z-index: 10;
+                pointer-events: none;
+            }
+
+            .hero-section .hero-content #immigration-anim {
+                z-index: 31;
+            }
+
+.h2-bg {
+  display: inline-block;
+  padding: 14px 20px;
+  border-radius: 12px;
+
+  /* LIGHT background behind text */
+  background: linear-gradient(
+    to bottom,
+    #e9f8ff 0%,
+    #f3efff 100%
+  );
+}
+
+.RCIC-top {
+
+    position: fixed;
+    top: 0;
+    left: auto;
+    padding: 8px 20px;
+    background: transparent;
+    z-index: 10000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    /*max-width: 1300px;*/
+    
+    padding: 8px 20px;
+    /*padding: clamp(6px, 1vw, 20px) clamp(12px, 2vw, 40px); */
+    background: transparent;
+    z-index: 10000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+
+}
+
+.image-flip {
+ animation: pulseFade 3s ease-in-out infinite; /* 3s per cycle */
+  transform-origin: center;
+  backface-visibility: hidden; /* hides backface */
+}
+
+@keyframes pulseFade {
+    0%   { opacity: 1; transform: scale(1); }
+  50%  { opacity: 0.5; transform: scale(0.99); } /* optional small scale shrink */
+  100% { opacity: 1; transform: scale(1); }
+}
+
+        /* Desktop: let each heading size to its content so it remains one line */
+        @media (min-width: 925px) {
+            .hero-section .hero-content h1,
+            .hero-section .hero-content #immigration-anim,
+            .hero-section .hero-content .gradient-text {
+                display: inline-block; /* intrinsic width, centered by the container */
+                white-space: nowrap; /* keep each heading on a single line at desktop */
+                overflow: visible;
+                line-height: 1;
+                transform: translateZ(0); /* avoid subpixel rendering artifacts */
+            }
+        }
+
+        @media (min-width: 925px) and (max-width: 991px) {
+            .hero-section .hero-content .hero-main-text,
+            .hero-section .hero-content #immigration-anim,
+            .hero-section .hero-content .gradient-text {
+                font-size: 60px !important; /* Reduced from 72px */
+            }
+        }
+
+        /* Tablet / mobile: allow wrapping (your existing 40px font rule will apply) */
+        @media (max-width: 924.98px) {
+            .hero-section .hero-content h1,
+            .hero-section .hero-content #immigration-anim,
+            .hero-section .hero-content .gradient-text {
+                display: block;
+                white-space: normal;
+                max-width: 100vw;
+            }
+        }
+
+        /* Gentle increase to line-height for headings (overrides the earlier `line-height: 1 !important`) */
+        .hero-section .hero-content h1,
+        .hero-section .hero-content #immigration-anim,
+        .hero-section .hero-content .gradient-text {
+            line-height: 1.2 !important;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Override the immigration animation gradient for this page only */
+        #immigration-anim,
+        /* .gradient-text {
+            background: linear-gradient(to bottom, #61dcdf 0%, #886cff 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        } */
+
+        /* Make the Why Canboards heading image larger */
+        .why-heading-img {
+            max-width: 300px; /* Increased from default */
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 991px) {
+            .why-heading-img {
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .why-heading-img {
+                max-width: 280px;
+            }
+        }
+        /* ========================================
+                                             Process Section
+                                             ======================================== */
+
+        .typing-bounce {
+            display: inline; /* allow wrapping like normal text */
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #fff; /* adjust as needed */
+            border-right: 2px solid #fff; /* cursor effect */
+            white-space: normal; /* enable wrapping */
+            overflow: visible; /* ensure nothing is clipped */
+        }
+
+
+
+        /* Typing animation (width increases in JS) */
+        @keyframes jump {
+            0% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-10px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            70% {
+                transform: translateY(-5px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Typing effect */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Blinking cursor */
+        @keyframes blink {
+            from, to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #1e90ff;
+            }
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 50px 0 60px;
+            color: #1a1a1a;
+        }
+
+        .flow {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+        }
+
+        /* Step box */
+        .step {
+            position: relative;
+            width: 200px;
+            min-height: 130px; /* fixed height for most devices */
+            padding: 60px 18px 25px;
+            border-radius: 18px;
+            text-align: left;
+            color: #fff;
+            opacity: 0; /* hidden initially */
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* avoid extra space at bottom */
+        }
+
+        /* Gradients for steps */
+        .step1 {
+            background: linear-gradient(135deg,#ff416c,#ff4b2b);
+        }
+
+        .step2 {
+            background: linear-gradient(135deg,#4776e6,#8e54e9);
+        }
+        /* Darker for readability */
+        .step3 {
+            background: linear-gradient(135deg,#0c8c73,#1abc9c);
+        }
+
+        .step4 {
+            background: linear-gradient(135deg,#b68a00,#e6c200);
+        }
+
+        /* Icon */
+        .icon {
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3), inset 0 5px 10px rgba(255,255,255,0.25);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s ease;
+        }
+
+        .step1 .icon {
+            background: linear-gradient(145deg,#ff758c,#ff416c);
+        }
+
+        .step2 .icon {
+            background: linear-gradient(145deg,#5d7be8,#4776e6);
+        }
+
+        .step3 .icon {
+            background: linear-gradient(145deg,#28bca1,#0c8c73);
+        }
+
+        .step4 .icon {
+            background: linear-gradient(145deg,#ffd84c,#b68a00);
+        }
+
+        .icon.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Big number */
+        .big-number {
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            font-size: 70px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.85);
+            text-shadow: 0 3px 10px rgba(0,0,0,0.25);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s ease;
+            z-index: 0;
+        }
+
+            .big-number.show {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+        /* Content */
+        .content {
+            position: relative;
+            background: rgba(255,255,255,0.12);
+            border-radius: 12px;
+            padding: 25px 12px 15px;
+            z-index: 2;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            flex-grow: 1;
+        }
+
+            .content.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        .step h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0 0 5px;
+        }
+
+        .step p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .flow {
+                flex-direction: column;
+                gap: 40px;
+                align-items: center;
+            }
+
+            .step {
+                width: 260px;
+                min-height: auto; /* remove fixed height on mobile */
+            }
+        }
+
+        @media (hover: none), (any-hover: none), (pointer: coarse) {
+            .step {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                transition: none !important;
+                cursor: default !important;
+            }
+
+                .step .icon,
+                .step .big-number,
+                .step .content {
+                    opacity: 1 !important;
+                    transform: scale(1) translateY(0) !important;
+                    transition: none !important;
+                }
+
+                    .step .icon.show,
+                    .step .big-number.show,
+                    .step .content.show {
+                        opacity: 1 !important;
+                        transform: scale(1) translateY(0) !important;
+                    }
+
+            .flow {
+                cursor: default !important;
+            }
+        }
+
+        .flow {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 50px;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto 0; /* CHANGED: Removed 30px bottom margin */
+        }
+
+        /* Step box - fixed equal height */
+        .step {
+            position: relative;
+            width: 280px;
+            height: 240px;
+            padding: 50px 24px 16px; /* CHANGED: Reduced bottom padding from 20px to 16px */
+            border-radius: 18px;
+            text-align: left;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Content box - FIXED HEIGHT to prevent expansion during typing */
+        .content {
+            position: relative;
+            background: rgba(255,255,255,0.12);
+            border-radius: 12px;
+            padding: 20px 16px 8px; /* CHANGED: Reduced bottom padding from 12px to 8px */
+            z-index: 2;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            height: 140px;
+            overflow: visible;
+        }
+
+            .content.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        /* Step text elements */
+        .step h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 8px;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+
+        .step p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            line-height: 1.4;
+            margin: 0;
+            flex-grow: 0;
+        }
+
+        /* Typing animation span - ensure it doesn't cause overflow */
+        .typing-bounce {
+            display: inline;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #fff;
+            border-right: 2px solid #fff;
+            white-space: normal;
+            overflow: visible;
+            line-height: 1.4;
+        }
+
+        /* Icon positioning */
+        .icon {
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3), inset 0 5px 10px rgba(255,255,255,0.25);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s ease;
+        }
+
+        /* Big number positioning */
+        .big-number {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 70px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.85);
+            text-shadow: 0 3px 10px rgba(0,0,0,0.25);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s ease;
+            z-index: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .step {
+                width: 240px;
+                height: 250px;
+            }
+
+            .content {
+                height: 150px;
+            }
+
+            .flow {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .flow {
+                flex-direction: column;
+                gap: 40px;
+                align-items: center;
+                margin-bottom: 30px;
+            }
+
+            .step {
+                width: 300px;
+                height: 220px;
+            }
+
+            .content {
+                height: 130px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .step {
+                width: 280px;
+                height: 240px;
+            }
+
+            .content {
+                height: 140px;
+            }
+
+            .flow {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Touch device overrides - maintain equal height */
+        @media (hover: none), (any-hover: none), (pointer: coarse) {
+            .step {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                transition: none !important;
+                cursor: default !important;
+                height: 240px;
+            }
+
+                .step .icon,
+                .step .big-number,
+                .step .content {
+                    opacity: 1 !important;
+                    transform: scale(1) translateY(0) !important;
+                    transition: none !important;
+                }
+
+                    .step .icon.show,
+                    .step .big-number.show,
+                    .step .content.show {
+                        opacity: 1 !important;
+                        transform: scale(1) translateY(0) !important;
+                    }
+
+                .step .content {
+                    height: 140px;
+                }
+
+            .flow {
+                cursor: default !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* ========================================
+                                     RCIC LINE NODES SECTION
+                                     ======================================== */
+
+        .rcic-line-process {
+            min-height: 50vh;
+            background: #fff;
+            padding: 60px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .rcic-line-process h2 {
+                color: #2b3959;
+                font-size: 3em;
+                margin-bottom: 60px;
+                text-align: center;
+            }
+
+        /* Timeline Container */
+        .rcic-timeline-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 40px;
+        }
+
+        /* Timeline Base Line (Gray) - horizontal line */
+        .rcic-timeline-base {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        /* Timeline Progress Line (Green) */
+        .rcic-timeline-progress {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4caf50, #66bb6a);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.6s ease-in-out;
+            z-index: 2;
+            transform: translateY(-50%);
+        }
+
+        /* Timeline Steps Container */
+        .rcic-timeline-steps {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 400px;
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+
+        /* Individual Timeline Node */
+        .rcic-timeline-node {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+            /* First node - align to the start */
+            .rcic-timeline-node:first-child {
+                margin-left: -40px;
+            }
+
+            /* Last node - align to the end */
+            .rcic-timeline-node:last-child {
+                margin-right: -40px;
+            }
+
+        /* Timeline Node Image Wrapper - ABOVE the line */
+        .rcic-node-image-wrapper {
+            position: absolute;
+            top: -140px;
+            width: 120px;
+            height: 120px;
+            opacity: 0.4;
+            transform: scale(0.9);
+            transition: all 0.5s ease;
+            border-radius: 16px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+        }
+
+        .rcic-node-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .rcic-timeline-node.active .rcic-node-image-wrapper {
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: 0 8px 30px rgba(76, 175, 80, 0.25);
+        }
+
+        /* Timeline Node Dot - sits ON the line */
+        .rcic-node-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            border: 3px solid #fff;
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            z-index: 4;
+            position: relative;
+        }
+
+        .rcic-timeline-node.active .rcic-node-dot {
+            background: #4caf50;
+            transform: scale(1.4);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.5);
+        }
+
+        .rcic-timeline-node:hover .rcic-node-dot {
+            transform: scale(1.2);
+            background: #66bb6a;
+        }
+
+        /* Timeline Node Text - BELOW the line */
+        .rcic-node-text {
+            position: absolute;
+            top: 40px;
+            text-align: center;
+            color: #666;
+            font-size: 0.95em;
+            min-width: 350px;
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .rcic-timeline-node.active .rcic-node-text {
+            color: #333;
+        }
+
+        .rcic-node-text h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.4em;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #2c3e50;
+        }
+
+        .rcic-timeline-node.active .rcic-node-text h3 {
+            font-weight: 700;
+        }
+
+        .rcic-node-text p {
+            margin: 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+            opacity: 0.85;
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .rcic-timeline-container {
+                padding: 80px 20px;
+            }
+
+            .rcic-timeline-steps {
+                flex-direction: column;
+                height: auto;
+                gap: 120px;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            .rcic-timeline-node {
+                width: 100%;
+            }
+
+                .rcic-timeline-node:first-child,
+                .rcic-timeline-node:last-child {
+                    margin: 0;
+                }
+
+            /* Vertical layout for mobile */
+            .rcic-timeline-base,
+            .rcic-timeline-progress {
+                width: 4px;
+                height: 100%;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .rcic-node-image-wrapper {
+                position: relative;
+                top: auto;
+                width: 100px;
+                height: 100px;
+                margin-bottom: 20px;
+            }
+
+            .rcic-node-text {
+                position: relative;
+                top: auto;
+                max-width: 80%;
+                min-width: auto;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rcic-node-image-wrapper {
+                width: 80px;
+                height: 80px;
+            }
+
+            .rcic-node-text h3 {
+                font-size: 1em;
+            }
+
+            .rcic-node-text p {
+                font-size: 0.85em;
+            }
+        }
+
+        /* Base size for PNG images */
+        .rcic-node-img {
+            width: 80px !important;
+            height: 80px !important;
+            max-width: 80px !important;
+            max-height: 80px !important;
+            min-width: 80px !important;
+            min-height: 80px !important;
+            object-fit: contain !important;
+            object-position: center;
+            display: block;
+            transition: width 0.3s ease, height 0.3s ease; /* Smooth transition */
+        }
+
+            /* Larger size for GIF images */
+            .rcic-node-img.is-gif {
+                width: 150px !important; /* 25% larger */
+                height: 150px !important;
+                max-width: 150px !important;
+                max-height: 150px !important;
+                min-width: 150px !important;
+                min-height: 150px !important;
+            }
+
+        /* Mobile Timeline Modifications - Remove line, keep icons always visible */
+        @media (max-width: 768px) {
+            /* Hide the vertical timeline lines on mobile */
+            .rcic-timeline-base,
+            .rcic-timeline-progress {
+                display: none !important;
+            }
+
+            /* Keep all node images at full opacity and scale on mobile */
+            .rcic-node-image-wrapper {
+                opacity: 1 !important;
+                transform: scale(1) !important;
+            }
+
+            /* Ensure all dots are visible and styled consistently on mobile */
+            .rcic-node-dot {
+                background: #4caf50 !important;
+                transform: scale(1.2) !important;
+                box-shadow: 0 4px 15px rgba(76, 175, 80, 0.5) !important;
+            }
+
+            /* Keep all node text at full visibility on mobile */
+            .rcic-node-text {
+                color: #333 !important;
+            }
+
+                .rcic-node-text h3 {
+                    font-weight: 700 !important;
+                }
+
+            /* Remove hover effects on mobile */
+            .rcic-timeline-node:hover .rcic-node-dot {
+                transform: scale(1.2) !important;
+                background: #4caf50 !important;
+            }
+
+            /* Ensure all nodes appear "active" on mobile */
+            .rcic-timeline-node {
+                opacity: 1 !important;
+            }
+
+            /* Adjust spacing without the line */
+            .rcic-timeline-steps {
+                gap: 80px; /* Reduced from 120px since there's no line */
+            }
+
+            .rcic-timeline-container {
+                padding: 40px 20px; /* Reduced padding */
+            }
+        }
+
+        /* ========================================
+                             EXTRA CSS
+                             ======================================== */
+
+        /* Map icon animation styles - FIXED to actually hide icons */
+        .map-icon {
+            opacity: 0 !important; /* Force hidden state */
+            transform: scale(0) !important; /* Force scaled down */
+            transition: none;
+            position: absolute;
+            will-change: transform, opacity;
+        }
+
+            .map-icon.map-icon-animate {
+                opacity: 1 !important; /* Override to show */
+                transform: scale(1) !important; /* Override to full size */
+                transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .map-icon img {
+                width: 40px;
+                height: 40px;
+                display: block;
+                filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            }
+
+            /* Optional: Add a subtle pulse effect after animation */
+            .map-icon.map-icon-animate img {
+                animation: iconPulse 2s ease-in-out 0.8s infinite;
+            }
+
+        @keyframes iconPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Map location labels - FIXED CENTERING */
+        .map-location-label {
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(9px, 1.2vw, 13px);
+            font-weight: 600;
+            color: #22293f;
+            text-align: center;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.95);
+            padding: clamp(2px, 0.4vw, 4px) clamp(6px, 0.8vw, 10px);
+            border-radius: clamp(4px, 0.5vw, 6px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(97, 220, 223, 0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Make sure map-icon is properly positioned for label centering */
+        .map-icon {
+            opacity: 0 !important;
+            transform: scale(0) !important;
+            transition: none;
+            position: absolute;
+            will-change: transform, opacity;
+            /* Add these to ensure proper label centering */
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            transform-origin: center top;
+        }
+
+            .map-icon.map-icon-animate {
+                opacity: 1 !important;
+                transform: scale(1) !important;
+                transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .map-icon img {
+                width: 40px;
+                height: 40px;
+                display: block;
+                filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+                margin: 0 auto; /* Center the image within the container */
+            }
+
+            .map-icon.map-icon-animate .map-location-label {
+                opacity: 1;
+            }
+
+            /* Optional: Add a subtle pulse effect after animation */
+            .map-icon.map-icon-animate img {
+                animation: iconPulse 2s ease-in-out 0.8s infinite;
+            }
+
+        @keyframes iconPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsive adjustments for labels */
+        @media (max-width: 768px) {
+            .map-location-label {
+                bottom: -20px;
+                font-size: 10px;
+                padding: 2px 6px;
+                border-radius: 4px;
+            }
+
+            .map-icon img {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .map-location-label {
+                bottom: -18px;
+                font-size: 9px;
+                padding: 2px 5px;
+            }
+
+            .map-icon img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+
+        @media (min-width: 992px) and (max-width: 1999px) {
+            .hero-img-box-2 {
+                top: 45% !important; /* Move it down from the current 40% */
+            }
+        }
+
+        @media (min-width: 925px) and (max-width: 991px) {
+            .hero-img-box-1 {
+                left: -13%;
+                top: 58%;
+            }
+
+            .hero-img-box-2 {
+                right: -10%;
+                top: 55% !important; /* Move it down from the current 40% */
+            }
+
+            .hero-img-box-3 {
+                left: 12%;
+                top: 98%;
+            }
+
+            .hero-img-box-4 {
+                right: 10%;
+                top: 88%;
+            }
+        }
+        /* =========================
+                   Blog carousel — full section (complete block to replace your current blog CSS)
+                   - Images at top of each card
+                   - Gradient capsule badges, clock SVG, read-more SVG-only color
+                   - Scroll arrows fully removed/disabled (dots are sole navigation)
+                   ========================= */
+
+        .blog-section {
+            background-color: #F8FAFC;
+            padding: 60px 0;
+            margin: 40px 0 0 0;
+            padding-bottom: 80px !important; /* keep space for dots */
+        }
+
+        .blog-container {
+            position: relative;
+            width: 100%;
+            max-width: 1250px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .blog-header {
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .blog-heading {
+            font-size: clamp(45px, 6vw, 48px);
+            font-weight: 500;
+            color: #2D3958;
+            margin-bottom: 12px;
+        }
+
+        .blog-subheading {
+            font-weight: 50;
+            font-size: 1rem;
+            color: #9ca3af;
+            margin: 0;
+        }
+
+        /* scroller */
+        .blog-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding: 20px 5px;
+            margin: 0 48px;
+        }
+
+            .blog-wrapper::-webkit-scrollbar {
+                display: none;
+            }
+
+        /* Card sizing */
+        .blog-card {
+            /* Accent variable and base card visuals */
+            --card-color: #e5e7eb;
+            /* Badge gradient (default soft gray gradient as fallback) */
+            --badge-grad: linear-gradient(135deg, #e9edf3 0%, #d6dde6 100%);
+            position: relative;
+            flex: 0 0 calc((100% - 40px) / 3);
+            background: #ffffff;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            scroll-snap-align: start;
+            margin-top: 5px;
+            padding: 0;
+            overflow: hidden; /* ensures rounded corners clip image */
+            display: flex;
+            flex-direction: column;
+            border: 2px solid var(--card-color);
+        }
+
+        /* Color variants + subtle glows + per-variant badge gradient */
+        .blog-card--yellow {
+            --card-color: #f3c46b;
+            --badge-grad: linear-gradient(135deg, #ffd884 0%, #f3c46b 55%, #e9a94a 100%);
+            box-shadow: 0 18px 40px rgba(243,196,107,0.06);
+        }
+
+        .blog-card--pink {
+            --card-color: #f5a8bf;
+            --badge-grad: linear-gradient(135deg, #ffc2d1 0%, #f5a8bf 55%, #ea84a2 100%);
+            box-shadow: 0 18px 40px rgba(245,168,191,0.06);
+        }
+
+        .blog-card--teal {
+            --card-color: #6fe0d6;
+            --badge-grad: linear-gradient(135deg, #a6efe8 0%, #6fe0d6 55%, #41c9bc 100%);
+            box-shadow: 0 18px 40px rgba(111,224,214,0.06);
+        }
+
+        /* Top image */
+        .blog-image {
+            display: block;
+            width: 100%;
+            height: 180px; /* preserved */
+            object-fit: cover;
+            object-position: center;
+            border-radius: 13px 13px 0 0;
+        }
+
+        /* thin colored separator */
+        .blog-sep {
+            height: 8px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.06), var(--card-color));
+        }
+
+        /* content */
+        .blog-content {
+            padding: 20px;
+            text-align: left;
+            color: #2d3750;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #ffffff;
+            flex: 1 0 auto;
+        }
+
+        /* Date meta — clock adopts card color (stroke/fill set inline via var(--card-color)) */
+        .blog-meta {
+            color: #7b8a9a;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .blog-clock {
+            width: 16px;
+            height: 16px;
+            flex: 0 0 16px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Title */
+        .blog-content h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            line-height: 1.3;
+            color: #10203b;
+            font-weight: 600;
+        }
+
+        /* Excerpt (optional, kept for future use) */
+        .blog-text {
+            margin: 0;
+            color: #586275;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Read more: neutral text; SVG icon uses accent color only */
+        .blog-readmore {
+            margin-top: 8px;
+            color: inherit;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .blog-readmore svg {
+                width: 18px;
+                height: 18px;
+                flex: 0 0 18px;
+                fill: var(--card-color);
+                stroke: var(--card-color);
+            }
+
+        /* Top-right pill badge — gradient capsule and smaller size */
+        .blog-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 20;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--badge-grad); /* gradient by variant */
+            box-shadow: 0 10px 22px rgba(16,32,59,0.08), inset 0 2px 6px rgba(255,255,255,0.35);
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.6); /* slight ring like reference */
+        }
+
+        /* Scroll buttons — fully removed/disabled at all widths */
+        .blog-scroll-btn {
+            display: none !important;
+            pointer-events: none !important;
+            visibility: hidden !important;
+        }
+
+        /* Pagination dots */
+        .blog-dots {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            align-items: center;
+            touch-action: manipulation;
+        }
+
+        .blog-dot {
+            width: 40px;
+            height: 14px;
+            border-radius: 12px;
+            background: #d1d5db;
+            opacity: 0.7;
+            transition: transform 150ms ease, background-color 150ms ease, opacity 150ms ease;
+            cursor: pointer;
+            flex: 0 0 auto;
+        }
+
+            .blog-dot.active {
+                background: #1e90ff;
+                transform: scale(1.15);
+                opacity: 1;
+            }
+
+        /* Hover behaviour (desktop) */
+        @media (hover: hover) and (pointer: fine) {
+            .blog-card:hover {
+                transform: translateY(-8px);
+                border-color: var(--card-color);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+            }
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 900px) {
+            .blog-card {
+                flex: 0 0 calc((100% - 20px) / 2);
+            }
+
+            .blog-image {
+                height: 190px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .blog-section {
+                padding: 40px 0;
+            }
+
+            .blog-heading {
+                font-size: 1.5rem;
+            }
+
+            .blog-subheading {
+                font-size: 0.9rem;
+            }
+
+            .blog-card {
+                flex: 0 0 100%;
+            }
+
+            .blog-image {
+                height: 200px;
+            }
+        }
+
+        /* Blog card: make the title adopt the card's accent on hover (like webinars) */
+        .blog-content h3 {
+            transition: color 200ms ease; /* smooth color change */
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .blog-card:hover .blog-content h3 {
+                color: var(--card-color);
+            }
+        }
+
+        /* ========================================
+                        FAQ Section - Frequently Asked Questions
+                        ======================================== */
+
+        .faq-section {
+            padding: 50px 20px;
+            background: #ffffff;
+            position: relative;
+        }
+
+            .faq-section .container {
+                max-width: 1000px;
+            }
+
+        /* FAQ Header */
+        .faq-header {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(-30px);
+            transition: all 0.8s ease;
+        }
+
+            .faq-header.animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .faq-header .why-heading-text {
+                color: #2d3958;
+            }
+
+        .faq-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #6b7a95;
+            max-width: 800px;
+            margin: 20px auto 0;
+            font-weight: 400;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease 0.3s;
+        }
+
+        .faq-header.animate-in .faq-description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* FAQ Accordion Wrapper */
+        .faq-accordion-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* FAQ Accordion Item */
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid rgba(47, 46, 120, 0.1);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(47, 46, 120, 0.04);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+            .faq-item.animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .faq-item:hover {
+                box-shadow: 0 8px 24px rgba(47, 46, 120, 0.08);
+                border-color: rgba(123, 104, 238, 0.2);
+            }
+
+            .faq-item:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Accordion Button */
+            .faq-item .accordion-button {
+                background: #ffffff;
+                border: none;
+                padding: 24px 28px;
+                font-size: 18px;
+                font-weight: 600;
+                color: #2d3958;
+                box-shadow: none;
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                flex-wrap: nowrap;
+                transition: all 0.3s ease;
+                font-family: "Outfit", Arial, sans-serif;
+            }
+
+                .faq-item .accordion-button:not(.collapsed) {
+                    background: linear-gradient(135deg, rgba(123, 104, 238, 0.05) 0%, rgba(123, 104, 238, 0.02) 100%);
+                    color: #7b68ee;
+                    box-shadow: none;
+                }
+
+                .faq-item .accordion-button:focus {
+                    box-shadow: none;
+                    border-color: transparent;
+                }
+
+                .faq-item .accordion-button::after {
+                    display: none;
+                }
+
+        /* FAQ Icon */
+        .faq-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(123, 104, 238, 0.1) 0%, rgba(123, 104, 238, 0.05) 100%);
+            color: #7b68ee;
+            font-size: 18px;
+            flex-shrink: 0;
+            flex-basis: auto;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item .accordion-button:not(.collapsed) .faq-icon {
+            background: linear-gradient(135deg, #7b68ee 0%, #9b7fff 100%);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* FAQ Question Text */
+        .faq-question {
+            flex: 1;
+            text-align: left;
+            line-height: 1.5;
+            min-width: 0;
+            word-wrap: break-word;
+        }
+
+        /* FAQ Arrow */
+        .faq-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(123, 104, 238, 0.1);
+            color: #7b68ee;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            flex-basis: auto;
+            margin-left: auto;
+        }
+
+        .faq-item .accordion-button:not(.collapsed) .faq-arrow {
+            background: linear-gradient(135deg, #7b68ee 0%, #9b7fff 100%);
+            color: #ffffff;
+            transform: rotate(180deg);
+        }
+
+        /* Accordion Body */
+        .faq-item .accordion-body {
+            padding: 0 28px 28px 84px;
+            color: #6b7a95;
+            font-size: 16px;
+            line-height: 1.8;
+            background: transparent;
+            border-top: 1px solid rgba(47, 46, 120, 0.08);
+            margin-top: 0;
+            animation: fadeInDown 0.4s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991.98px) {
+            .faq-section {
+                padding: 60px 20px;
+            }
+
+            .faq-header {
+                margin-bottom: 50px;
+            }
+
+            .faq-description {
+                font-size: 16px;
+            }
+
+            .faq-item .accordion-button {
+                padding: 20px 24px;
+                font-size: 17px;
+            }
+
+            .faq-item .accordion-body {
+                padding: 0 24px 24px 76px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .faq-section {
+                padding: 50px 0px;
+            }
+
+            .faq-header {
+                margin-bottom: 40px;
+            }
+
+            .faq-description {
+                font-size: 15px;
+                margin-top: 15px;
+            }
+
+            .faq-item {
+                margin-bottom: 16px;
+                border-radius: 15px;
+            }
+
+                .faq-item .accordion-button {
+                    padding: 18px 20px;
+                    font-size: 16px;
+                    gap: 12px;
+                    flex-wrap: nowrap;
+                }
+
+            .faq-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+                flex-shrink: 0;
+            }
+
+            .faq-arrow {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+                flex-shrink: 0;
+                margin-left: auto;
+            }
+
+            .faq-item .accordion-body {
+                padding: 0 20px 20px 20px;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .faq-question {
+                flex: 1;
+                min-width: 0;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .faq-section {
+                padding: 50px 0px;
+            }
+
+            .faq-item .accordion-button {
+                padding: 16px 18px;
+                font-size: 15px;
+            }
+
+            .faq-item .accordion-body {
+                padding: 0 18px 18px 18px;
+                font-size: 14px;
+            }
+        }
+
+        /* FAQ spacing adjustments — paste after existing FAQ rules or replace them */
+        .faq-section {
+            padding: 80px 20px 50px; /* more top space so FAQ isn't close to the section above */
+        }
+
+        .faq-accordion-wrapper {
+            padding-top: 8px;
+        }
+
+        /* Keep card visual but remove internal collapse; spacing controlled by button/body */
+        .faq-item {
+            border-radius: 15px;
+            overflow: visible;
+        }
+
+            /* Header button: add even vertical space so the top does not feel tight */
+            .faq-item .accordion-button {
+                padding: 20px 28px; /* top/right/bottom/left */
+                align-items: center;
+                line-height: 1.3;
+            }
+
+                /* Ensure icon stays vertically centered */
+                .faq-item .accordion-button .faq-icon {
+                    margin-top: 0;
+                }
+
+            /* Accordion body: give balanced padding all around (top was 0 before) */
+            .faq-item .accordion-body {
+                padding: 20px 28px 24px 84px; /* top / right / bottom / left */
+                box-sizing: border-box;
+            }
+
+        /* Slightly tighter on small screens while keeping even spacing */
+        @media (max-width: 767.98px) {
+            .faq-section {
+                padding: 60px 12px 40px;
+            }
+
+            .faq-item .accordion-button {
+                padding: 16px 18px;
+            }
+
+            .faq-item .accordion-body {
+                padding: 16px 18px 18px 20px;
+            }
+        }
+
+        /* ========================================
+                Webinar Carousel Section
+                ======================================== */
+
+        .webinar-section {
+            background-color: #F8FAFC;
+            padding: 60px 0;
+            margin: 40px 0 0 0;
+        }
+
+        .webinar-container {
+            position: relative;
+            width: 100%;
+            max-width: 1250px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .webinar-header {
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .webinar-heading {
+            font-size: clamp(45px, 6vw, 48px);
+            font-weight: 500;
+            color: #2D3958;
+            margin-bottom: 12px;
+        }
+
+        .webinar-subheading {
+            font-weight: 50;
+            font-size: 1rem;
+            color: #9ca3af;
+            margin: 0;
+        }
+
+        .webinar-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding: 20px 5px;
+            margin: 0 48px;
+        }
+
+            .webinar-wrapper::-webkit-scrollbar {
+                display: none;
+            }
+
+        .webinar-card {
+            flex: 0 0 calc((100% - 40px) / 3);
+            background: #ffffff;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            scroll-snap-align: start;
+            margin-top: 5px;
+            border: 1px solid #e5e7eb;
+            padding: 20px; /* inner content only; size unchanged */
+            position: relative; /* for date badge */
+            --accent-color: #7b68ee; /* defaults, overridden by variants below */
+            --cta-grad: linear-gradient(135deg,#8b78ff,#ab9fff);
+        }
+
+            .webinar-card:hover {
+                transform: translateY(-8px);
+                border-color: #d1d5db;
+            }
+
+        /* Content (left-aligned like the reference) */
+        .webinar-content {
+            padding: 0;
+            text-align: left;
+        }
+
+        /* Meta row (time + duration) */
+        .webinar-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+
+            .webinar-meta .meta-item {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                white-space: nowrap;
+            }
+
+                .webinar-meta .meta-item i {
+                    color: var(--accent-color);
+                }
+
+        /* Date badge (top-right) */
+        .webinar-date-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 6px 16px rgba(16,32,59,0.08);
+            border-radius: 10px;
+            width: 44px;
+            height: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding-top: 2px;
+        }
+
+            .webinar-date-badge .day {
+                font-weight: 800;
+                color: #2D3958;
+            }
+
+            .webinar-date-badge .mon {
+                font-size: 0.7rem;
+                color: #9aa3b2;
+            }
+
+        .webinar-title {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+            line-height: 1.3;
+            color: #2D3958;
+            font-weight: 700;
+        }
+
+        .webinar-desc {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0 0 14px 0;
+            font-weight: 400;
+        }
+
+        .webinar-presenter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 6px;
+        }
+
+            .webinar-presenter i {
+                color: var(--accent-color);
+            }
+
+        /* CTA (full-width button) */
+        .webinar-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            background: var(--cta-grad);
+            box-shadow: 0 12px 24px rgba(16,32,59,0.08);
+            margin-top: 12px;
+        }
+
+        /* Variant accents (match card CTAs with soft brand colors) */
+        .webinar-card--yellow {
+            --accent-color: #f3c46b;
+            --cta-grad: linear-gradient(135deg,#ffc447,#f3a93a);
+        }
+
+        .webinar-card--pink {
+            --accent-color: #f5a8bf;
+            --cta-grad: linear-gradient(135deg,#ff8fb0,#f27098);
+        }
+
+        .webinar-card--teal {
+            --accent-color: #34d399;
+            --cta-grad: linear-gradient(135deg,#34d399,#10b981);
+        }
+
+        /* Arrows off, dots on (already aligned with blog/news) */
+        .webinar-scroll-btn {
+            display: none !important;
+            pointer-events: none !important;
+            visibility: hidden !important;
+        }
+
+        .webinar-dots {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            align-items: center;
+            touch-action: manipulation;
+        }
+
+        .webinar-dot {
+            width: 40px;
+            height: 14px;
+            border-radius: 12px;
+            background: #d1d5db;
+            opacity: 0.7;
+            transition: transform 150ms ease, background-color 150ms ease, opacity 150ms ease;
+            cursor: pointer;
+            flex: 0 0 auto;
+        }
+
+            .webinar-dot.active {
+                background: #1e90ff;
+                transform: scale(1.15);
+                opacity: 1;
+            }
+
+        @media (max-width: 900px) {
+            .webinar-card {
+                flex: 0 0 calc((100% - 20px) / 2);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .webinar-section {
+                padding: 40px 0;
+            }
+
+            .webinar-heading {
+                font-size: 1.5rem;
+            }
+
+            .webinar-subheading {
+                font-size: 0.9rem;
+            }
+
+            .webinar-card {
+                flex: 0 0 100%;
+            }
+        }
+
+        /* Keep extra bottom space for dots */
+        .webinar-section {
+            padding-bottom: 80px !important;
+        }
+
+        /* Make the inner content a vertical flex column so footer items can sit at the bottom */
+        .webinar-content {
+            padding: 0;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Push presenter row to the bottom of the card; CTA follows under it */
+        .webinar-presenter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: auto; /* bottom-align */
+        }
+
+        /* CTA remains below presenter with spacing */
+        .webinar-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            background: var(--cta-grad);
+            box-shadow: 0 12px 24px rgba(16,32,59,0.08);
+            margin-top: 12px;
+        }
+
+        /* Smaller description to better match the reference */
+        .webinar-desc {
+            color: #6b7280;
+            font-size: 0.9rem; /* was 0.95rem */
+            line-height: 1.7;
+            margin: 0 0 14px 0;
+            font-weight: 400;
+        }
+
+        /* Date badge: slightly smaller overall */
+        .webinar-date-badge {
+            position: absolute;
+            top: 12px; /* was 14px */
+            right: 12px; /* was 14px */
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 6px 16px rgba(16,32,59,0.08);
+            border-radius: 9px; /* was 10px */
+            width: 38px; /* was 44px */
+            height: 42px; /* was 48px */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding-top: 1px; /* was 2px */
+        }
+
+            /* Fine-tune badge text sizes so they remain readable after shrink */
+            .webinar-date-badge .day {
+                font-weight: 800;
+                color: #2D3958;
+                font-size: 0.95rem; /* explicit sizing for smaller badge */
+            }
+
+            .webinar-date-badge .mon {
+                font-size: 0.65rem; /* was 0.7rem */
+                color: #9aa3b2;
+            }
+
+        /* Webinar hover effects: tilt + recolor date badge; title changes to card accent */
+
+        /* Enable hardware-accelerated transform for smoother tilt */
+        .webinar-date-badge {
+            transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease, color 200ms ease;
+            will-change: transform, background-color, border-color, box-shadow, color;
+        }
+
+        /* Title smooth color transition */
+        .webinar-title {
+            transition: color 200ms ease;
+        }
+
+        /* On hover, tilt and recolor the date badge using the card's accent color */
+        .webinar-card:hover .webinar-date-badge {
+            transform: rotate(-8deg);
+            background: var(--accent-color);
+            border-color: rgba(0,0,0,0.06);
+            box-shadow: 0 10px 22px rgba(16,32,59,0.12), inset 0 2px 6px rgba(255,255,255,0.18);
+        }
+
+            /* Badge text becomes white on hover for contrast */
+            .webinar-card:hover .webinar-date-badge .day,
+            .webinar-card:hover .webinar-date-badge .mon {
+                color: #ffffff;
+            }
+
+        /* Title adopts the per-card accent color on hover */
+        .webinar-card:hover .webinar-title {
+            color: var(--accent-color);
+        }
+
+        /* Optional: slight accent tint to meta icons on hover for cohesion */
+        .webinar-card:hover .webinar-meta .meta-item i,
+        .webinar-card:hover .webinar-presenter i {
+            color: var(--accent-color);
+        }
+
+        /* Webinar cards — increase vertical height without changing width */
+        .webinar-card {
+            min-height: 420px; /* desktop height */
+            padding-top: 26px; /* keep sides as-is, add a bit more vertical padding */
+            padding-bottom: 26px;
+        }
+
+        /* Maintain comfortable spacing between elements while stretching */
+        .webinar-content {
+            gap: 14px; /* consistent vertical rhythm */
+        }
+
+        /* Large tablets */
+        @media (max-width: 1200px) {
+            .webinar-card {
+                min-height: 400px;
+            }
+        }
+
+        /* Two-up layout */
+        @media (max-width: 900px) {
+            .webinar-card {
+                min-height: 420px;
+            }
+        }
+
+        /* Single column phones */
+        @media (max-width: 600px) {
+            .webinar-card {
+                min-height: 380px;
+            }
+        }
+
+
+        /* Limit the gradient to the immigration animation only */
+        #immigration-anim {
+            background: linear-gradient(180deg, #61dcdf 0%, #886cff 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+
+        /* Move hero bubbles down between 1024px and 1199px */
+        @media (min-width: 1024px) and (max-width: 1199.98px) {
+            .hero-img-box-1 {
+                top: 74% !important;
+            }
+
+            .hero-img-box-2 {
+                top: 76% !important;
+            }
+
+            .hero-img-box-3 {
+                top: 105% !important;
+            }
+
+            .hero-img-box-4 {
+                top: 92% !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-section {
+                min-height: 480px !important;
+                padding-top: calc(var(--header-h) + 48px) !important;
+                padding-bottom: 40px !important;
+            }
+
+            .hero-content {
+                padding-top: 20px !important;
+            }
+
+            .hero-section .row.g-2, .hero-section .hero-img-box, .hero-section .hero-img {
+                display: none !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                overflow: hidden !important;
+            }
+
+            .hero-section::before, .hero-section::after {
+                filter: blur(28px) saturate(95%);
+                opacity: 0.6;
+            }
+
+            .hero-section .hero-fog-layer {
+                opacity: 0.9;
+                backdrop-filter: blur(4px) saturate(90%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <!--<div class="RCIC-top"><img src="Images/RCIC Black.svg" alt="RCIC-IRB logo" class="img-fluid image-flip" style="height: 28px; width: auto;"></div>-->
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-header" role="navigation" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="Images/Banner_1.png" alt="Canboards" class="navbar-brand-img">
+                </a>
+                <!-- Hamburger menu button for mobile/tablet (stays right) -->
+                <button class="navbar-toggler d-flex d-md-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Keep the collapsed nav on the right side by using justify-content-end -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-md-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="study.html">Study</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="work.html">Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="visit.html">Visit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settle.html">Settle</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="other.html">Other</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled outer" href="https://app.canboards.com/client/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="https://app.canboards.com/client/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="calculator.html">Calculator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="announcement-bar">
+
+  <div class="announcement-inner">
+
+    <i class="fa-solid fa-bullhorn announcement-icon"></i>
+
+    <div class="announcement-marquee">
+      <marquee
+        onmouseover="this.stop()"
+        onmouseout="this.start()"
+        scrollamount="6">
+        New portal live
+        <span class="separator">|</span>
+        CEC Draw
+        <span class="separator">|</span>
+        Healthcare Draw
+      </marquee>
+    </div>
+
+  </div>
+</div>
+
+
+    <section class="hero-section py-4 py-md-5">
+        <div class="hero-fog-layer" aria-hidden="true"></div>
+        <div class="container position-relative">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-md-8 text-center mx-auto hero-content">
+                    <h1 class="mb-2 hero-main-text">Digital Gateway For</h1>
+                    <div class="spacing-div"></div>
+                    <h1 class="mb-2 gradient-text" id="immigration-anim"></h1>
+                    <h1 class="mb-2 hero-main-text">Through <span style="color:#e62939;">R.C.I.C.</span></h1>
+                    <p class="fs-6 fs-md-5 mb-4 hero-small-text">Canboards is a fully digital, RCIC-licensed platform offering<br> end-to-end services to simplify your journey to Canada.</p>
+                    <div class="d-flex justify-content-center gap-3 mb-4">
+                        <a href="https://app.canboards.com/client/register" class="fancy_button px-4 py-2 fancy">Register Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Responsive images: stack vertically on mobile, side-by-side on tablet/desktop -->
+            <div class="row g-2 justify-content-center">
+                <div class="col-6 col-md-3 hero-img-box hero-img-box-1 mb-2 mb-md-0">
+                    <img src="Images/Main_Banner_1.png" class="img-fluid hero-img" alt="Banner 1">
+                </div>
+                <div class="col-6 col-md-3 hero-img-box hero-img-box-2 mb-2 mb-md-0">
+                    <img src="Images/Main_Banner_4.png" class="img-fluid hero-img" alt="Banner 4">
+                </div>
+                <div class="col-6 col-md-3 hero-img-box hero-img-box-3 mb-2 mb-md-0">
+                    <img src="Images/Main_Banner_2.png" class="img-fluid hero-img" alt="Banner 2">
+                </div>
+                <div class="col-6 col-md-3 hero-img-box hero-img-box-4">
+                    <img src="Images/Main_Banner_3.png" class="img-fluid hero-img" alt="Banner 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Why Canboards copy section (flip-card variant) -->
+    <div class="why-section why-copy-flip my-5 d-flex justify-content-center align-items-center">
+        <div class="why-card-bg">
+            <div class="why-inner container d-flex align-items-center">
+                <!-- Background lines (decor) -->
+                <img src="Images/bg-lines.png" alt="Background Lines" class="why-bg-lines">
+
+                <!-- Left: Title image -->
+                <div class="why-left d-flex align-items-center">
+                    <img src="Images/New_Why.png" alt="Why Canboards" class="why-heading-img">
+                </div>
+
+                <!-- Right: Flip cards -->
+                <div class="why-right d-flex align-items-center justify-content-center">
+                    <div class="why-feature-stack flip-stack-v2">
+                        <div class="flip-container card-top" tabindex="0" aria-label="Pay After An Approval">
+                            <div class="flipper flipper-animation delay-1">
+                                <div class="front"><h3>Pay After An Approval</h3></div>
+                                <div class="back"><h3>Pay After An Approval</h3></div>
+                            </div>
+                        </div>
+
+                        <div class="flip-container card-center" tabindex="0" aria-label="Licenced RCIC Portal">
+                            <div class="flipper flipper-animation delay-2">
+                                <div class="front"><h3>Licenced RCIC Portal</h3></div>
+                                <div class="back"><h3>Licenced RCIC Portal</h3></div>
+                            </div>
+                        </div>
+
+                        <div class="flip-container card-bottom" tabindex="0" aria-label="24/7 Global Platform">
+                            <div class="flipper flipper-animation delay-3">
+                                <div class="front"><h3>24/7 Global Platform</h3></div>
+                                <div class="back"><h3>24/7 Global Platform</h3></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Right -->
+            </div>
+        </div>
+    </div>
+
+    <section class="service-flip-section my-3">
+        <div class="container">
+            <div class="services-header text-center">
+                <div ><h2 class="mb-2 gradient-text" id="can-services-anim"></h2></div>
+
+                <p class="services-intro mt-3">
+                    Canboards offers expert RCIC guidance, AI-assisted SOPs, secure document handling, and real-time application tracking all in one seamless platform.
+                </p>
+            </div>
+
+            <!-- Bootstrap grid with flip cards -->
+            <div class="row mt-3 justify-content-center">
+                <!-- Study Card -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <a href="study.html" class="service-flip-link" aria-label="Study Services">
+                        <div class="service-flip-container" tabindex="0">
+                            <div class="service-flipper">
+                                <!-- Front Face -->
+                                <div class="service-flip-front service-flip-front--study">
+                                    <img src="Images/study-img.png" alt="" class="service-flip-img" aria-hidden="true">
+                                    <div class="service-flip-content">
+                                        <div class="service-icon service-icon--study" aria-hidden="true">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <h5 class="service-flip-title">Study</h5>
+                                    </div>
+                                    <!-- Description for mobile/tablet (hidden on desktop) -->
+                                    <p class="service-flip-desc service-flip-desc--mobile">Assistance for your educational journey.</p>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="service-flip-back" style="background: linear-gradient(to top, rgb(200, 140, 30) 0%, rgb(210, 160, 60) 50%, rgb(220, 180, 90) 100%) !important;">
+                                    <h5 class="service-flip-title">Study</h5>
+                                    <p class="service-flip-desc">Assistance for your educational journey, from test prep and course selection to visa applications.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Work Card -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <a href="work.html" class="service-flip-link" aria-label="Work Services">
+                        <div class="service-flip-container" tabindex="0">
+                            <div class="service-flipper">
+                                <!-- Front Face -->
+                                <div class="service-flip-front service-flip-front--work">
+                                    <img src="Images/work-img.png" alt="" class="service-flip-img" aria-hidden="true">
+                                    <div class="service-flip-content">
+                                        <div class="service-icon service-icon--work" aria-hidden="true">
+                                            <i class="fas fa-briefcase"></i>
+                                        </div>
+                                        <h5 class="service-flip-title">Work</h5>
+                                    </div>
+                                    <!-- Description for mobile/tablet (hidden on desktop) -->
+                                    <p class="service-flip-desc service-flip-desc--mobile">Expert guidance on various work permits.</p>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="service-flip-back" style="background: linear-gradient(to top, rgb(255, 150, 180) 0%, rgb(255, 180, 210) 50%, rgb(255, 220, 240) 100%) !important;">
+                                    <h5 class="service-flip-title">Work</h5>
+                                    <p class="service-flip-desc">Expert guidance on various work permits, LMIA processes, and extensions to help build your career.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Visit Card -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <a href="visit.html" class="service-flip-link" aria-label="Visit Services">
+                        <div class="service-flip-container" tabindex="0">
+                            <div class="service-flipper">
+                                <!-- Front Face -->
+                                <div class="service-flip-front service-flip-front--visit">
+                                    <img src="Images/visit-img.png" alt="" class="service-flip-img" aria-hidden="true">
+                                    <div class="service-flip-content">
+                                        <div class="service-icon service-icon--visit" aria-hidden="true">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <h5 class="service-flip-title">Visit</h5>
+                                    </div>
+                                    <!-- Description for mobile/tablet (hidden on desktop) -->
+                                    <p class="service-flip-desc service-flip-desc--mobile">Support for all your visitor needs.</p>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="service-flip-back" style="background: linear-gradient(to top, rgb(97, 220, 223) 0%, rgb(100, 240, 200) 50%, rgb(180, 250, 220) 100%) !important;">
+                                    <h5 class="service-flip-title">Visit</h5>
+                                    <p class="service-flip-desc">Support for all your visitor needs, whether it's a general visitor visa, attending a convocation, or business travel.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Settle Card -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <a href="settle.html" class="service-flip-link" aria-label="Settle Services">
+                        <div class="service-flip-container" tabindex="0">
+                            <div class="service-flipper">
+                                <!-- Front Face -->
+                                <div class="service-flip-front service-flip-front--settle">
+                                    <img src="Images/settle-img.png" alt="" class="service-flip-img" aria-hidden="true">
+                                    <div class="service-flip-content">
+                                        <div class="service-icon service-icon--settle" aria-hidden="true">
+                                            <i class="fas fa-house-user"></i>
+                                        </div>
+                                        <h5 class="service-flip-title">Settle</h5>
+                                    </div>
+                                    <!-- Description for mobile/tablet (hidden on desktop) -->
+                                    <p class="service-flip-desc service-flip-desc--mobile">Explore pathways to permanent residency.</p>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="service-flip-back" style="background: linear-gradient(to top, rgb(255, 150, 50) 0%, rgb(255, 180, 80) 50%, rgb(255, 220, 150) 100%) !important;">
+                                    <h5 class="service-flip-title">Settle</h5>
+                                    <p class="service-flip-desc">Explore pathways to permanent residency, including Express Entry, PNP, family sponsorship and pilot programs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Other Card -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <a href="other.html" class="service-flip-link" aria-label="Other Services">
+                        <div class="service-flip-container" tabindex="0">
+                            <div class="service-flipper">
+                                <!-- Front Face -->
+                                <div class="service-flip-front service-flip-front--other">
+                                    <img src="Images/Other.png" alt="" class="service-flip-img" aria-hidden="true">
+                                    <div class="service-flip-content">
+                                        <div class="service-icon service-icon--other" aria-hidden="true">
+                                            <i class="fas fa-globe"></i>
+                                        </div>
+                                        <h5 class="service-flip-title">Other</h5>
+                                    </div>
+                                    <!-- Description for mobile/tablet (hidden on desktop) -->
+                                    <p class="service-flip-desc service-flip-desc--mobile">Extra support for your Canadian journey.</p>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="service-flip-back" style="background: linear-gradient(to top, rgb(100, 150, 255) 0%, rgb(140, 160, 255) 50%, rgb(200, 190, 255) 100%) !important;">
+                                    <h5 class="service-flip-title">Other</h5>
+                                    <p class="service-flip-desc">Extra support for your Canadian journey from visas to legal guidance, all with RCIC expertise.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="col-12 mb-4 d-flex justify-content-center">
+            <img src="Images/How.png" alt="How" class="img-fluid how-title-img">
+        </div>
+
+        <div class="flow" style="display:none;">
+            <div class="step step1" data-step="1" tabindex="0" aria-label="Step 1 - Choose Your Service">
+                <div class="icon"><i class="fa-solid fa-globe"></i></div>
+                <div class="big-number">1</div>
+                <div class="content">
+                    <h3>Choose Your Service</h3>
+                    <p>Select any Canadian immigration service and receive guidance from a licensed RCIC expert.</p>
+                </div>
+            </div>
+
+            <div class="step step2" data-step="2" tabindex="0" aria-label="Step 2 - Create Your Application">
+                <div class="icon"><i class="fa-solid fa-upload"></i></div>
+                <div class="big-number">2</div>
+                <div class="content">
+                    <h3>Create Your Application</h3>
+                    <p>Upload all required documents as specified in the RCIC portal to complete your application.</p>
+                </div>
+            </div>
+
+            <div class="step step3" data-step="3" tabindex="0" aria-label="Step 3 - Review & Verify">
+                <div class="icon"><i class="fa-solid fa-file-circle-check"></i></div>
+                <div class="big-number">3</div>
+                <div class="content">
+                    <h3>Review & Verify</h3>
+                    <p>Our licensed RCIC experts will review your application and verify all submitted documents for accuracy.</p>
+                </div>
+            </div>
+
+            <div class="step step4" data-step="4" tabindex="0" aria-label="Step 4 - Payment After Approval">
+                <div class="icon"><i class="fa-solid fa-passport"></i></div>
+                <div class="big-number">4</div>
+                <div class="content">
+                    <h3>Payment After Approval</h3>
+                    <p>Your visa will be processed by our licensed RCIC experts.<br><span id="card-anim"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1234x-process-line: RCIC-like four-step timeline (unique names) -->
+        <section class="pl1234x-line-process site-section" aria-label="Four-step process line">
+            <div class="pl1234x-timeline-container">
+                <!-- Base and Progress Lines -->
+                <div class="pl1234x-timeline-base"></div>
+                <div class="pl1234x-timeline-progress" id="pl1234xTimelineProgress"></div>
+
+                <!-- Timeline Steps -->
+                <div class="pl1234x-timeline-steps" id="pl1234xTimelineSteps">
+                    <!-- Node 1 -->
+                    <button class="pl1234x-timeline-node" type="button" data-step="0" aria-label="Choose Your Service">
+                        <div class="pl1234x-node-image-wrapper">
+                            <img src="Images/moodboard_13971336.png" alt="Choose Your Service" class="pl1234x-node-img">
+                        </div>
+                        <span class="pl1234x-node-dot" aria-hidden="true"></span>
+                        <div class="pl1234x-node-text">
+                            <h3>Choose Your Service</h3>
+                            <p>Select any Canadian immigration service and receive guidance from a licensed RCIC expert.</p>
+                        </div>
+                    </button>
+
+                    <!-- Node 2 -->
+                    <button class="pl1234x-timeline-node" type="button" data-step="1" aria-label="Create Your Application">
+                        <div class="pl1234x-node-image-wrapper">
+                            <img src="Images/computer_18993215.png" alt="Create Your Application" class="pl1234x-node-img">
+                        </div>
+                        <span class="pl1234x-node-dot" aria-hidden="true"></span>
+                        <div class="pl1234x-node-text">
+                            <h3>Create Your Application</h3>
+                            <p>Upload all required documents as specified in the RCIC portal to complete your application.</p>
+                        </div>
+                    </button>
+
+                    <!-- Node 3 (new extra node, placed after the second node) -->
+                    <button class="pl1234x-timeline-node" type="button" data-step="2" aria-label="Review & Verify">
+                        <div class="pl1234x-node-image-wrapper">
+                            <img src="Images/document-analysis_19013039.png" alt="Review & Verify" class="pl1234x-node-img">
+                        </div>
+                        <span class="pl1234x-node-dot" aria-hidden="true"></span>
+                        <div class="pl1234x-node-text">
+                            <h3>Review & Verify</h3>
+                            <p>Our licensed RCIC experts will review your application and verify all submitted documents for accuracy.</p>
+                        </div>
+                    </button>
+
+                    <!-- Node 4 -->
+                    <button class="pl1234x-timeline-node" type="button" data-step="3" aria-label="Payment After An Approval">
+                        <div class="pl1234x-node-image-wrapper">
+                            <img src="Images/passport_18998027.png" alt="Payment After Approval" class="pl1234x-node-img">
+                        </div>
+                        <span class="pl1234x-node-dot" aria-hidden="true"></span>
+                        <div class="pl1234x-node-text">
+                            <h3>Payment After Approval</h3>
+                            <p>Your visa will be processed by our licensed RCIC experts. Pay only after approval.</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+    <div class="rcic-line-process">
+        <div class="text-center mb-4">
+            <h2 class="rcic-title">Why Choose a Licensed  <span class="rcic-accent" id="RCIC-anim">R.C.I.C.?</span></h2>
+        </div>
+
+        <div class="panel-container" id="panelContainer">
+            <!-- Panel 1 -->
+            <div class="panel active">
+                <div class="panel-left">
+                    <img src="Images/1.png" alt="Licensed Expertise" class="panel-left-img">
+                </div>
+                <div class="panel-right">
+                    <h3 class="panel-title">Licensed Expertise</h3>
+                    <p>Benefit from in-depth knowledge of Canadian immigration law, policies, and procedures.</p>
+                </div>
+            </div>
+
+            <!-- Panel 2 -->
+            <div class="panel">
+                <div class="panel-left">
+                    <img src="Images/2.png" alt="Guaranteed Compliance" class="panel-left-img">
+                </div>
+                <div class="panel-right">
+                    <h3 class="panel-title">Guaranteed Compliance</h3>
+                    <p>All services adhere to strict ethical guidelines and regulations set by the citizenship consultants (CICC).</p>
+                </div>
+            </div>
+
+            <!-- Panel 3 -->
+            <div class="panel">
+                <div class="panel-left">
+                    <img src="Images/3.png" alt="Peace of Mind" class="panel-left-img">
+                </div>
+                <div class="panel-right">
+                    <h3 class="panel-title">Peace of Mind</h3>
+                    <p>Benefit from in-depth knowledge of Canadian immigration law, policies, and procedures.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rcic-timeline-container" style="display:none;">
+            <!-- Base and Progress Lines -->
+            <div class="rcic-timeline-base"></div>
+            <div class="rcic-timeline-progress" id="rcicTimelineProgress"></div>
+
+            <!-- Timeline Steps -->
+            <div class="rcic-timeline-steps">
+                <!-- Node 1 -->
+                <div class="rcic-timeline-node" data-step="0">
+                    <div class="rcic-node-image-wrapper">
+                        <img src="Images/id-card.png" alt="Choose your favorite" class="rcic-node-img">
+                    </div>
+                    <div class="rcic-node-dot"></div>
+                    <div class="rcic-node-text">
+                        <h3>Licensed Expertise</h3>
+                        <p>Benefit from in-depth knowledge of Canadian immigration law, policies, and procedures.</p>
+                    </div>
+                </div>
+
+                <!-- Node 2 -->
+                <div class="rcic-timeline-node" data-step="1">
+                    <div class="rcic-node-image-wrapper">
+                        <img src="Images/hand-paper-check.png" alt="Make secure payment" class="rcic-node-img">
+                    </div>
+                    <div class="rcic-node-dot"></div>
+                    <div class="rcic-node-text">
+                        <h3>Guaranteed Compliance</h3>
+                        <p>All Services adhere to strict ethical guidelines and regulations set by the citizenship consultants (CICC).</p>
+                    </div>
+                </div>
+
+                <!-- Node 3 -->
+                <div class="rcic-timeline-node" data-step="2">
+                    <div class="rcic-node-image-wrapper">
+                        <img src="Images/like.png" alt="Shipping in 24 hours" class="rcic-node-img">
+                    </div>
+                    <div class="rcic-node-dot"></div>
+                    <div class="rcic-node-text">
+                        <h3>Peace of Mind</h3>
+                        <p>Benefit from in-depth knowledge of Canadian immigration law, policies, and procedures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- New Map section: animated icons appear when scrolled into view -->
+    <section class="map-section site-section">
+        <div class="container text-center">
+            <h2 class="map-title">One Global Platform With <span class="rcic-accent" id="RCIC-v2-anim">R.C.I.C.</span></h2>
+
+            <div class="map-wrap mt-4">
+                <img src="Images/Map.png" alt="World map" class="img-fluid map-img">
+
+                <!-- One icon per continent, centered with continent labels -->
+                <div class="map-icon" style="left:13%; top:27%;" data-delay="0" data-location="North America">
+                    <img src="Images/Favicon.png" alt="North America">
+                </div>
+                <div class="map-icon" style="left:23%; top:65%;" data-delay="120" data-location="South America">
+                    <img src="Images/Favicon.png" alt="South America">
+                </div>
+                <div class="map-icon" style="left:51%; top:20%;" data-delay="240" data-location="Europe">
+                    <img src="Images/Favicon.png" alt="Europe">
+                </div>
+                <div class="map-icon" style="left:49%; top:55%;" data-delay="360" data-location="Africa">
+                    <img src="Images/Favicon.png" alt="Africa">
+                </div>
+                <div class="map-icon" style="left:73%; top:24%;" data-delay="480" data-location="Asia">
+                    <img src="Images/Favicon.png" alt="Asia">
+                </div>
+                <div class="map-icon" style="left:85%; top:75%;" data-delay="600" data-location="Australia">
+                    <img src="Images/Favicon.png" alt="Australia">
+                </div>
+            </div>
+    </section>
+
+    <!-- Stats Section: Full-width rectangle with gradient haze and animated counters -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-panel">
+                <!-- Heading -->
+                <div class="stats-header text-center mb-3">
+                    <div class="position-relative w-fit mx-auto mb-3">
+                        <img src="Images/Our_A.png" alt="Our Achievements" class="stats-heading-img">
+                    </div>
+                    <p class="stats-description">
+                        Join thousands of successful immigrants who have achieved their
+                        Canadian dreams with Canboards. Our proven track record speaks
+                        for itself.
+                    </p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row text-center align-items-center justify-content-center">
+                    <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="1500" data-suffix="+">
+                                0
+                            </div>
+                            <div class="stat-label">
+                                Happy Clients <br />
+                                Till 2025
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="99" data-suffix="%">
+                                0
+                            </div>
+                            <div class="stat-label">
+                                Success <br />
+                                Ratio
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="100" data-suffix="+">
+                                0
+                            </div>
+                            <div class="stat-label">
+                                Affiliated <br />
+                                Universities
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="50" data-suffix="+">
+                                0
+                            </div>
+                            <div class="stat-label">
+                                Expert RCIC <br />Consultants
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="24" data-suffix="/7">
+                                0
+                            </div>
+                            <div class="stat-label">
+                                Support <br />
+                                Available
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-haze" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <div class="why-section why-copy-flip my-5 d-flex justify-content-center align-items-center">
+        <div class="why-card-bg">
+            <div class="why-inner container d-flex align-items-center">
+                <img src="Images/bg-lines.png" alt="Background Lines" class="why-bg-lines">
+
+                <div class="why-left d-flex align-items-center">
+                    <img src="Images/New_Can_Help.png" alt="Why Canboards" class="why-heading-img">
+                </div>
+
+                <div class="why-right d-flex align-items-center justify-content-center">
+                    <div class="why-feature-stack flip-stack-v2">
+                        <!-- Blog & Articles -->
+                        <div class="flip-container card-top" tabindex="0" aria-label="Blog & Articles">
+                            <div class="flipper flipper-animation delay-1">
+                                <div class="front">
+                                    <div class="card-icon" aria-hidden="true">
+                                        <i class="bi bi-journal-text fs-3" aria-hidden="true"></i>
+                                        <span class="visually-hidden">Blog and Articles</span>
+                                    </div>
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        Blog &amp; Articles
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Stay informed with the latest immigration news, tips, and guides.
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        Blog &amp; Articles
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Stay informed with the latest immigration news, tips, and guides.
+                                    </div>
+                                    <a class="card-readmore" href="#" aria-label="Read more about Blog and Articles"
+                                       style="display:inline-flex; align-items:center; gap:8px; color:#e62939; font-weight:700; text-decoration:none; margin-top:10px;">
+                                        READ MORE <span class="arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQs -->
+                        <div class="flip-container card-center" tabindex="0" aria-label="FAQs">
+                            <div class="flipper flipper-animation delay-2">
+                                <div class="front">
+                                    <div class="card-icon" aria-hidden="true">
+                                        <i class="bi bi-question-circle fs-3" aria-hidden="true"></i>
+                                        <span class="visually-hidden">Frequently Asked Questions</span>
+                                    </div>
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        FAQs
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Find answers to commonly asked questions about immigration processes.
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        FAQs
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Find answers to commonly asked questions about immigration processes.
+                                    </div>
+                                    <a class="card-readmore" href="posts.php" aria-label="Read more FAQs"
+                                       style="display:inline-flex; align-items:center; gap:8px; color:#e62939; font-weight:700; text-decoration:none; margin-top:10px;">
+                                        READ MORE <span class="arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Webinars & Events -->
+                        <div class="flip-container card-bottom" tabindex="0" aria-label="Webinars & Events">
+                            <div class="flipper flipper-animation delay-3">
+                                <div class="front">
+                                    <div class="card-icon" aria-hidden="true">
+                                        <i class="bi bi-calendar-event fs-3" aria-hidden="true"></i>
+                                        <span class="visually-hidden">Webinars and Events</span>
+                                    </div>
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        Webinars &amp; Events
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Join our expert-led sessions for in-depth insights and live Q&amp;A.
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        Webinars &amp; Events
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Join our expert-led sessions for in-depth insights and live Q&amp;A.
+                                    </div>
+                                    <a class="card-readmore" href="contact.html" aria-label="Read more about Webinars and Events"
+                                       style="display:inline-flex; align-items:center; gap:8px; color:#e62939; font-weight:700; text-decoration:none; margin-top:10px;">
+                                        READ MORE <span class="arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /cards -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Replace the blog-wrapper cards with these updated cards -->
+    <section class="blog-section" style="display: none;">
+        <div class="blog-container">
+            <div class="blog-header text-center">
+                <h2 class="blog-heading">Latest News & Insights</h2>
+                <p class="blog-subheading">Stay updated with the latest immigration news, study abroad tips, and success stories from our community.</p>
+            </div>
+
+            <button class="blog-scroll-btn blog-left-btn" id="blogScrollLeft">&#8249;</button>
+
+            <div class="blog-wrapper" id="blogWrapper">
+
+                <!-- Card 1 - Yellow / Featured -->
+                <div class="blog-card blog-card--yellow">
+                    <span class="blog-badge" aria-hidden="true">FEATURED</span>
+                    <img class="blog-image" src="Images/blog-img01.jpg" alt="Top 5 Scholarships Every Student Should Know" />
+                    <div class="blog-sep" aria-hidden="true"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <!-- clock svg uses stroke/fill = var(--card-color) so it follows card palette -->
+                            <svg class="blog-clock" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <circle cx="12" cy="12" r="9" fill="none" stroke="var(--card-color)" stroke-width="1.6" />
+                                <path d="M12 8v5l4 2" fill="none" stroke="var(--card-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <small>December 3, 2025</small>
+                        </div>
+                        <h3>Top 5 Scholarships Every Student Should Know</h3>
+                        <a class="blog-readmore" href="blog-post-1.html" aria-label="Read more about Top 5 Scholarships">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V9h5.5L13 3.5zM8 11h8v1H8v-1zm0 3h8v1H8v-1z" />
+                            </svg>
+                            Read more
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 - Pink / Popular -->
+                <div class="blog-card blog-card--pink">
+                    <span class="blog-badge" aria-hidden="true">POPULAR</span>
+                    <img class="blog-image" src="Images/blog-img02.jpg" alt="Top 5 Countries for Studying in Abroad 2026" />
+                    <div class="blog-sep" aria-hidden="true"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <svg class="blog-clock" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <circle cx="12" cy="12" r="9" fill="none" stroke="var(--card-color)" stroke-width="1.6" />
+                                <path d="M12 8v5l4 2" fill="none" stroke="var(--card-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <small>November 24, 2025</small>
+                        </div>
+                        <h3>Top 5 Countries for Studying in Abroad 2026</h3>
+                        <a class="blog-readmore" href="blog-post-2.html" aria-label="Read more about Top 5 Countries">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V9h5.5L13 3.5zM8 11h8v1H8v-1zm0 3h8v1H8v-1z" />
+                            </svg>
+                            Read more
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 - Teal / New -->
+                <div class="blog-card blog-card--teal">
+                    <span class="blog-badge" aria-hidden="true">NEW</span>
+                    <img class="blog-image" src="Images/blog-img03.jpg" alt="Best Budget Friendly Study Destinations Worldwide" />
+                    <div class="blog-sep" aria-hidden="true"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <svg class="blog-clock" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <circle cx="12" cy="12" r="9" fill="none" stroke="var(--card-color)" stroke-width="1.6" />
+                                <path d="M12 8v5l4 2" fill="none" stroke="var(--card-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <small>November 21, 2025</small>
+                        </div>
+                        <h3>Best Budget Friendly Study Destinations Worldwide</h3>
+                        <a class="blog-readmore" href="blog-post-3.html" aria-label="Read more about Budget-Friendly Destinations">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V9h5.5L13 3.5zM8 11h8v1H8v-1zm0 3h8v1H8v-1z" />
+                            </svg>
+                            Read more
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="blog-dots" id="blogDots" aria-hidden="false"></div>
+
+            <button class="blog-scroll-btn blog-right-btn" id="blogScrollRight">&#8250;</button>
+        </div>
+    </section>
+
+
+    <section class="faq-section" style="display: none;">
+        <div class="container">
+            <!-- Heading -->
+            <div class="faq-header text-center mb-5">
+                <div class="position-relative w-fit mx-auto mb-3">
+                    <h2 class="why-heading-text why-heading-top">
+                        Frequently Asked Questions
+                    </h2>
+                </div>
+                <p class="faq-description">
+                    Find answers to common questions about Canadian immigration, study
+                    permits, work visas, and our services.
+                </p>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="faq-accordion-wrapper">
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item faq-item" data-faq="1">
+                        <h2 class="accordion-header" id="faqHeading1">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapse1"
+                                    aria-expanded="false"
+                                    aria-controls="faqCollapse1">
+                                <span class="faq-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </span>
+                                <span class="faq-question">What is an R.C.I.C. and why should I use one?</span>
+                                <span class="faq-arrow">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="faqCollapse1"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="faqHeading1"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                An R.C.I.C. (Regulated Canadian Immigration Consultant) is a
+                                licensed professional authorized by the Immigration
+                                Consultants of Canada Regulatory Council (ICCRC) to provide
+                                immigration advice and represent clients. Using an R.C.I.C.
+                                ensures you receive expert guidance, accurate information,
+                                and professional representation throughout your immigration
+                                process, significantly increasing your chances of success.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item faq-item" data-faq="2">
+                        <h2 class="accordion-header" id="faqHeading2">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapse2"
+                                    aria-expanded="false"
+                                    aria-controls="faqCollapse2">
+                                <span class="faq-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </span>
+                                <span class="faq-question">How long does the visa application process take?</span>
+                                <span class="faq-arrow">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="faqCollapse2"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="faqHeading2"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Processing times vary depending on the type of visa or
+                                permit you're applying for, your country of residence, and
+                                current IRCC processing times. Generally, study permits take
+                                4-6 weeks, work permits 8-12 weeks, and permanent residence
+                                applications can take 6-18 months. Our consultants will
+                                provide you with current processing times and help expedite
+                                your application where possible.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item faq-item" data-faq="3">
+                        <h2 class="accordion-header" id="faqHeading3">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapse3"
+                                    aria-expanded="false"
+                                    aria-controls="faqCollapse3">
+                                <span class="faq-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </span>
+                                <span class="faq-question">
+                                    What documents do I need to apply for a study
+                                    permit?
+                                </span>
+                                <span class="faq-arrow">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="faqCollapse3"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="faqHeading3"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Required documents typically include: a valid passport,
+                                letter of acceptance from a Designated Learning Institution
+                                (DLI), proof of financial support, medical examination
+                                results (if required), police clearance certificate,
+                                statement of purpose, and passport-sized photographs. Our
+                                R.C.I.C. consultants will provide you with a complete
+                                checklist tailored to your specific situation.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="accordion-item faq-item" data-faq="4">
+                        <h2 class="accordion-header" id="faqHeading4">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapse4"
+                                    aria-expanded="false"
+                                    aria-controls="faqCollapse4">
+                                <span class="faq-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </span>
+                                <span class="faq-question">Can I work while studying in Canada?</span>
+                                <span class="faq-arrow">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="faqCollapse4"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="faqHeading4"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, most international students with a valid study permit
+                                can work up to 20 hours per week during regular academic
+                                sessions and full-time during scheduled breaks. However,
+                                your study permit must explicitly allow you to work, and you
+                                must be enrolled full-time at a Designated Learning
+                                Institution. Our consultants can help you understand your
+                                work eligibility and apply for the necessary permits.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="accordion-item faq-item" data-faq="5">
+                        <h2 class="accordion-header" id="faqHeading5">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapse5"
+                                    aria-expanded="false"
+                                    aria-controls="faqCollapse5">
+                                <span class="faq-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </span>
+                                <span class="faq-question">
+                                    What is the Express Entry system and how does it
+                                    work?
+                                </span>
+                                <span class="faq-arrow">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="faqCollapse5"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="faqHeading5"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Express Entry is Canada's online system for managing
+                                applications for permanent residence from skilled workers.
+                                It uses a points-based system (Comprehensive Ranking System)
+                                to rank candidates based on factors like age, education,
+                                work experience, language proficiency, and adaptability.
+                                Candidates with the highest scores receive Invitations to
+                                Apply (ITAs) for permanent residence. Our R.C.I.C.
+                                consultants can help you create a strong Express Entry
+                                profile and maximize your CRS score.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="accordion-item faq-item" data-faq="6">
+                        <h2 class="accordion-header" id="faqHeading6">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapse6"
+                                    aria-expanded="false"
+                                    aria-controls="faqCollapse6">
+                                <span class="faq-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </span>
+                                <span class="faq-question">How much does it cost to use Canboards services?</span>
+                                <span class="faq-arrow">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="faqCollapse6"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="faqHeading6"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our service fees vary depending on the type of application
+                                and level of service required. We offer transparent pricing
+                                with no hidden fees. Basic consultation services start at
+                                affordable rates, while comprehensive application packages
+                                include document review, application preparation, and
+                                ongoing support. Contact us for a personalized quote based
+                                on your specific immigration needs.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="webinar-section" style="display: none;">
+        <div class="webinar-container">
+
+            <div class="webinar-header text-center">
+                <div class="position-relative w-fit mx-auto mb-3">
+                    <img src="Images/Webinar.png" alt="Upcoming Webinars" class="webinar-heading-img">
+                </div>
+                <p class="webinar-subheading">Join our expert-led webinars to learn about Canadian immigration, study permits, work visas, and more. Get your questions answered by licensed R.C.I.C. consultants.</p>
+            </div>
+
+            <button class="webinar-scroll-btn webinar-left-btn" id="webinarScrollLeft">&#8249;</button>
+
+            <div class="webinar-wrapper" id="webinarWrapper">
+
+                <!-- Card 1 -->
+                <div class="webinar-card webinar-card--yellow">
+                    <div class="webinar-date-badge" aria-hidden="true">
+                        <span class="day">15</span>
+                        <span class="mon">Jan</span>
+                    </div>
+
+                    <div class="webinar-content">
+                        <div class="webinar-meta">
+                            <span class="meta-item"><i class="fa-regular fa-clock"></i>2:00 PM EST</span>
+                            <span class="meta-item"><i class="fa-solid fa-hourglass-half"></i>60 min</span>
+                        </div>
+
+                        <h3 class="webinar-title">Complete Guide to Study Permits in Canada 2025</h3>
+                        <p class="webinar-desc">
+                            Learn everything you need to know about applying for a study permit, required documents,
+                            processing times, and tips for a successful application.
+                        </p>
+
+                        <div class="webinar-presenter">
+                            <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
+                            <span>Sarah Johnson, R.C.I.C.</span>
+                        </div>
+
+                        <a class="webinar-cta" href="#" aria-label="Register for Study Permit Webinar">
+                            Register Now <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="webinar-card webinar-card--pink">
+                    <div class="webinar-date-badge" aria-hidden="true">
+                        <span class="day">22</span>
+                        <span class="mon">Jan</span>
+                    </div>
+
+                    <div class="webinar-content">
+                        <div class="webinar-meta">
+                            <span class="meta-item"><i class="fa-regular fa-clock"></i>3:30 PM EST</span>
+                            <span class="meta-item"><i class="fa-solid fa-hourglass-half"></i>45 min</span>
+                        </div>
+
+                        <h3 class="webinar-title">Express Entry: Maximize Your CRS Score</h3>
+                        <p class="webinar-desc">
+                            Discover strategies to improve your Comprehensive Ranking System (CRS) score and increase
+                            your chances of receiving an Invitation to Apply (ITA).
+                        </p>
+
+                        <div class="webinar-presenter">
+                            <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+                            <span>Michael Chen, R.C.I.C.</span>
+                        </div>
+
+                        <a class="webinar-cta" href="#" aria-label="Register for Express Entry Webinar">
+                            Register Now <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="webinar-card webinar-card--teal">
+                    <div class="webinar-date-badge" aria-hidden="true">
+                        <span class="day">29</span>
+                        <span class="mon">Jan</span>
+                    </div>
+
+                    <div class="webinar-content">
+                        <div class="webinar-meta">
+                            <span class="meta-item"><i class="fa-regular fa-clock"></i>11:00 AM EST</span>
+                            <span class="meta-item"><i class="fa-solid fa-hourglass-half"></i>90 min</span>
+                        </div>
+
+                        <h3 class="webinar-title">Work Permits & Post‑Graduation Work Permit (PGWP)</h3>
+                        <p class="webinar-desc">
+                            Understand different types of work permits, eligibility, and how to transition
+                            from a study permit to a work permit in Canada.
+                        </p>
+
+                        <div class="webinar-presenter">
+                            <i class="fa-solid fa-user-check" aria-hidden="true"></i>
+                            <span>Emily Rodriguez, R.C.I.C.</span>
+                        </div>
+
+                        <a class="webinar-cta" href="#" aria-label="Register for Work Permits Webinar">
+                            Register Now <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="webinar-dots" id="webinarDots"></div>
+
+            <button class="webinar-scroll-btn webinar-right-btn" id="webinarScrollRight">&#8250;</button>
+
+        </div>
+    </section>
+
+
+    <section class="news-section">
+        <div class="news-container">
+            <!-- Header -->
+            <div class="news-header text-center">
+                <h2 class="news-heading">What our clients are saying about us</h2>
+                <p class="news-subheading">Customer satisfaction is a primary goal for our company</p>
+            </div>
+
+            <button class="scroll-btn left-btn" id="scrollLeft">&#8249;</button>
+
+            <div class="news-wrapper" id="newsWrapper">
+                <div class="news-card">
+                    <div class="news-avatar pink-bg">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Monica Patel">
+                    </div>
+                    <div class="news-content">
+                        <h3>Monica Patel</h3>
+                        <p class="news-subtitle">Student from India</p>
+                        <div class="news-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="news-quote">Canboards made my student visa application so simple. The digital dashboard was a game-changer!</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-avatar purple-bg">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Vincent Sinclair">
+                    </div>
+                    <div class="news-content">
+                        <h3>Vincent Sinclair</h3>
+                        <p class="news-subtitle">Worker from Nigeria</p>
+                        <div class="news-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="news-quote">The RCIC support was invaluable. I got my work permit faster than I ever imagined. Highly recommend!</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-avatar yellow-bg">
+                        <img src="https://i.pravatar.cc/150?img=9" alt="Stella Smith">
+                    </div>
+                    <div class="news-content">
+                        <h3>Stella Smith</h3>
+                        <p class="news-subtitle">PR Applicant from UAE</p>
+                        <div class="news-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="news-quote">Navigating the PR process felt overwhelming until I found Canboards.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-dots" id="newsDots" role="tablist" aria-label="News pagination"></div>
+
+            <button class="scroll-btn right-btn" id="scrollRight">&#8250;</button>
+        </div>
+    </section>
+
+    <!-- Let's Start Your Canadian Journey Section -->
+    <section class="journey-section">
+        <div class="journey-dark-strip"></div>
+        <div class="container position-relative">
+            <div class="journey-content-wrapper">
+                <div class="row align-items-center position-relative">
+                    <!-- Left Side: Content -->
+                    <div class="col-lg-8 col-md-12 journey-text-col">
+                        <div class="journey-text-content">
+                            <h2 class="journey-title">Let's Start Your Canadian Journey</h2>
+                            <p class="journey-desc">
+                                Join hundreds of successful immigrants who chose Canboards for their seamless transition to Canada.
+                            </p>
+                            <div class="journey-cta-wrapper">
+                                <a href="https://app.canboards.com/client/register" class="fancy_button px-4 py-2 fancy">Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Image -->
+                    <div class="col-lg-4 col-md-12 journey-image-col">
+                        <div class="journey-image-wrapper">
+                            <img src="Images/cta-img01.png"
+                                 alt="Student with smartphone"
+                                 class="journey-main-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-spacer" style="background-color: #23235b;"></div>
+
+    <footer id="site-footer" class="mt-5">
+        <div class="container py-5" id="footer-content">
+            <!-- Top row (above the line) -->
+            <div class="row footer-top gy-4">
+                <!-- Column1: logo + address + social stacked -->
+                <div class="col-12 col-lg-4">
+                    <div class="row g-3">
+                        <!-- Row1: Logo -->
+                        <div class="col-12">
+                            <div class="footer-logo d-flex align-items-center">
+                                <img src="Images/Logo_White.png" alt="Canboards logo" class="footer-logo-large">
+                            </div>
+                        </div>
+                        <!-- Row2: Address -->
+                        <div class="col-12">
+                            <address>
+                                Suite 505, 171 Queens Ave<br>
+                                London, ON<br>
+                                N6A 5J7
+                            </address>
+                        </div>
+                        <!-- Row3: Social icons -->
+                        <div class="col-12">
+                            <div class="footer-social">
+                                <a href="https://www.linkedin.com/company/canboards/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://www.facebook.com/canboards" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/canboards/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.youtube.com/@CanBoards" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grouped link columns: evenly spaced on large screens, stacked on small -->
+                <div class="col-12 col-lg-8">
+                    <div class="row g-4">
+                        <!-- Can Services -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Services</h6>
+                            <ul>
+                                <li><a class="footer-link" href="study.html">Study</a></li>
+                                <li><a class="footer-link" href="work.html">Work</a></li>
+                                <li><a class="footer-link" href="visit.html">Visit</a></li>
+                                <li><a class="footer-link" href="settle.html">Settle</a></li>
+                                <li><a class="footer-link" href="other.html">Other</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Important Links -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Important Links</h6>
+                            <ul>
+                                <li><a class="footer-link" href="our-story.html">Our Story</a></li>
+                                <li><a class="footer-link" href="careers.html">Careers</a></li>
+                                <li><a class="footer-link" href="#">Press and Media</a></li>
+                                <li><a class="footer-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Can Resources -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Resources</h6>
+                            <ul>
+                                <li><a class="footer-link" href="#">Blog</a></li>
+                                <li><a class="footer-link" href="#">Webinar</a></li>
+                                <li><a class="footer-link" href="#">Can Insight</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row (under the line) -->
+            <div class="row footer-bottom align-items-center pt-3 mt-4">
+                <!-- Desktop: left | center | right
+         Mobile: stacked full-width blocks -->
+                <div class="col-12 col-md-4 text-center text-md-start text-white-50 mb-3 mb-md-0">
+                    ©2025 Canboards Inc.
+                </div>
+
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="d-flex justify-content-center align-items-center gap-3">
+                        <img src="Images/capic-logo.webp"
+                             alt="CAPIC logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+
+                        <img src="Images/RCIC-IRB-Logo-footer.webp"
+                             alt="RCIC-IRB logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 text-center text-md-end">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+    <script>
+        const steps = document.querySelectorAll('.step');
+        const flow = document.querySelector('.flow');
+
+        // Detect if device has hover capability
+        const hasHoverCapability = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+        let isHovered = false;
+        let isInView = false;
+        let isMobilePaused = false;
+        let animationTimeouts = [];
+        let isAnimating = false;
+
+        // Helper: clear all timeouts
+        function clearAllTimeouts() {
+            animationTimeouts.forEach(t => clearTimeout(t));
+            animationTimeouts = [];
+        }
+
+        // Reset steps (hide all)
+        function resetSteps() {
+            clearAllTimeouts();
+            clearTypingTimeouts();
+            steps.forEach(step => {
+                step.style.opacity = 0;
+                step.querySelector('.icon').classList.remove('show');
+                step.querySelector('.big-number').classList.remove('show');
+                step.querySelector('.content').classList.remove('show');
+            });
+        }
+
+        // Show all instantly
+        function showAllSteps() {
+            clearAllTimeouts();
+            steps.forEach(step => {
+                step.style.opacity = 1;
+                step.querySelector('.icon').classList.add('show');
+                step.querySelector('.big-number').classList.add('show');
+                step.querySelector('.content').classList.add('show');
+            });
+        }
+
+        // Typing + jump animation for step 4
+        function typeAndJump(span, text, done) {
+            // Stop any ongoing typing animation on this specific span
+            if (span._typingTimeouts) {
+                span._typingTimeouts.forEach(t => clearTimeout(t));
+            }
+            span._typingTimeouts = [];
+
+            span.textContent = '';
+            span.style.display = 'inline-block';
+            span.style.whiteSpace = 'normal';
+            span.style.borderRight = '2px solid #1e90ff';
+
+            const chars = text.split('');
+            let i = 0;
+
+            function typeNext() {
+                if (i < chars.length) {
+                    span.textContent += chars[i];
+                    i++;
+                    const t = setTimeout(typeNext, 80);
+                    span._typingTimeouts.push(t);
+                } else {
+                    span.style.borderRight = 'none';
+                    span.style.animation = 'jump 0.5s ease forwards';
+                    const t = setTimeout(() => {
+                        span.style.animation = '';
+                        if (done) done();
+                    }, 500);
+                    span._typingTimeouts.push(t);
+                }
+            }
+
+            typeNext();
+        }
+
+        function clearTypingTimeouts() {
+            document.querySelectorAll('.typing-bounce').forEach(span => {
+                if (span._typingTimeouts) {
+                    span._typingTimeouts.forEach(t => clearTimeout(t));
+                    span._typingTimeouts = [];
+                }
+            });
+        }
+
+        // Animate one step (sequential show)
+        function animateStepWithTyping(step, previousSteps = [], callback) {
+            steps.forEach(s => s.style.opacity = 0);
+            previousSteps.forEach(s => s.style.opacity = 1);
+
+            step.style.opacity = 1;
+            const icon = step.querySelector('.icon');
+            const number = step.querySelector('.big-number');
+            const content = step.querySelector('.content');
+            const typingSpan = step.querySelector('.typing-bounce');
+
+            icon.classList.remove('show');
+            number.classList.remove('show');
+            content.classList.remove('show');
+
+            animationTimeouts.push(setTimeout(() => icon.classList.add('show'), 200));
+            animationTimeouts.push(setTimeout(() => number.classList.add('show'), 600));
+            animationTimeouts.push(setTimeout(() => content.classList.add('show'), 1000));
+
+            let totalStepTime = 2200;
+            if (typingSpan) {
+                const text = typingSpan.getAttribute('data-text') || typingSpan.textContent.trim();
+                typingSpan.setAttribute('data-text', text);
+                animationTimeouts.push(setTimeout(() => {
+                    typeAndJump(typingSpan, text, callback);
+                }, 1200));
+                totalStepTime = Math.max(totalStepTime, text.length * 80 + 2000);
+            } else {
+                animationTimeouts.push(setTimeout(callback, totalStepTime));
+            }
+        }
+
+        // Sequential flow controller
+        function animateFlowSequentially(i = 0, previous = []) {
+            if (!isInView || (hasHoverCapability && isHovered) || isMobilePaused) {
+                isAnimating = false;
+                return;
+            }
+
+            isAnimating = true;
+
+            if (i >= steps.length) {
+                // wait longer for typing animation to finish
+                animationTimeouts.push(setTimeout(() => {
+                    if (!((hasHoverCapability && isHovered) || isMobilePaused) && isInView) {
+                        resetSteps();
+                        animateFlowSequentially(0, []);
+                    } else {
+                        isAnimating = false;
+                    }
+                }, 3500));
+                return;
+            }
+
+            animateStepWithTyping(steps[i], previous, () => {
+                previous.push(steps[i]);
+                animateFlowSequentially(i + 1, previous);
+            });
+        }
+
+        // Start new full animation cycle cleanly
+        function startAnimationLoop() {
+            if (!isInView || isAnimating) return;
+            clearAllTimeouts();
+            clearTypingTimeouts();
+            resetSteps();
+            // Small delay before starting to ensure clean transition
+            setTimeout(() => {
+                if (isInView && !((hasHoverCapability && isHovered) || isMobilePaused)) {
+                    animateFlowSequentially();
+                }
+            }, 100);
+        }
+
+        // Observer for visibility - FIXED to always restart animation
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    isInView = true;
+                    // Reset animation state when coming into view
+                    isAnimating = false;
+                    if (!isMobilePaused && (!hasHoverCapability || !isHovered)) {
+                        startAnimationLoop();
+                    }
+                } else {
+                    isInView = false;
+                    isAnimating = false;
+                    clearAllTimeouts();
+                    clearTypingTimeouts();
+                    resetSteps();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(document.querySelector('.process'));
+
+        // Only enable hover effects on devices with hover capability
+        if (hasHoverCapability) {
+            // Hover: show all + only typing runs
+            flow.addEventListener('mouseenter', () => {
+                isHovered = true;
+                clearAllTimeouts();
+                clearTypingTimeouts();
+                showAllSteps();
+
+                const typingSpan = document.querySelector('.typing-bounce');
+                if (typingSpan) {
+                    const text = typingSpan.getAttribute('data-text') || typingSpan.textContent.trim();
+                    typeAndJump(typingSpan, text);
+                }
+            });
+
+            function restartAnimation() {
+                clearAllTimeouts();
+                clearTypingTimeouts();
+                resetSteps();
+                isAnimating = false;
+                requestAnimationFrame(() => startAnimationLoop());
+            }
+
+            // On mouse leave: restart full cycle cleanly
+            flow.addEventListener('mouseleave', () => {
+                isHovered = false;
+                if (!isMobilePaused && isInView) restartAnimation();
+            });
+        } else {
+            // For touch devices: show all steps statically (no animation)
+            showAllSteps();
+
+            // Run typing effect once for touch devices
+            const typingSpan = document.querySelector('.typing-bounce');
+            if (typingSpan) {
+                const text = typingSpan.getAttribute('data-text') || typingSpan.textContent.trim();
+                typeAndJump(typingSpan, text);
+            }
+        }
+
+        // Mobile tap toggle - only for touch devices
+        if (!hasHoverCapability) {
+            flow.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+
+                // Toggle paused state
+                isMobilePaused = !isMobilePaused;
+
+                // Always clear everything first — no leftover animations or typing
+                clearAllTimeouts();
+                clearTypingTimeouts();
+                isAnimating = false;
+
+                if (isMobilePaused) {
+                    // FIRST TAP — show everything instantly (paused state)
+                    showAllSteps();
+
+                    // Run typing effect (if present)
+                    const typingSpan = document.querySelector('.typing-bounce');
+                    if (typingSpan) {
+                        const text = typingSpan.getAttribute('data-text') || typingSpan.textContent.trim();
+                        typeAndJump(typingSpan, text);
+                    }
+                } else if (isInView) {
+                    // SECOND TAP — restart animation cleanly from the beginning
+                    resetSteps();
+                    requestAnimationFrame(() => {
+                        startAnimationLoop(); // fresh animation cycle
+                    });
+                }
+            });
+        }
+    </script>
+    <script>
+        // Map Icon Animation Controller - IMPROVED
+        (function () {
+            const mapSection = document.querySelector('.map-section');
+            const mapIcons = document.querySelectorAll('.map-icon');
+
+            // Function to animate icons
+            function animateMapIcons() {
+                mapIcons.forEach((icon, index) => {
+                    const delay = icon.getAttribute('data-delay') || 0;
+
+                    // Remove any existing animation classes first
+                    icon.classList.remove('map-icon-animate');
+
+                    // Force reflow to restart animation
+                    void icon.offsetWidth;
+
+                    // Add animation class with delay
+                    setTimeout(() => {
+                        icon.classList.add('map-icon-animate');
+                    }, parseInt(delay));
+                });
+            }
+
+            // Function to reset icons (hide them immediately)
+            function resetMapIcons() {
+                mapIcons.forEach(icon => {
+                    icon.classList.remove('map-icon-animate');
+                });
+            }
+
+            // Intersection Observer to detect when section is in view
+            const mapObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Section is in view - play animation
+                        animateMapIcons();
+                    } else {
+                        // Section is out of view - immediately hide icons
+                        resetMapIcons();
+                    }
+                });
+            }, {
+                threshold: 0.2, // Trigger when 20% of section is visible
+                rootMargin: '0px'
+            });
+
+            // Start observing the map section
+            if (mapSection) {
+                mapObserver.observe(mapSection);
+            }
+        })();
+    </script>
+    <script>
+        // Stats Counter Animation Controller - Repeats on scroll
+        (function () {
+            const statsSection = document.querySelector('.stats-section');
+            if (!statsSection) return;
+
+            const statsHeader = statsSection.querySelector('.stats-header');
+            const statsDescription = statsSection.querySelector('.stats-description');
+            const statItems = statsSection.querySelectorAll('.stat-item');
+            const statNumbers = statsSection.querySelectorAll('.stat-number');
+            let hasAnimated = false;
+
+            // Counter animation function
+            function animateCounter(element) {
+                const target = parseInt(element.getAttribute('data-target')) || 0;
+                const suffix = element.getAttribute('data-suffix') || '';
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current) + suffix;
+                }, 16);
+            }
+
+            // Intersection Observer
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting && !hasAnimated) {
+                            hasAnimated = true;
+
+                            // Animate header
+                            if (statsHeader) {
+                                setTimeout(() => {
+                                    statsHeader.classList.add('animate-in');
+                                }, 100);
+                            }
+
+                            // Animate description
+                            if (statsDescription) {
+                                setTimeout(() => {
+                                    statsDescription.classList.add('animate-in');
+                                }, 300);
+                            }
+
+                            // Animate stat items with stagger
+                            statItems.forEach((item, index) => {
+                                setTimeout(() => {
+                                    item.classList.add('animate-in');
+                                }, 500 + (index * 150)); // Start after description, stagger 150ms
+                            });
+
+                            // Animate counters after items appear
+                            statNumbers.forEach((stat, index) => {
+                                setTimeout(() => {
+                                    animateCounter(stat);
+                                }, 1000 + (index * 200)); // Start after items, stagger 200ms
+                            });
+
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -50px 0px'
+                }
+            );
+
+            observer.observe(statsSection);
+        })();
+    </script>
+    <script>
+        // RCIC Timeline JavaScript with GIF Animation Support - FIXED SIZE
+        const rcicTimelineNodes = document.querySelectorAll('.rcic-timeline-node');
+        const rcicTimelineProgress = document.getElementById('rcicTimelineProgress');
+        let rcicCurrentStep = 0;
+        let rcicAutoPlayInterval;
+        const rcicIsMobile = () => window.innerWidth <= 768;
+
+        // Store original PNG sources for each node
+        const rcicNodeImageData = [];
+        rcicTimelineNodes.forEach((node, index) => {
+            const img = node.querySelector('.rcic-node-img');
+            const pngSrc = img.src;
+            const gifSrc = pngSrc.replace('.png', '.gif');
+            rcicNodeImageData.push({ img, pngSrc, gifSrc, animating: false });
+        });
+
+        function playNodeAnimation(stepIndex) {
+            const nodeData = rcicNodeImageData[stepIndex];
+
+            // Skip if already animating
+            if (nodeData.animating) return;
+
+            nodeData.animating = true;
+            const img = nodeData.img;
+
+            // Add class for GIF styling and switch to GIF
+            img.classList.add('is-gif');
+            img.src = nodeData.gifSrc;
+
+            // Wait for GIF to play once (adjust timing as needed)
+            setTimeout(() => {
+                img.classList.remove('is-gif');
+                img.src = nodeData.pngSrc;
+                nodeData.animating = false;
+            }, 2000);
+        }
+
+        function updateRcicTimeline(stepIndex, instant = false) {
+            rcicCurrentStep = stepIndex;
+
+            // Remove active class from all nodes
+            rcicTimelineNodes.forEach(node => node.classList.remove('active'));
+
+            // Add active class to current and previous nodes
+            for (let i = 0; i <= stepIndex; i++) {
+                rcicTimelineNodes[i].classList.add('active');
+            }
+
+            // Play animation for the current active node
+            playNodeAnimation(stepIndex);
+
+            // Update progress line
+            const totalSteps = rcicTimelineNodes.length;
+            const progressPercent = (stepIndex / (totalSteps - 1)) * 100;
+
+            if (instant) {
+                rcicTimelineProgress.style.transition = 'none';
+            } else {
+                rcicTimelineProgress.style.transition = 'width 0.3s ease-in-out, height 0.6s ease-in-out';
+            }
+
+            if (rcicIsMobile()) {
+                rcicTimelineProgress.style.width = '4px';
+                rcicTimelineProgress.style.height = `${progressPercent}%`;
+            } else {
+                rcicTimelineProgress.style.width = `${progressPercent}%`;
+                rcicTimelineProgress.style.height = '4px';
+            }
+
+            if (instant) {
+                void rcicTimelineProgress.offsetWidth;
+                rcicTimelineProgress.style.transition = 'width 0.3s ease-in-out, height 0.6s ease-in-out';
+            }
+        }
+
+        function startRcicAutoPlay() {
+            stopRcicAutoPlay();
+            rcicAutoPlayInterval = setInterval(() => {
+                rcicCurrentStep = (rcicCurrentStep + 1) % rcicTimelineNodes.length;
+                updateRcicTimeline(rcicCurrentStep);
+            }, 3000);
+        }
+
+        function stopRcicAutoPlay() {
+            if (rcicAutoPlayInterval) {
+                clearInterval(rcicAutoPlayInterval);
+            }
+        }
+
+        // Click handler for timeline nodes
+        rcicTimelineNodes.forEach((node, index) => {
+            node.addEventListener('click', () => {
+                stopRcicAutoPlay();
+                updateRcicTimeline(index);
+                setTimeout(() => startRcicAutoPlay(), 5000);
+            });
+        });
+
+        // Initialize timeline
+        updateRcicTimeline(0, true);
+        startRcicAutoPlay();
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            updateRcicTimeline(rcicCurrentStep, true);
+        });
+    </script>
+    <script>
+        // Map Location Labels Controller - SEPARATE from icon animation
+        (function () {
+            const mapIcons = document.querySelectorAll('.map-icon');
+
+            // Create and append labels to each map icon
+            mapIcons.forEach(icon => {
+                const location = icon.getAttribute('data-location');
+                if (location) {
+                    const label = document.createElement('div');
+                    label.className = 'map-location-label';
+                    label.textContent = location;
+                    icon.appendChild(label);
+                }
+            });
+
+            // Labels will automatically animate with icons via CSS
+            // (when .map-icon-animate class is added by the existing script)
+        })();
+    </script>
+    <script>
+        (function () {
+            const blogWrapper = document.getElementById('blogWrapper');
+            if (!blogWrapper) return;
+
+            function replaceBtn(id) {
+                const old = document.getElementById(id);
+                if (!old) return null;
+                const clone = old.cloneNode(true);
+                old.parentNode.replaceChild(clone, old);
+                return clone;
+            }
+
+            const blogLeftBtn = replaceBtn('blogScrollLeft');
+            const blogRightBtn = replaceBtn('blogScrollRight');
+            const blogDots = document.getElementById('blogDots');
+
+            function getGap() {
+                const style = window.getComputedStyle(blogWrapper);
+                return parseFloat(style.gap || 0) || 0;
+            }
+
+            function getCardWidth() {
+                const card = blogWrapper.querySelector('.blog-card');
+                return card ? card.getBoundingClientRect().width : blogWrapper.clientWidth;
+            }
+
+            function getVisibleCount(cardWidth, gap) {
+                return Math.max(1, Math.floor((blogWrapper.clientWidth + gap) / (cardWidth + gap)));
+            }
+
+            function clampScroll(x) {
+                const max = blogWrapper.scrollWidth - blogWrapper.clientWidth;
+                return Math.max(0, Math.min(x, max));
+            }
+
+            function buildDots() {
+                const cards = blogWrapper.querySelectorAll('.blog-card');
+                if (!cards.length || blogWrapper.scrollWidth <= blogWrapper.clientWidth + 1) {
+                    blogDots.innerHTML = '';
+                    return;
+                }
+
+                const cardWidth = getCardWidth();
+                const gap = getGap();
+                const visible = getVisibleCount(cardWidth, gap);
+                const pages = Math.ceil(cards.length / visible);
+
+                blogDots.innerHTML = '';
+                for (let i = 0; i < pages; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'blog-dot';
+                    dot.onclick = () => {
+                        blogWrapper.scrollTo({
+                            left: clampScroll(i * visible * (cardWidth + gap)),
+                            behavior: 'smooth'
+                        });
+                    };
+                    blogDots.appendChild(dot);
+                }
+
+                updateActiveDot();
+            }
+
+            function updateActiveDot() {
+                const dots = blogDots.children;
+                if (!dots.length) return;
+
+                const cardWidth = getCardWidth();
+                const gap = getGap();
+                const visible = getVisibleCount(cardWidth, gap);
+                const pageWidth = visible * (cardWidth + gap);
+                const index = Math.round(blogWrapper.scrollLeft / pageWidth);
+
+                [...dots].forEach((d, i) => d.classList.toggle('active', i === index));
+            }
+
+            function scrollByPage(dir) {
+                const cardWidth = getCardWidth();
+                const gap = getGap();
+                const visible = getVisibleCount(cardWidth, gap);
+                blogWrapper.scrollTo({
+                    left: clampScroll(blogWrapper.scrollLeft + dir * visible * (cardWidth + gap)),
+                    behavior: 'smooth'
+                });
+            }
+
+            blogLeftBtn?.addEventListener('click', () => scrollByPage(-1));
+            blogRightBtn?.addEventListener('click', () => scrollByPage(1));
+            blogWrapper.addEventListener('scroll', updateActiveDot, { passive: true });
+            window.addEventListener('resize', buildDots);
+
+            buildDots();
+        })();
+    </script>
+    <script>
+        (function () {
+            const faqSection = document.querySelector('.faq-section');
+            if (!faqSection) return;
+
+            const header = faqSection.querySelector('.faq-header');
+            const items = Array.from(faqSection.querySelectorAll('.faq-item'));
+
+            // If header image path is wrong (lowercase), attempt a safe fix
+            const hdrImg = faqSection.querySelector('.why-heading-icon');
+            if (hdrImg && hdrImg.src && hdrImg.src.indexOf('/images/') !== -1) {
+                hdrImg.src = hdrImg.src.replace('/images/', '/Images/');
+            }
+
+            const io = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    // reveal header immediately
+                    if (header) header.classList.add('animate-in');
+
+                    // stagger reveal of faq items (similar feel to map icons)
+                    items.forEach((item, i) => {
+                        // small incremental delay so they cascade upward
+                        window.setTimeout(() => item.classList.add('animate-in'), i * 120);
+                    });
+
+                    // only run once
+                    obs.unobserve(entry.target);
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -10% 0px'
+            });
+
+            io.observe(faqSection);
+        })();
+    </script>
+    <script>
+        (function () {
+            const webinarWrapper = document.getElementById('webinarWrapper');
+            if (!webinarWrapper) return;
+
+            function replaceBtn(id) {
+                const old = document.getElementById(id);
+                if (!old) return null;
+                const clone = old.cloneNode(true);
+                old.parentNode.replaceChild(clone, old);
+                return clone;
+            }
+
+            const webinarLeftBtn = replaceBtn('webinarScrollLeft');
+            const webinarRightBtn = replaceBtn('webinarScrollRight');
+            const webinarDots = document.getElementById('webinarDots');
+
+            function getGap() {
+                const style = window.getComputedStyle(webinarWrapper);
+                return parseFloat(style.gap || 0) || 0;
+            }
+
+            function getCardWidth() {
+                const card = webinarWrapper.querySelector('.webinar-card');
+                return card ? card.getBoundingClientRect().width : webinarWrapper.clientWidth;
+            }
+
+            function getVisibleCount(cardWidth, gap) {
+                return Math.max(1, Math.floor((webinarWrapper.clientWidth + gap) / (cardWidth + gap)));
+            }
+
+            function clampScroll(x) {
+                const max = webinarWrapper.scrollWidth - webinarWrapper.clientWidth;
+                return Math.max(0, Math.min(x, max));
+            }
+
+            function buildDots() {
+                const cards = webinarWrapper.querySelectorAll('.webinar-card');
+                if (!cards.length || webinarWrapper.scrollWidth <= webinarWrapper.clientWidth + 1) {
+                    webinarDots.innerHTML = '';
+                    return;
+                }
+
+                const cardWidth = getCardWidth();
+                const gap = getGap();
+                const visible = getVisibleCount(cardWidth, gap);
+                const pages = Math.ceil(cards.length / visible);
+
+                webinarDots.innerHTML = '';
+                for (let i = 0; i < pages; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'webinar-dot';
+                    dot.onclick = () => {
+                        webinarWrapper.scrollTo({
+                            left: clampScroll(i * visible * (cardWidth + gap)),
+                            behavior: 'smooth'
+                        });
+                    };
+                    webinarDots.appendChild(dot);
+                }
+
+                updateActiveDot();
+            }
+
+            function updateActiveDot() {
+                const dots = webinarDots.children;
+                if (!dots.length) return;
+
+                const cardWidth = getCardWidth();
+                const gap = getGap();
+                const visible = getVisibleCount(cardWidth, gap);
+                const pageWidth = visible * (cardWidth + gap);
+                const index = Math.round(webinarWrapper.scrollLeft / pageWidth);
+
+                [...dots].forEach((d, i) => d.classList.toggle('active', i === index));
+            }
+
+            function scrollByPage(dir) {
+                const cardWidth = getCardWidth();
+                const gap = getGap();
+                const visible = getVisibleCount(cardWidth, gap);
+                webinarWrapper.scrollTo({
+                    left: clampScroll(webinarWrapper.scrollLeft + dir * visible * (cardWidth + gap)),
+                    behavior: 'smooth'
+                });
+            }
+
+            webinarLeftBtn?.addEventListener('click', () => scrollByPage(-1));
+            webinarRightBtn?.addEventListener('click', () => scrollByPage(1));
+            webinarWrapper.addEventListener('scroll', updateActiveDot, { passive: true });
+            window.addEventListener('resize', buildDots);
+
+            buildDots();
+        })();
+    </script>
+    <script>
+        const panels = document.querySelectorAll('.panel');
+        const container = document.getElementById('panelContainer');
+
+        /* Disable everything on mobile */
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            panels.forEach(panel => panel.classList.add('active'));
+        } else {
+
+            let currentIndex = 0;
+            let intervalId = null;
+            let animationStarted = false;
+
+            function activatePanel(index) {
+                panels.forEach(p => p.classList.remove('active'));
+                panels[index].classList.add('active');
+            }
+
+            function startLoopAnimation() {
+                if (intervalId) return; // prevent multiple intervals
+                intervalId = setInterval(() => {
+                    activatePanel(currentIndex);
+                    currentIndex = (currentIndex + 1) % panels.length;
+                }, 1800);
+            }
+
+            function stopLoopAnimation() {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+
+            const observer = new IntersectionObserver(
+                entries => {
+                    if (entries[0].isIntersecting && !animationStarted) {
+                        animationStarted = true;
+                        startLoopAnimation();
+                    }
+                },
+                { threshold: 0.5 }
+            );
+
+            observer.observe(container);
+
+            panels.forEach((panel, index) => {
+                // Click: stop and activate selected
+                panel.addEventListener('click', () => {
+                    stopLoopAnimation();
+                    currentIndex = index;
+                    activatePanel(index);
+                });
+
+                // Hover: pause
+                panel.addEventListener('mouseenter', () => {
+                    stopLoopAnimation();
+                });
+
+                // Mouse out: resume
+                panel.addEventListener('mouseleave', () => {
+                    startLoopAnimation();
+                });
+            });
+        }
+    </script>
+</body>
+</html>

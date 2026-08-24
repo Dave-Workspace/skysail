@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-Y404KZ61CH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y404KZ61CH');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Digital Gateway to Canada</title>
+    <link rel="icon" type="image/png" href="Images/Favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/reorganized_css.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        /* Contact form image animation */
+        .contact-form-section .contact-form-image {
+            visibility: hidden;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: none;
+        }
+
+            .contact-form-section .contact-form-image.animate {
+                animation: 1s cubic-bezier(.86, 0, .07, 1) .2s forwards hide-show, 2s cubic-bezier(.7, 0, .3, 1) forwards imgZoom;
+            }
+
+        @keyframes hide-show {
+            to {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        @keyframes imgZoom {
+            from {
+                transform: scale(0.95);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* Form styling */
+        .contact-form-section {
+            background-color: #f8f9fa;
+        }
+
+            .contact-form-section .form-control {
+                border: 1px solid #e0e0e0;
+                padding: 0.75rem 1rem;
+                border-radius: 4px;
+                font-size: 0.95rem;
+            }
+
+                .contact-form-section .form-control:focus {
+                    border-color: #2f3b57;
+                    box-shadow: 0 0 0 0.2rem rgba(47, 59, 87, 0.1);
+                }
+
+            .contact-form-section .form-label {
+                font-weight: 500;
+                color: #2f3b57;
+                margin-bottom: 0.5rem;
+            }
+
+            .contact-form-section .required {
+                color: #e62939;
+            }
+    </style>
+</head>
+<body class="settle-page">
+    <header role="banner">
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-header" role="navigation" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="Images/Banner_1.png" alt="Canboards" class="navbar-brand-img">
+                </a>
+                <!-- Hamburger menu button for mobile/tablet (stays right) -->
+                <button class="navbar-toggler d-flex d-md-none ms-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Keep the collapsed nav on the right side by using justify-content-end -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-md-center">
+                        <li class="nav-item"><a class="nav-link" href="study.html">Study</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="work.html">Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="visit.html">Visit</a></li>
+                        <li class="nav-item"><a class="nav-link" href="settle.html">Settle</a></li>
+                        <li class="nav-item"><a class="nav-link" href="other.html">Other</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled outer" href="https://app.canboards.com/client/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="https://app.canboards.com/client/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="calculator.html">Calculator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="announcement-bar">
+
+  <div class="announcement-inner">
+
+    <i class="fa-solid fa-bullhorn announcement-icon"></i>
+
+    <div class="announcement-marquee">
+      <marquee
+        onmouseover="this.stop()"
+        onmouseout="this.start()"
+        scrollamount="6">
+        New portal live
+        <span class="separator">|</span>
+        CEC Draw
+        <span class="separator">|</span>
+        Healthcare Draw
+      </marquee>
+    </div>
+
+  </div>
+</div>
+
+    <section class="hero-section py-5" style="background: linear-gradient(135deg, #f3f6fb 0%, #e9eafc 100%); position:relative; min-height: 400px;">
+        <div class="container position-relative">
+            <div class="row justify-content-center align-items-center" style="min-height: 300px;">
+                <div class="col-12 text-center">
+                    <h1 class="fw-bold mb-3" style="font-size: clamp(2.5rem, 5vw, 4rem); color: #2f3b57; line-height: 1.2;">
+                        Contact Us
+                    </h1>
+                    <p class="mb-0" style="font-size: 1rem; color: #6b7a95; letter-spacing: 0.05em;">
+                        HOME / CONTACT
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Options Section -->
+    <section class="contact-options-section py-5">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <h2 class="mb-3" style="font-size: clamp(1.8rem, 4vw, 2.5rem); color: #2f3b57; font-weight: 700; line-height: 1.3;">
+                    Get in touch and let us know<br>how we can help.
+                </h2>
+                <p style="font-size: 1rem; color: #6b7a95;">
+                    If you are here looking for assistance, please select the category that best fits your concern
+                </p>
+            </div>
+
+            <!-- Three Contact Cards -->
+            <div class="row g-4 justify-content-center mb-5">
+                <!-- Contact Us Card -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-box h-100 p-4 text-center">
+                        <h5 class="service-title mb-3" style="font-size: 1.25rem; color: #2f3b57;">Contact Us</h5>
+                        <p class="service-desc mb-3" style="color: #6b7a95;">
+                            Suite 505, 171 Queens Ave<br>
+                            London, ON N6A 5J7
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Help & Support Card -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-box h-100 p-4 text-center">
+                        <h5 class="service-title mb-3" style="font-size: 1.25rem; color: #2f3b57;">Help & Support</h5>
+                        <p class="service-desc mb-3" style="color: #6b7a95;">
+                            We'd love to talk about how we<br>
+                            can work together.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Media & Press Card -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-box h-100 p-4 text-center">
+                        <h5 class="service-title mb-3" style="font-size: 1.25rem; color: #2f3b57;">Media & Press</h5>
+                        <p class="service-desc mb-3" style="color: #6b7a95;">
+                            Get Canboards news,<br>
+                            and media resources.
+                        </p>
+                        <a href="#" class="btn btn-sm btn-primary" style="padding: 0.5rem 1.5rem; border-radius: 4px; display: inline-block;">
+                            VISIT NEWSROOM
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open a Ticket Button -->
+            <div class="text-center">
+                <a href="contact.html" class="btn btn-primary px-5 py-3" style="border-color: #2f3b57; font-size: 1rem; font-weight: 600;">
+                    OPEN A TICKET
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section py-5">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <h2 class="mb-3" style="font-size: clamp(1.8rem, 4vw, 2.5rem); color: #2f3b57; font-weight: 700;">
+                    Connect with Canboards Experts
+                </h2>
+                <p style="font-size: 1rem; color: #6b7a95;">
+                    Whether it's study, work, or permanent residency, drop your info and we'll get back to you with solutions.
+                </p>
+            </div>
+
+            <div class="row align-items-center g-5">
+                <!-- Left Column - Contact Form -->
+                <div class="col-lg-6">
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <!-- First Name -->
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                            </div>
+
+                            <!-- Last Name -->
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email <span class="required">*</span></label>
+                                <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                            </div>
+
+                            <!-- Subject -->
+                            <div class="col-12">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                            </div>
+
+                            <!-- Message -->
+                            <div class="col-12">
+                                <label for="message" class="form-label">Your Message <span class="required">*</span></label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary px-5 py-2" style="border-color: #2f3b57; font-weight: 600;">
+                                    SUBMIT FORM
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Column - Image -->
+                <div class="col-lg-6">
+                    <img src="Images/Form.jpg" alt="Canboards Experts" class="img-fluid rounded-4 shadow-lg contact-form-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-spacer" style="background-color: #F8FAFC;"></div>
+
+    <footer id="site-footer" class="mt-5">
+        <div class="container py-5" id="footer-content">
+            <!-- Top row (above the line) -->
+            <div class="row footer-top gy-4">
+                <!-- Column1: logo + address + social stacked -->
+                <div class="col-12 col-lg-4">
+                    <div class="row g-3">
+                        <!-- Row1: Logo -->
+                        <div class="col-12">
+                            <div class="footer-logo d-flex align-items-center">
+                                <img src="Images/Logo_White.png" alt="Canboards logo" class="footer-logo-large">
+                            </div>
+                        </div>
+                        <!-- Row2: Address -->
+                        <div class="col-12">
+                            <address>
+                                Suite 505, 171 Queens Ave<br>
+                                London, ON<br>
+                                N6A 5J7
+                            </address>
+                        </div>
+                        <!-- Row3: Social icons -->
+                        <div class="col-12">
+                            <div class="footer-social">
+                                <a href="https://www.linkedin.com/company/canboards/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://www.facebook.com/canboards" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/canboards/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.youtube.com/@CanBoards" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grouped link columns: evenly spaced on large screens, stacked on small -->
+                <div class="col-12 col-lg-8">
+                    <div class="row g-4">
+                        <!-- Can Services -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Services</h6>
+                            <ul>
+                                <li><a class="footer-link" href="study.html">Study</a></li>
+                                <li><a class="footer-link" href="work.html">Work</a></li>
+                                <li><a class="footer-link" href="visit.html">Visit</a></li>
+                                <li><a class="footer-link" href="settle.html">Settle</a></li>
+                                <li><a class="footer-link" href="other.html">Other</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Important Links -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Important Links</h6>
+                            <ul>
+                                <li><a class="footer-link" href="our-story.html">Our Story</a></li>
+                                <li><a class="footer-link" href="careers.html">Careers</a></li>
+                                <li><a class="footer-link" href="#">Press and Media</a></li>
+                                <li><a class="footer-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Can Resources -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Resources</h6>
+                            <ul>
+                                <li><a class="footer-link" href="#">Blog</a></li>
+                                <li><a class="footer-link" href="#">Webinar</a></li>
+                                <li><a class="footer-link" href="#">Can Insight</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row (under the line) -->
+            <div class="row footer-bottom align-items-center pt-3 mt-4">
+                <!-- Desktop: left | center | right
+         Mobile: stacked full-width blocks -->
+                <div class="col-12 col-md-4 text-center text-md-start text-white-50 mb-3 mb-md-0">
+                    ©2025 Canboards Inc.
+                </div>
+
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="d-flex justify-content-center align-items-center gap-3">
+                        <img src="Images/capic-logo.webp"
+                             alt="CAPIC logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+
+                        <img src="Images/RCIC-IRB-Logo-footer.webp"
+                             alt="RCIC-IRB logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 text-center text-md-end">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+</body>
+</html>

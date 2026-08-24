@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-Y404KZ61CH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y404KZ61CH');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit - Digital Gateway to Canada</title>
+    <link rel="icon" type="image/png" href="Images/Favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/reorganized_css.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Add additional top spacing so the hero visual doesn't sit flush under the sticky header */
+        .hero-section {
+            padding-top: 3.5rem; /* base spacing for small screens */
+        }
+
+        @media (min-width: 768px) {
+            .hero-section {
+                padding-top: 4.5rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-section {
+                padding-top: 6rem; /* larger spacing for desktop where header is horizontal */
+            }
+
+            .work-hero-visual {
+                margin-top: 1rem; /* slight additional offset for the image column */
+            }
+        }
+
+        /* Services header styling to match index.html hero section */
+        .services-header h1,
+        .services-header h2,
+        .services-header h3 {
+            display: block;
+            width: 100%;
+            max-width: 96vw;
+            margin: 0 auto;
+            white-space: nowrap;
+            word-break: keep-all;
+            hyphens: none;
+            overflow: visible;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-weight: 500;
+            line-height: 1 !important;
+        }
+
+        /* First h1 and h3 - solid color */
+        .services-header h1,
+        .services-header h3 {
+            color: #2d3958;
+            padding-bottom: 45px;
+        }
+
+        /* Middle h2 - gradient */
+        .services-header h2 {
+            background: linear-gradient(180deg, #61dcdf 0%, #886cff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* R.C.I.C. accent color */
+        .services-header .rcic-accent {
+            color: #e62939;
+        }
+
+        /* Desktop font size (≥925px) = 72px */
+        @media (min-width: 925px) {
+            .services-header h1,
+            .services-header h2,
+            .services-header h3 {
+                font-size: 72px;
+            }
+        }
+
+        /* Mobile/Tablet font size (<925px) = 40px with clamp */
+        @media (max-width: 924.98px) {
+            .services-header h1,
+            .services-header h2,
+            .services-header h3 {
+                font-size: clamp(28px, 8vw, 40px) !important;
+            }
+        }
+
+        /* Custom SVG icon styling for work services */
+        .work-service-icon {
+            width: 60px;
+            height: 60px;
+            fill: #2f2e78;
+            display: inline-block;
+        }
+
+        .work-service-icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        /* Override service box background to transparent */
+        .work-page .service-box {
+            background: transparent !important;
+            padding: 3rem 2rem !important; /* Increased from default padding */
+            margin-bottom: 1.5rem; /* Add space between rows */
+        }
+
+            /* Add hover effect with subtle background */
+            .work-page .service-box:hover {
+                background: rgba(255, 255, 255, 0.5) !important;
+                transform: translateY(-5px);
+                box-shadow: 0 12px 35px rgba(47, 46, 120, 0.1);
+            }
+
+        /* Add more spacing between icon and title */
+        .work-page .work-service-icon-wrapper {
+            margin-bottom: 1.5rem !important; /* Increased from 1rem */
+            margin-top: 0.5rem; /* Add top margin */
+        }
+
+        /* Add more spacing between title and description */
+        .work-page .service-box h5 {
+            margin-bottom: 1rem !important; /* Increased spacing */
+            padding-top: 0.5rem; /* Add padding above title */
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        /* Add more spacing between description and CTA link */
+        .work-page .service-box p {
+            margin-bottom: 1.5rem !important; /* Increased from 1rem */
+            padding-bottom: 0.5rem; /* Add padding below description */
+        }
+
+        /* Adjust CTA link spacing */
+        .work-page .service-box a {
+            margin-top: 0.5rem; /* Add top margin to CTA */
+            display: inline-block;
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 767px) {
+            .work-page .service-box {
+                padding: 2.5rem 1.5rem !important;
+                margin-bottom: 1.25rem;
+            }
+
+            .work-page .work-service-icon-wrapper {
+                margin-bottom: 1.25rem !important;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 575px) {
+            .work-page .service-box {
+                padding: 2rem 1.25rem !important;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Make hero-small-text wider and limit wrapping */
+        @media (min-width: 992px) {
+            #service-hero .hero-small-text {
+                max-width: none;
+                width: 120%;
+                line-height: 1.6;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            #service-hero .hero-small-text {
+                width: 135%;
+            }
+        }
+
+        .can-title-img {
+            width: 100% !important;
+            height: auto !important;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Desktop (≥925px) = 180px max with minimal bottom spacing */
+        @media (min-width: 925px) {
+            .can-title-img {
+                max-width: 180px !important;
+                margin-bottom: 0px !important; /* Reduced from 8px to match line spacing */
+            }
+        }
+
+        /* Mobile/Tablet (<925px) = 100px max with tighter spacing */
+        @media (max-width: 924.98px) {
+            .can-title-img {
+                max-width: clamp(75px, 20vw, 100px) !important;
+                margin-bottom: 4px !important; /* Reduced from 8px for tighter spacing */
+            }
+        }
+
+        .mb-3 {
+            margin-bottom: 0.6rem !important;
+        }
+    </style>
+
+     <style>
+.immigration-funds-section {
+  padding: 40px 20px;
+  /* Transparent gradient background */
+  background: linear-gradient(to bottom right, rgba(47, 62, 120, 0.1), rgba(255, 255, 255, 0.1));
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.immigration-funds-section h2 {
+  margin-bottom: 10px;
+}
+
+.updated-date {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.description {
+  margin: 15px 0 25px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.funds-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.funds-table th,
+.funds-table td {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.funds-table th {
+  background-color: #2f2e78;
+  color: #fff;
+}
+
+.cta-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #2f2e78;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #1f1e5c;
+}
+
+/* ---------------- Two Column Layout ---------------- */
+.flex-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap; /* allows stacking */
+}
+
+.funds-info {
+  flex: 1 1 400px;
+}
+
+.funds-form {
+  flex: 1 1 400px;
+}
+
+.funds-form form {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .funds-info, .funds-form {
+    flex: 1 1 100%;
+  }
+
+  .funds-info {
+    margin-bottom: 30px;
+  }
+}
+
+/* ---------------- Form Inputs ---------------- */
+.form-control {
+  border-radius: 6px;
+  padding: 10px;
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+.section-box {
+  background: rgba(255, 255, 255, 0.9); /* light transparent background */
+  border: 1px solid #ddd;              /* subtle border */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* soft shadow */
+  border-radius: 8px;                   /* rounded corners */
+  padding: 25px 20px;                   /* inner spacing */
+  margin-bottom: 30px;                  /* spacing between boxes */
+}
+
+@media (max-width: 768px) {
+  .section-box {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+}
+
+.required {
+                color: #e62939;
+            }
+
+
+/* Header */
+.accordion-header {
+  width: 100%;
+  background: linear-gradient(135deg, #2f2e78, #4c4bd6);
+  color: #fff;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 24px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.accordion-header i {
+  margin-right: 8px;
+}
+
+.accordion-header .arrow {
+  transition: transform 0.3s ease;
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    </style>
+
+</head>
+<body class="work-page">
+    <!-- Header/Navbar -->
+    <header role="banner">
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-header" role="navigation" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="Images/Banner_1.png" alt="Canboards" class="navbar-brand-img">
+                </a>
+                <!-- Hamburger menu button for mobile/tablet (stays right) -->
+                <button class="navbar-toggler d-flex d-md-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Keep the collapsed nav on the right side by using justify-content-end -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-md-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="study.html">Study</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="work.html">Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="visit.html">Visit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settle.html">Settle</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="other.html">Other</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled outer" href="https://app.canboards.com/client/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="https://app.canboards.com/client/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="calculator.html">Calculator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="announcement-bar">
+
+  <div class="announcement-inner">
+
+    <i class="fa-solid fa-bullhorn announcement-icon"></i>
+
+    <div class="announcement-marquee">
+      <marquee
+        onmouseover="this.stop()"
+        onmouseout="this.start()"
+        scrollamount="6">
+        New portal live
+        <span class="separator">|</span>
+        CEC Draw
+        <span class="separator">|</span>
+        Healthcare Draw
+      </marquee>
+    </div>
+
+  </div>
+</div>
+
+
+    <!-- Hero (re-uses index hero structure and background) -->
+    <section class="hero-section py-4 py-md-5" id="service-hero">
+        <div class="container position-relative">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-lg-5 text-center text-lg-start mb-4 mb-lg-0 hero-content">
+                    <h1 class="mb-3 hero-main-text" style="font-size:2.8rem; line-height:1.02;">Explore Canada:<br>Your Perfect Visit<br />Awaits</h1>
+                    <p class="hero-small-text mb-4">Whether for tourism, family visits, or business, we simplify your journey to experience Canada's breathtaking beauty and vibrant opportunities.</p>
+                    <div class="d-flex justify-content-center justify-content-lg-start">
+                        <a href="https://app.canboards.com/client/register" class="fancy_button px-4 py-2 fancy">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-7 d-flex justify-content-center">
+                    <div class="work-hero-visual">
+                        <!-- Motion frame: gives the image its own positioned area to move freely -->
+                        <div class="work-hero-frame">
+                            <div class="work-hero-floater">
+                                <img src="Images/Visit_Main.png" alt="Work visual" class="work-hero-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reference Flip Section - Visit Services -->
+    <section class="reference-flip-section my-5">
+        <div class="container">
+            <!-- Services Header with Title Image and Animated Text -->
+            <div class="services-header text-center mb-5">
+                <div class="col-12 mb-3 d-flex justify-content-center">
+                    <img src="Images/Can.png" alt="Can" class="img-fluid can-title-img">
+                </div>
+                <h2 class="mb-2 gradient-text" id="visit-anim">Visit Services</h2>
+                <h3 class="mb-4">with Licensed <span class="rcic-accent">R.C.I.C.</span></h3>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- 1. Visitor Visa (TRV) -->
+                <div class="col-md-4 col-sm-6">
+                    <a class="reference-flip-link" href="Visitor_Visa.html">
+                        <div class="reference-flip-container">
+                            <div class="reference-flipper">
+                                <!-- Front Face -->
+                                <div class="reference-flip-front">
+                                    <div class="work-service-icon-wrapper">
+                                        <svg aria-hidden="true" class="work-service-icon" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M224 320h32V96h-32c-17.67 0-32 14.33-32 32v160c0 17.67 14.33 32 32 32zm352-32V128c0-17.67-14.33-32-32-32h-32v224h32c17.67 0 32-14.33 32-32zm48 96H128V16c0-8.84-7.16-16-16-16H16C7.16 0 0 7.16 0 16v32c0 8.84 7.16 16 16 16h48v368c0 8.84 7.16 16 16 16h82.94c-1.79 5.03-2.94 10.36-2.94 16 0 26.51 21.49 48 48 48s48-21.49 48-48c0-5.64-1.15-10.97-2.94-16h197.88c-1.79 5.03-2.94 10.36-2.94 16 0 26.51 21.49 48 48 48s48-21.49 48-48c0-5.64-1.15-10.97-2.94-16H624c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM480 96V48c0-26.51-21.49-48-48-48h-96c-26.51 0-48 21.49-48 48v272h192V96zm-48 0h-96V48h96v48z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="reference-flip-title height110">Visitor Visa</h3>
+                                    <p class="reference-flip-title reference-flip-cta-process-nb" >Processing Fees<br /> <span style="color: #d53c41;">  $99 </span></p>
+                                    <p class="reference-flip-desc--mobile">Assistance with visitor visa applications for tourism, family visits in Canada.</p>
+                                    <span class="reference-flip-cta--mobile">
+                                        APPLY NOW <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="reference-flip-back">
+                                    <h3 class="reference-flip-title">Visitor Visa</h3>
+                                    <p class="reference-flip-desc">Assistance with visitor visa applications for tourism, family visits in Canada.</p>
+                                    <span class="reference-flip-cta">
+                                        APPLY NOW <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 2. Convocation Visit Visa -->
+                <div class="col-md-4 col-sm-6">
+                    <a class="reference-flip-link" href="Convocation_VV.html">
+                        <div class="reference-flip-container">
+                            <div class="reference-flipper">
+                                <!-- Front Face -->
+                                <div class="reference-flip-front">
+                                    <div class="work-service-icon-wrapper">
+                                        <svg aria-hidden="true" class="work-service-icon" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="reference-flip-title height110">Convocation<br />Visit Visa</h3>
+                                    <p class="reference-flip-title reference-flip-cta-process-nb" >Processing Fees<br /> <span style="color: #d53c41;">  $99 </span></p>
+                                    <p class="reference-flip-desc--mobile">Specialized support for parents and family members attending graduation ceremonies of their loved ones in Canada.</p>
+                                    <span class="reference-flip-cta--mobile">
+                                        APPLY NOW <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="reference-flip-back">
+                                    <h3 class="reference-flip-title">Convocation<br />Visit Visa</h3>
+                                    <p class="reference-flip-desc">Specialized support for parents and family members attending graduation ceremonies of their loved ones in Canada.</p>
+                                    <span class="reference-flip-cta">
+                                        APPLY NOW <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 3. Visitor Visa Extension -->
+                <div class="col-md-4 col-sm-6">
+                    <a class="reference-flip-link" href="VV_Extension.html">
+                        <div class="reference-flip-container">
+                            <div class="reference-flipper">
+                                <!-- Front Face -->
+                                <div class="reference-flip-front">
+                                    <div class="work-service-icon-wrapper">
+                                        <svg aria-hidden="true" class="work-service-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M436 160H12c-6.6 0-12-5.4-12-12v-36c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48v36c0 6.6-5.4 12-12 12zM12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm316 140c0-6.6-5.4-12-12-12h-60v-60c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v60h-60c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h60v60c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-60h60c6.6 0 12-5.4 12-12v-40z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="reference-flip-title height110">Visitor Visa<br />Extension</h3>
+                                    <p class="reference-flip-title reference-flip-cta-process-nb" >Processing Fees<br /> <span style="color: #d53c41;">  $99 </span></p>
+                                    <p class="reference-flip-desc--mobile">Guidance on extending your stay in Canada as a visitor, ensuring you maintain legal status and avoid complications.</p>
+                                    <span class="reference-flip-cta--mobile">
+                                        APPLY NOW <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="reference-flip-back">
+                                    <h3 class="reference-flip-title">Visitor Visa<br />Extension</h3>
+                                    <p class="reference-flip-desc">Guidance on extending your stay in Canada as a visitor, ensuring you maintain legal status and avoid complications.</p>
+                                    <span class="reference-flip-cta">
+                                        APPLY NOW <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 4. Super Visa -->
+                <div class="col-md-4 col-sm-6">
+                    <a class="reference-flip-link" href="Super_Visa.html">
+                        <div class="reference-flip-container">
+                            <div class="reference-flipper">
+                                <!-- Front Face -->
+                                <div class="reference-flip-front">
+                                    <div class="work-service-icon-wrapper">
+                                        <svg aria-hidden="true" class="work-service-icon" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M570.69,236.27,512,184.44V48a16,16,0,0,0-16-16H432a16,16,0,0,0-16,16V99.67L314.78,10.3C308.5,4.61,296.53,0,288,0s-20.46,4.61-26.74,10.3l-256,226A18.27,18.27,0,0,0,0,248.2a18.64,18.64,0,0,0,4.09,10.71L25.5,282.7a21.14,21.14,0,0,0,12,5.3,21.67,21.67,0,0,0,10.69-4.11l15.9-14V480a32,32,0,0,0,32,32H480a32,32,0,0,0,32-32V269.88l15.91,14A21.94,21.94,0,0,0,538.63,288a20.89,20.89,0,0,0,11.87-5.31l21.41-23.81A21.64,21.64,0,0,0,576,248.19,21,21,0,0,0,570.69,236.27ZM288,176a64,64,0,1,1-64,64A64,64,0,0,1,288,176ZM400,448H176a16,16,0,0,1-16-16,96,96,0,0,1,96-96h64a96,96,0,0,1,96,96A16,16,0,0,1,400,448Z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="reference-flip-title height110">Super Visa (for Parents and Grandparents)</h3>
+                                    <p class="reference-flip-title reference-flip-cta-process-nb" >Processing Fees<br /> <span style="color: #d53c41;">  $199 </span></p>
+                                    <p class="reference-flip-desc--mobile">Comprehensive support for the Super Visa, to visit Canada for extended periods (up to 5 years).</p>
+                                    <span class="reference-flip-cta--mobile">
+                                        APPLY NOW <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="reference-flip-back">
+                                    <h3 class="reference-flip-title">Super Visa (for Parents and Grandparents)</h3>
+                                    <p class="reference-flip-desc">Comprehensive support for the Super Visa, to visit Canada for extended periods (up to 5 years).</p>
+                                    <span class="reference-flip-cta">
+                                        APPLY NOW <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div><p class="reference-flip-title reference-flip-cta-process grd-text">Pay processing fees after IRCC approval. </span></p></div>
+        </div>
+    </section>
+
+
+<section class="immigration-funds-section">
+  <!--<h2 class="special-service-boxes-title">Requirement for Super visa</h2>-->
+  <div class="services-header text-center">
+                <div class="col-12 mb-3 d-flex justify-content-center">
+                    <img src="Images/Can.png" alt="Can" class="img-fluid can-title-img">
+                </div>
+                <h2 class="mb-2 gradient-text" id="travel-ins-anim">Travel Insurance </h2>
+                <h3 class="mb-3">Guidance</h3>
+            </div>
+  <div class="container flex-container">
+
+    
+    <!-- Right Column -->
+    <div class="funds-form section-box">
+      <!--<h2 style="text-align:center;">Health Insurance Enquiry</h2>-->
+      <button class="accordion-header" type="button">
+    <i class="bi bi-shield-check"></i>
+    Travel Insurance Enquiry
+    <i class="arrow"></i>
+  </button>
+
+      
+      <p class="description">
+        Get personalized guidance on the minimum travel insurance coverage you need for Visitor visa in Canada.
+      </p>
+
+      <form id="VVIForm" class="needs-validation" novalidate>
+  <div class="row g-3">
+
+    <!-- Name -->
+    <div class="col-md-6">
+      <label for="name" class="form-label">Name <span class="required">*</span></label>
+      <input type="text" class="form-control" id="name" placeholder="Full Name" required>
+      <div class="invalid-feedback">Please enter your name.</div>
+    </div>
+
+   <!-- Age -->
+    <div class="col-md-6">
+      <label for="age" class="form-label">Age <span class="required">*</span></label>
+      <input type="number" class="form-control" id="age" placeholder="Your Age" min="1" max="120" required>
+      <div class="invalid-feedback">Please enter a valid age (1-120).</div>
+    </div>
+
+
+    <!-- Contact -->
+    <div class="col-md-6">
+      <label for="contact" class="form-label">Contact <span class="required">*</span></label>
+      <input type="tel" class="form-control" id="contact" placeholder="Phone Number" pattern="^\+?\d{7,15}$" required>
+      <div class="invalid-feedback">Please enter a valid contact number (7-15 digits).</div>
+    </div>
+
+    <!-- Email -->
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email <span class="required">*</span></label>
+      <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+      <div class="invalid-feedback">Please enter a valid email address.</div>
+    </div>
+
+    
+    <!-- Notes / Description -->
+    <div class="col-12">
+      <label for="notes" class="form-label">Notes / Description</label>
+      <textarea class="form-control" id="notes" rows="5" placeholder="Your Message" maxlength="500"></textarea>
+      <div class="form-text">Maximum 500 characters.</div>
+    </div>
+
+    <!-- Submit -->
+    <div class="col-12 center-button" >
+      <button type="submit" class="fancy_button px-4 py-2 fancy" style="">
+        SUBMIT FORM
+      </button>
+    </div>
+
+  </div>
+</form>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+    <!-- New Section: Canboard Steps with alternating layout -->
+    <section class="canboard-steps">
+        <div class="container">
+            <div class="canboard-steps-header">
+                <div class="col-12 mb-3 d-flex justify-content-center">
+                    <img src="Images/How.png" alt="How" class="img-fluid how-title-img">
+                </div>
+                <div class="rcic-underline mx-auto" aria-hidden="true"></div>
+            </div>
+
+            <!-- Step 1: Register -->
+            <div class="row align-items-center mb-5">
+                <!-- Text column - always first on mobile -->
+                <div class="col-md-6">
+                    <div class="step-content-wrapper">
+                        <div class="step-bar step-bar-1"></div>
+                        <div class="step-label">REGISTER</div>
+                        <h3 class="step-title">Sign Up for Free</h3>
+                        <div class="step-content">
+                            <p>Create your account, share your Career Goals, and get personalized recommendations all in just a few minutes!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image column - always second on mobile -->
+                <div class="col-md-6">
+                    <div class="step-img-container">
+                        <img src="Images/Sign_Up.png" alt="Create your account" class="step-img img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Progress Steps Section - Aspiria Style -->
+    <section class="aspiria-progress-section">
+        <!-- Sticky Progress Bar - Outside container for proper sticky behavior -->
+        <div class="progress-bar-sticky">
+            <div class="container">
+                <div class="progress-bar-container">
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="aspiriaProgressFill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Step Cards Container -->
+            <div class="aspiria-cards-container position-relative">
+                <!-- Step 1: Search -->
+                <div class="aspiria-card-wrapper aspiria-card-1">
+                    <div class="aspiria-card-content">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 order-md-2">
+                                <div class="step-content-wrapper">
+                                    <div class="step-bar step-bar-2"></div>
+                                    <div class="step-label">SEARCH</div>
+                                    <h3 class="step-title">Select a Visit Service</h3>
+                                    <div class="step-content">
+                                        <p>
+                                            Easily search and explore programs worldwide that match your interests and career goals all
+                                            in one place.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 order-md-1">
+                                <div class="step-img-container">
+                                    <img src="Images/Search_Visit.png" alt="Search for study programs" class="step-img img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Apply -->
+                <div class="aspiria-card-wrapper aspiria-card-2">
+                    <div class="aspiria-card-content">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="step-content-wrapper">
+                                    <div class="step-bar step-bar-3"></div>
+                                    <div class="step-label">APPLY</div>
+                                    <h3 class="step-title">Submit Your Application</h3>
+                                    <div class="step-content">
+                                        <p>
+                                            Create your account, share your study goals, and get personalized recommendations all in
+                                            just a few minutes!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="step-img-container">
+                                    <img src="Images/Submit.png" alt="Submit application" class="step-img img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Approval -->
+                <div class="aspiria-card-wrapper aspiria-card-3">
+                    <div class="aspiria-card-content">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 order-md-2">
+                                <div class="step-content-wrapper">
+                                    <div class="step-bar step-bar-4"></div>
+                                    <div class="step-label">APPROVAL</div>
+                                    <h3 class="step-title">Pay After Your Application Gets Approved</h3>
+                                    <div class="step-content">
+                                        <p>
+                                            With Canboards, you only pay once your application is officially approved for risk-free
+                                            upfront cost.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 order-md-1">
+                                <div class="step-img-container">
+                                    <img src="Images/Visa.png" alt="Visa approval" class="step-img img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="why-section why-copy-flip my-5 d-flex justify-content-center align-items-center">
+        <div class="why-card-bg">
+            <div class="why-inner container d-flex align-items-center">
+                <img src="Images/bg-lines.png" alt="Background Lines" class="why-bg-lines">
+
+                <div class="why-left d-flex align-items-center">
+                    <img src="Images/New_Can_Help.png" alt="Why Canboards" class="why-heading-img">
+                </div>
+
+                <div class="why-right d-flex align-items-center justify-content-center">
+                    <div class="why-feature-stack flip-stack-v2">
+                        <!-- Blog & Articles -->
+                        <div class="flip-container card-top" tabindex="0" aria-label="Blog & Articles">
+                            <div class="flipper">
+                                <div class="front">
+                                    <div class="card-icon" aria-hidden="true">
+                                        <i class="bi bi-journal-text fs-3" aria-hidden="true"></i>
+                                        <span class="visually-hidden">Blog and Articles</span>
+                                    </div>
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        Blog &amp; Articles
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Stay informed with the latest immigration news, tips, and guides.
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        Blog &amp; Articles
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Stay informed with the latest immigration news, tips, and guides.
+                                    </div>
+                                    <a class="card-readmore" href="#" aria-label="Read more about Blog and Articles"
+                                       style="display:inline-flex; align-items:center; gap:8px; color:#e62939; font-weight:700; text-decoration:none; margin-top:10px;">
+                                        READ MORE <span class="arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQs -->
+                        <div class="flip-container card-center" tabindex="0" aria-label="FAQs">
+                            <div class="flipper">
+                                <div class="front">
+                                    <div class="card-icon" aria-hidden="true">
+                                        <i class="bi bi-question-circle fs-3" aria-hidden="true"></i>
+                                        <span class="visually-hidden">Frequently Asked Questions</span>
+                                    </div>
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        FAQs
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Find answers to commonly asked questions about immigration processes.
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        FAQs
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Find answers to commonly asked questions about immigration processes.
+                                    </div>
+                                    <a class="card-readmore" href="posts.php" aria-label="Read more FAQs"
+                                       style="display:inline-flex; align-items:center; gap:8px; color:#e62939; font-weight:700; text-decoration:none; margin-top:10px;">
+                                        READ MORE <span class="arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Webinars & Events -->
+                        <div class="flip-container card-bottom" tabindex="0" aria-label="Webinars & Events">
+                            <div class="flipper">
+                                <div class="front">
+                                    <div class="card-icon" aria-hidden="true">
+                                        <i class="bi bi-calendar-event fs-3" aria-hidden="true"></i>
+                                        <span class="visually-hidden">Webinars and Events</span>
+                                    </div>
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        Webinars &amp; Events
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Join our expert-led sessions for in-depth insights and live Q&amp;A.
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="card-title"
+                                         style="color:#2D3958; font-weight:700; font-size:clamp(1.6rem,2.4vw,1.8rem); line-height:1.2; margin:6px 0 8px 0; text-shadow:none;">
+                                        Webinars &amp; Events
+                                    </div>
+                                    <div class="card-desc"
+                                         style="color:#6b7280; font-size:0.95rem; line-height:1.7; margin:0; max-width:36ch;">
+                                        Join our expert-led sessions for in-depth insights and live Q&amp;A.
+                                    </div>
+                                    <a class="card-readmore" href="contact.html" aria-label="Read more about Webinars and Events"
+                                       style="display:inline-flex; align-items:center; gap:8px; color:#e62939; font-weight:700; text-decoration:none; margin-top:10px;">
+                                        READ MORE <span class="arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /cards -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="news-section">
+        <div class="news-container">
+            <!-- Header -->
+            <div class="news-header text-center">
+                <h2 class="news-heading">What our clients are saying about us</h2>
+                <p class="news-subheading">Customer satisfaction is a primary goal for our company</p>
+            </div>
+
+            <button class="scroll-btn left-btn" id="scrollLeft">&#8249;</button>
+
+            <div class="news-wrapper" id="newsWrapper">
+                <div class="news-card">
+                    <div class="news-avatar pink-bg">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Monica Patel">
+                    </div>
+                    <div class="news-content">
+                        <h3>Monica Patel</h3>
+                        <p class="news-subtitle">Student from India</p>
+                        <div class="news-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="news-quote">Canboards made my student visa application so simple. The digital dashboard was a game-changer!</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-avatar purple-bg">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Vincent Sinclair">
+                    </div>
+                    <div class="news-content">
+                        <h3>Vincent Sinclair</h3>
+                        <p class="news-subtitle">Worker from Nigeria</p>
+                        <div class="news-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="news-quote">The RCIC support was invaluable. I got my work permit faster than I ever imagined. Highly recommend!</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-avatar yellow-bg">
+                        <img src="https://i.pravatar.cc/150?img=9" alt="Stella Smith">
+                    </div>
+                    <div class="news-content">
+                        <h3>Stella Smith</h3>
+                        <p class="news-subtitle">PR Applicant from UAE</p>
+                        <div class="news-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="news-quote">Navigating the PR process felt overwhelming until I found Canboards.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-dots" id="newsDots" role="tablist" aria-label="News pagination"></div>
+
+            <button class="scroll-btn right-btn" id="scrollRight">&#8250;</button>
+        </div>
+    </section>
+
+    <!-- Let's Start Your Canadian Journey Section -->
+    <section class="journey-section">
+        <div class="journey-dark-strip"></div>
+        <div class="container position-relative">
+            <div class="journey-content-wrapper">
+                <div class="row align-items-center position-relative">
+                    <!-- Left Side: Content -->
+                    <div class="col-lg-8 col-md-12 journey-text-col">
+                        <div class="journey-text-content">
+                            <h2 class="journey-title">
+                                Plan Your Visit to Canada
+                            </h2>
+                            <p class="journey-desc">
+                                Get step-by-step guidance to apply for your Visitor Visa with the help of licensed RCIC experts. Travel for tourism, family visits, or business hassle-free.
+                            </p>
+                            <div class="journey-cta-wrapper">
+                                <a href="https://app.canboards.com/client/register" class="fancy_button px-4 py-2 fancy">Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Image -->
+                    <div class="col-lg-4 col-md-12 journey-image-col">
+                        <div class="journey-image-wrapper">
+                            <img src="Images/Visitor.png"
+                                 alt="Visit Canada"
+                                 class="journey-main-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-spacer" style="background-color: #23235b;"></div>
+
+    <footer id="site-footer" class="mt-5">
+        <div class="container py-5" id="footer-content">
+            <!-- Top row (above the line) -->
+            <div class="row footer-top gy-4">
+                <!-- Column1: logo + address + social stacked -->
+                <div class="col-12 col-lg-4">
+                    <div class="row g-3">
+                        <!-- Row1: Logo -->
+                        <div class="col-12">
+                            <div class="footer-logo d-flex align-items-center">
+                                <img src="Images/Logo_White.png" alt="Canboards logo" class="footer-logo-large">
+                            </div>
+                        </div>
+                        <!-- Row2: Address -->
+                        <div class="col-12">
+                            <address>
+                                Suite 505, 171 Queens Ave<br>
+                                London, ON<br>
+                                N6A 5J7
+                            </address>
+                        </div>
+                        <!-- Row3: Social icons -->
+                        <div class="col-12">
+                            <div class="footer-social">
+                                <a href="https://www.linkedin.com/company/canboards/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://www.facebook.com/canboards" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/canboards/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.youtube.com/@CanBoards" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grouped link columns: evenly spaced on large screens, stacked on small -->
+                <div class="col-12 col-lg-8">
+                    <div class="row g-4">
+                        <!-- Can Services -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Services</h6>
+                            <ul>
+                                <li><a class="footer-link" href="study.html">Study</a></li>
+                                <li><a class="footer-link" href="work.html">Work</a></li>
+                                <li><a class="footer-link" href="visit.html">Visit</a></li>
+                                <li><a class="footer-link" href="settle.html">Settle</a></li>
+                                <li><a class="footer-link" href="other.html">Other</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Important Links -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Important Links</h6>
+                            <ul>
+                                <li><a class="footer-link" href="our-story.html">Our Story</a></li>
+                                <li><a class="footer-link" href="careers.html">Careers</a></li>
+                                <li><a class="footer-link" href="#">Press and Media</a></li>
+                                <li><a class="footer-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Can Resources -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Resources</h6>
+                            <ul>
+                                <li><a class="footer-link" href="#">Blog</a></li>
+                                <li><a class="footer-link" href="#">Webinar</a></li>
+                                <li><a class="footer-link" href="#">Can Insight</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row (under the line) -->
+            <div class="row footer-bottom align-items-center pt-3 mt-4">
+                <!-- Desktop: left | center | right
+         Mobile: stacked full-width blocks -->
+                <div class="col-12 col-md-4 text-center text-md-start text-white-50 mb-3 mb-md-0">
+                    ©2025 Canboards Inc.
+                </div>
+
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="d-flex justify-content-center align-items-center gap-3">
+                        <img src="Images/capic-logo.webp"
+                             alt="CAPIC logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+
+                        <img src="Images/RCIC-IRB-Logo-footer.webp"
+                             alt="RCIC-IRB logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 text-center text-md-end">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+</body>
+</html>

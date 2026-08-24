@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-Y404KZ61CH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y404KZ61CH');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Digital Gateway to Canada</title>
+    <link rel="icon" type="image/png" href="Images/Favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/reorganized_css.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        /* Add additional top spacing so the hero visual doesn't sit flush under the sticky header */
+        .hero-section {
+            padding-top: 3.5rem;
+            /* base spacing for small screens */
+        }
+
+        @media (min-width: 768px) {
+            .hero-section {
+                padding-top: 4.5rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-section {
+                padding-top: 6rem;
+                /* larger spacing for desktop where header is horizontal */
+            }
+
+            .work-hero-visual {
+                margin-top: 1rem;
+                /* slight additional offset for the image column */
+            }
+        }
+
+        .values-card {
+            background: #ffffff;
+            border: 1px solid #e8eaf0;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            height: 100%;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .values-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(47, 46, 120, 0.08);
+            }
+
+        .values-icon {
+            font-size: 3.5rem;
+            color: #2f3b57;
+            line-height: 1;
+        }
+
+        .values-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #2f3b57;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        @media (max-width: 991px) {
+            .values-card {
+                min-height: 240px;
+            }
+
+            .values-icon {
+                font-size: 3rem;
+            }
+
+
+            .values-title {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* Jobs Section Styles */
+        .jobs-section {
+            position: relative;
+        }
+
+        .jobs-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: #2f3b57;
+            line-height: 1.2;
+        }
+
+        .jobs-description {
+            font-size: 1rem;
+            color: #6b7a95;
+            line-height: 1.7;
+        }
+
+        /* Custom Accordion Styles */
+        .jobs-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .accordion-item-custom {
+            position: relative;
+            border-bottom: 2px solid #d0d5dd;
+            transition: border-color 0.3s ease;
+        }
+
+            .accordion-item-custom::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                width: 100%;
+                height: 2px;
+                background-color: #8067ff;
+                transform: scaleX(0);
+                transform-origin: right center;
+                transition: transform 0.5s cubic-bezier(0.35, 0.7, 0.35, 1);
+                z-index: 1;
+            }
+
+            .accordion-item-custom:has(.accordion-button-custom:not(.collapsed))::before {
+                transform: scaleX(1);
+                transform-origin: left center;
+            }
+
+        .accordion-button-custom {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .accordion-button-custom:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+        .job-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #2f3b57;
+            text-align: left;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #6b7a95;
+            transition: transform 0.3s ease, color 0.3s ease;
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .accordion-button-custom:not(.collapsed) .accordion-icon {
+            transform: rotate(45deg);
+            color: #8067ff;
+        }
+
+        .accordion-collapse {
+            transition: height 0.35s ease;
+        }
+
+        .accordion-body-custom {
+            padding: 0 0 1.5rem 0;
+            color: #6b7a95;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 991px) {
+            .jobs-title {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .jobs-description {
+                text-align: center;
+            }
+
+            .job-title {
+                font-size: 1.05rem;
+            }
+
+            .accordion-button-custom {
+                padding: 1.25rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="work-page">
+    <!-- Header/Navbar -->
+    <header role="banner">
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-header" role="navigation" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="Images/Banner_1.png" alt="Canboards" class="navbar-brand-img">
+                </a>
+                <!-- Hamburger menu button for mobile/tablet (stays right) -->
+                <button class="navbar-toggler d-flex d-md-none ms-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Keep the collapsed nav on the right side by using justify-content-end -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-md-center">
+                        <li class="nav-item"><a class="nav-link" href="study.html">Study</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="work.html">Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="visit.html">Visit</a></li>
+                        <li class="nav-item"><a class="nav-link" href="settle.html">Settle</a></li>
+                        <li class="nav-item"><a class="nav-link" href="other.html">Other</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled outer" href="https://app.canboards.com/client/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="https://app.canboards.com/client/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="calculator.html">Calculator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="announcement-bar">
+
+  <div class="announcement-inner">
+
+    <i class="fa-solid fa-bullhorn announcement-icon"></i>
+
+    <div class="announcement-marquee">
+      <marquee
+        onmouseover="this.stop()"
+        onmouseout="this.start()"
+        scrollamount="6">
+        New portal live
+        <span class="separator">|</span>
+        CEC Draw
+        <span class="separator">|</span>
+        Healthcare Draw
+      </marquee>
+    </div>
+
+  </div>
+</div>
+
+
+    <!-- Hero (re-uses index hero structure and background) -->
+    <section class="hero-section py-4 py-md-5"
+             id="service-hero">
+        <div class="container position-relative">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-lg-5 text-center text-lg-start mb-4 mb-lg-0 hero-content">
+                    <h1 class="mb-3 hero-main-text">
+                        Help Us Change<br />Canadian<br />Immigration
+                    </h1>
+                    <p class="hero-small-text mb-4">
+                        Be part of building an equitable tomorrow where you grow, make an impact, and have fun along the way!
+                    </p>
+                    <div class="d-flex justify-content-center justify-content-lg-start">
+                        <a href="#JoinUs" class="fancy_button px-4 py-2 fancy">View Open Roles</a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-7 d-flex justify-content-center">
+                    <div class="work-hero-visual">
+                        <!-- Motion frame: gives the image its own positioned area to move freely -->
+                        <div class="work-hero-frame">
+                            <div class="work-hero-floater">
+                                <img src="Images/Career.png" alt="Work visual" class="work-hero-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section my-5">
+        <div class="container">
+            <div class="services-header text-center mb-5">
+                <h1 class="fw-bold mb-2" style="font-size:2.8rem; color:#2f3b57;">Can Values</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Row 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="values-card text-center p-5">
+                        <div class="values-icon mb-4">
+                            <i class="bi bi-hand-thumbs-up-fill"></i>
+                        </div>
+                        <h5 class="values-title">Helping Everyone<br>Achieve Success</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="values-card text-center p-5">
+                        <div class="values-icon mb-4">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <h5 class="values-title">Caring About<br>Each Other</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="values-card text-center p-5">
+                        <div class="values-icon mb-4">
+                            <i class="bi bi-person-check-fill"></i>
+                        </div>
+                        <h5 class="values-title">Delivering an A+<br>Customer Experience</h5>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="values-card text-center p-5">
+                        <div class="values-icon mb-4">
+                            <i class="bi bi-rocket-takeoff-fill"></i>
+                        </div>
+                        <h5 class="values-title">Taking<br>Ownership</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="values-card text-center p-5">
+                        <div class="values-icon mb-4">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h5 class="values-title">Innovating and<br>Improving</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="values-card text-center p-5">
+                        <div class="values-icon mb-4">
+                            <i class="bi bi-emoji-smile-fill"></i>
+                        </div>
+                        <h5 class="values-title">Making<br>Work Fun</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section py-5" style="background: linear-gradient(135deg, #f3f6fb 0%, #e9eafc 100%);" id="JoinUs">
+        <div class="container">
+            <div class="row align-items-start">
+                <!-- Left Column - Title and Description -->
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h2 class="jobs-title mb-4">Join the Future of<br>Canadian Immigration</h2>
+                    <p class="jobs-description">
+                        At Canboards, we're redefining how people move, study,
+                        and build their dreams in Canada. Our mission is simple:
+                        make immigration transparent, efficient, and empowering
+                        for everyone.
+                    </p>
+                </div>
+
+                <!-- Right Column - Jobs Accordion -->
+                <div class="col-lg-7">
+                    <div class="jobs-accordion">
+                        <!-- Job 1 -->
+                        <div class="accordion-item-custom">
+                            <button class="accordion-button-custom collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#job1">
+                                <span class="job-title">Immigration Case Manager</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div id="job1" class="accordion-collapse collapse">
+                                <div class="accordion-body-custom">
+                                    Support clients in preparing, reviewing, and submitting applications while
+                                    ensuring compliance with Canadian immigration laws.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job 2 -->
+                        <div class="accordion-item-custom">
+                            <button class="accordion-button-custom collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#job2">
+                                <span class="job-title">Business Development Executive</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div id="job2" class="accordion-collapse collapse">
+                                <div class="accordion-body-custom">
+                                    Drive partnerships, expand client base, and identify growth opportunities in international student and immigration markets.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job 3 -->
+                        <div class="accordion-item-custom">
+                            <button class="accordion-button-custom collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#job3">
+                                <span class="job-title">Content & Marketing Specialist</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div id="job3" class="accordion-collapse collapse">
+                                <div class="accordion-body-custom">
+                                    Create engaging content, manage campaigns, and strengthen Canboards’ brand presence across digital channels.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job 4 -->
+                        <div class="accordion-item-custom">
+                            <button class="accordion-button-custom collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#job4">
+                                <span class="job-title">Client Support Associate</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div id="job4" class="accordion-collapse collapse">
+                                <div class="accordion-body-custom">
+                                    Assist clients with inquiries, guide them through application processes, and ensure a smooth, positive experience.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job 5 -->
+                        <div class="accordion-item-custom">
+                            <button class="accordion-button-custom collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#job5">
+                                <span class="job-title">Web & Technology Developer</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div id="job5" class="accordion-collapse collapse">
+                                <div class="accordion-body-custom">
+                                    Develop, maintain, and optimize Canboards’ tech platform for better user experience and operational efficiency.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-spacer" style="background-color: #F8FAFC;"></div>
+
+    <footer id="site-footer" class="mt-5">
+        <div class="container py-5" id="footer-content">
+            <!-- Top row (above the line) -->
+            <div class="row footer-top gy-4">
+                <!-- Column1: logo + address + social stacked -->
+                <div class="col-12 col-lg-4">
+                    <div class="row g-3">
+                        <!-- Row1: Logo -->
+                        <div class="col-12">
+                            <div class="footer-logo d-flex align-items-center">
+                                <img src="Images/Logo_White.png" alt="Canboards logo" class="footer-logo-large">
+                            </div>
+                        </div>
+                        <!-- Row2: Address -->
+                        <div class="col-12">
+                            <address>
+                                Suite 505, 171 Queens Ave<br>
+                                London, ON<br>
+                                N6A 5J7
+                            </address>
+                        </div>
+                        <!-- Row3: Social icons -->
+                        <div class="col-12">
+                            <div class="footer-social">
+                                <a href="https://www.linkedin.com/company/canboards/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://www.facebook.com/canboards" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/canboards/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.youtube.com/@CanBoards" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grouped link columns: evenly spaced on large screens, stacked on small -->
+                <div class="col-12 col-lg-8">
+                    <div class="row g-4">
+                        <!-- Can Services -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Services</h6>
+                            <ul>
+                                <li><a class="footer-link" href="study.html">Study</a></li>
+                                <li><a class="footer-link" href="work.html">Work</a></li>
+                                <li><a class="footer-link" href="visit.html">Visit</a></li>
+                                <li><a class="footer-link" href="settle.html">Settle</a></li>
+                                <li><a class="footer-link" href="other.html">Other</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Important Links -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Important Links</h6>
+                            <ul>
+                                <li><a class="footer-link" href="our-story.html">Our Story</a></li>
+                                <li><a class="footer-link" href="careers.html">Careers</a></li>
+                                <li><a class="footer-link" href="#">Press and Media</a></li>
+                                <li><a class="footer-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Can Resources -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Resources</h6>
+                            <ul>
+                                <li><a class="footer-link" href="#">Blog</a></li>
+                                <li><a class="footer-link" href="#">Webinar</a></li>
+                                <li><a class="footer-link" href="#">Can Insight</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row (under the line) -->
+            <div class="row footer-bottom align-items-center pt-3 mt-4">
+                <!-- Desktop: left | center | right
+         Mobile: stacked full-width blocks -->
+                <div class="col-12 col-md-4 text-center text-md-start text-white-50 mb-3 mb-md-0">
+                    ©2025 Canboards Inc.
+                </div>
+
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="d-flex justify-content-center align-items-center gap-3">
+                        <img src="Images/capic-logo.webp"
+                             alt="CAPIC logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+
+                        <img src="Images/RCIC-IRB-Logo-footer.webp"
+                             alt="RCIC-IRB logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 text-center text-md-end">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+</body>
+
+</html>

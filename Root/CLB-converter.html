@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-Y404KZ61CH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y404KZ61CH');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizenship Day Calculator and CLB converter</title>
+    <link rel="icon" type="image/png" href="Images/Favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/reorganized_css.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+
+
+
+/* ================= FLATPICKR CSS ================= */
+@import url("https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css");
+
+
+/* --------------------------------------------------
+   UNIQUE WRAPPER TO AVOID CONFLICTS
+   -------------------------------------------------- */
+.clb-citizen-app {
+       display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+    width: 100%;
+  min-height: 100%;
+  
+position: relative; 
+
+}
+
+.clb-citizen-app::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("Images/bg-lines.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.clb-citizen-app > * {
+  position: relative;
+  z-index: 1;
+}
+
+.calculator-container{
+padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+
+/* Wrappers */
+
+
+
+/* Titles */
+/*.clb-citizen-app h2 span {
+    display: block;
+    text-align: center;
+    color: #2F2E78;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}*/
+
+/* Disclaimer */
+.clb-citizen-app .disclaimer {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Cards */
+.clb-citizen-app .card {
+    background: #fff;
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    margin-bottom: 18px;
+}
+
+.clb-citizen-app .btnAdd {
+    background: #2F2E78;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0px 10px;
+}
+
+/* Inputs */
+.clb-citizen-app label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.clb-citizen-app select,
+.clb-citizen-app input.fp-date {
+    width: 99%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #bbb;
+    margin-bottom: 10px;
+    background: #f3f3ff;
+    font-size: 1.05rem;
+    transition: 0.2s ease;
+}
+
+.clb-citizen-app select:hover,
+.clb-citizen-app input.fp-date:hover { border-color: #999; }
+
+.clb-citizen-app select:focus,
+.clb-citizen-app input.fp-date:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+/* Skills */
+
+.clb-citizen-app .skill-item {
+    background: #fafaff;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Outputs */
+.clb-citizen-app .clb-output {
+    background: #3498db;
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.clb-citizen-app .overall-clb {
+    background: #1a237e;
+    color: #fff;
+    padding: 14px;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Citizenship rows */
+.clb-citizen-app .citizen-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 6px;
+flex-wrap: wrap;
+}
+
+.clb-citizen-app .citizen-row input,
+.clb-citizen-app .citizen-row select {
+    flex: 1;
+    min-width: 120px;
+    margin-bottom: 4px;
+}
+
+/* Delete button */
+.clb-citizen-app .delete-btn {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+/* Progress bar */
+.clb-citizen-app .progress-container {
+    width: 100%;
+    background: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.clb-citizen-app .progress-bar {
+    height: 23px;
+    background: #3498db;
+    width: 0%;
+    color: #fff;
+    text-align: center;
+    line-height: 23px;
+    font-weight: bold;
+}
+
+
+
+
+/* ---------------- BASE GRID ---------------- */
+.clb-citizen-app .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns on desktop */
+    gap: 40px;
+}
+
+/* Wrappers should always take full width */
+.clb-citizen-app .clb-wrapper,
+.clb-citizen-app .citizen-wrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* Skills grid */
+.clb-citizen-app .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+/* ---------------- TABLET ---------------- */
+@media all and  (max-width: 900px) {
+    .clb-citizen-app .calc-grid {
+        grid-template-columns: 1fr !important; /* stack CLB and Citizenship vertically */
+        gap: 16px;
+
+    }
+
+    .clb-citizen-app .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for skills */
+    }
+
+    .clb-citizen-app .clb-wrapper,
+    .clb-citizen-app .citizen-wrapper {
+    	width: 100%;
+    	margin: 0 auto;
+    }
+
+}
+
+
+
+@keyframes partyPop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.party-pop {
+    display: inline-block;
+    animation: partyPop 0.5s ease forwards;
+    color: #f39c12;
+}
+        
+    </style>
+</head>
+<body class="work-page">
+    <div id="page-loader" class="page-loader" role="status" aria-live="polite">
+        <img class="page-loader__logo" src="Images/Favicon.png" alt="Loading…" />
+        <div class="visually-hidden">Loading Calculator…</div>
+    </div>
+
+    <header role="banner">
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-header" role="navigation" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="Images/Banner_1.png" alt="Canboards" class="navbar-brand-img">
+                </a>
+                <!-- Hamburger menu button for mobile/tablet (stays right) -->
+                <button class="navbar-toggler d-flex d-md-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Keep the collapsed nav on the right side by using justify-content-end -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-md-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="study.html">Study</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="work.html">Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="visit.html">Visit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settle.html">Settle</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="other.html">Other</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled outer" href="https://app.canboards.com/client/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="https://app.canboards.com/client/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn nav-btn--filled" href="calculator.html">Calculator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="announcement-bar">
+
+  <div class="announcement-inner">
+
+    <i class="fa-solid fa-bullhorn announcement-icon"></i>
+
+    <div class="announcement-marquee">
+      <marquee
+        onmouseover="this.stop()"
+        onmouseout="this.start()"
+        scrollamount="6">
+        New portal live
+        <span class="separator">|</span>
+        CEC Draw
+        <span class="separator">|</span>
+        Healthcare Draw
+      </marquee>
+    </div>
+
+  </div>
+</div>
+
+
+    <div class="calculator-container">
+        <div class="clb-citizen-app">
+<div class="">
+<!-------------------- CLB CALCULATOR -------------------->
+<div id="clb" class="citizen-wrapper">
+    <h2 class="news-heading" style="    text-align: center;">CLB Skill Calculator</h2>
+    <!--<h2 class="mb-2 gradient-text news-heading" id="citizen-cal-anim" style="    text-align: center;">Citizenship Day Calculator</h2>-->
+     
+    <div class="disclaimer"><strong>Note:</strong> CLB levels are calculated based on your inputs and the official IRCC language equivalency tables. This tool is for informational purposes only and does not guarantee accuracy.</div>
+
+    <!-- Exam Selection -->
+    <div class="card">
+        <label>Select Exam</label>
+        <select id="examSelect"></select>
+    </div>
+
+    <!-- Overall CLB -->
+    <div class="card">
+        <div class="overall-clb" id="overallCLB">Overall CLB: -</div>
+    </div>
+
+    <!-- Skills -->
+    <div class="card skills-grid">
+        <div class="skill-item">
+            <label>Listening</label>
+            <select id="listeningSelect"></select>
+            <div class="clb-output" id="listeningCLB">CLB: -</div>
+        </div>
+
+        <div class="skill-item">
+            <label>Reading</label>
+            <select id="readingSelect"></select>
+            <div class="clb-output" id="readingCLB">CLB: -</div>
+        </div>
+
+        <div class="skill-item">
+            <label>Writing</label>
+            <select id="writingSelect"></select>
+            <div class="clb-output" id="writingCLB">CLB: -</div>
+        </div>
+
+        <div class="skill-item">
+            <label>Speaking</label>
+            <select id="speakingSelect"></select>
+            <div class="clb-output" id="speakingCLB">CLB: -</div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+
+
+    </div>
+
+    <!-- Let's Start Your Canadian Journey Section -->
+    <section class="journey-section">
+        <div class="journey-dark-strip"></div>
+        <div class="container position-relative">
+            <div class="journey-content-wrapper">
+                <div class="row align-items-center position-relative">
+                    <!-- Left Side: Content -->
+                    <div class="col-lg-8 col-md-12 journey-text-col">
+                        <div class="journey-text-content">
+                            <h2 class="journey-title">Let's Start Your Canadian Journey</h2>
+                            <p class="journey-desc">
+                                Join hundreds of successful immigrants who chose Canboards for their seamless transition to Canada.
+                            </p>
+                            <div class="journey-cta-wrapper">
+                                <a href="https://app.canboards.com/client/register" class="fancy_button px-4 py-2 fancy">Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Image -->
+                    <div class="col-lg-4 col-md-12 journey-image-col">
+                        <div class="journey-image-wrapper">
+                            <img src="Images/cta-img01.png"
+                                 alt="Student with smartphone"
+                                 class="journey-main-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-spacer" style="background-color: #23235b;"></div>
+
+    <footer id="site-footer" class="mt-5">
+        <div class="container py-5" id="footer-content">
+            <!-- Top row (above the line) -->
+            <div class="row footer-top gy-4" style="border-bottom:none">
+                <!-- Column1: logo + address + social stacked -->
+                <div class="col-12 col-lg-4">
+                    <div class="row g-3">
+                        <!-- Row1: Logo -->
+                        <div class="col-12">
+                            <div class="footer-logo d-flex align-items-center">
+                                <img src="Images/Logo_White.png" alt="Canboards logo" class="footer-logo-large">
+                            </div>
+                        </div>
+                        <!-- Row2: Address -->
+                        <div class="col-12">
+                            <address>
+                                Suite 505, 171 Queens Ave<br>
+                                London, ON<br>
+                                N6A 5J7
+                            </address>
+                        </div>
+                        <!-- Row3: Social icons -->
+                        <div class="col-12">
+                            <div class="footer-social">
+                                <a href="https://www.linkedin.com/company/canboards/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://www.facebook.com/canboards" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/canboards/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.youtube.com/@CanBoards" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grouped link columns: evenly spaced on large screens, stacked on small -->
+                <div class="col-12 col-lg-8">
+                    <div class="row g-4">
+                        <!-- Can Services -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Services</h6>
+                            <ul>
+                                <li><a class="footer-link" href="study.html">Study</a></li>
+                                <li><a class="footer-link" href="work.html">Work</a></li>
+                                <li><a class="footer-link" href="visit.html">Visit</a></li>
+                                <li><a class="footer-link" href="settle.html">Settle</a></li>
+                                <li><a class="footer-link" href="other.html">Other</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Important Links -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Important Links</h6>
+                            <ul>
+                                <li><a class="footer-link" href="our-story.html">Our Story</a></li>
+                                <li><a class="footer-link" href="careers.html">Careers</a></li>
+                                <li><a class="footer-link" href="#">Press and Media</a></li>
+                                <li><a class="footer-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Can Resources -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="mb-2">Can Resources</h6>
+                            <ul>
+                                <li><a class="footer-link" href="#">Blog</a></li>
+                                <li><a class="footer-link" href="#">Webinar</a></li>
+                                <li><a class="footer-link" href="#">Can Insight</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row (under the line) -->
+            <div class="row footer-bottom align-items-center pt-3 mt-4">
+                <!-- Desktop: left | center | right
+         Mobile: stacked full-width blocks -->
+                <div class="col-12 col-md-4 text-center text-md-start text-white-50 mb-3 mb-md-0">
+                    ©2025 Canboards Inc.
+                </div>
+
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="d-flex justify-content-center align-items-center gap-3">
+                        <img src="Images/capic-logo.webp"
+                             alt="CAPIC logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+
+                        <img src="Images/RCIC-IRB-Logo-footer.webp"
+                             alt="RCIC-IRB logo"
+                             class="img-fluid"
+                             style="height: 38px; width: auto;">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 text-center text-md-end">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+    <script src="JS/page-loader.js"></script>
+    <script src="JS/citizenship_script.js"></script>
+<script>
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const target = document.getElementById(hash.substring(1));
+    if (!target) return;
+
+    const headerOffset = 140;
+    const offsetTop =
+      target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth"
+    });
+  }, 1500); // 👈 delay here
+});
+</script>
+</body>
+</html>
