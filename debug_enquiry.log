@@ -1,0 +1,57 @@
+[2026-03-04 19:20:29] INPUT: {"name":"add","email":"add@add.com","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"adfa"}
+[2026-03-04 19:22:30] INPUT: {"name":"l","email":"lkk@lkkl.aoo","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"kasdflk"}
+[2026-03-04 19:24:07] INPUT: {"name":"asdf","email":"asdf@lklk.asdf","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"alskdfl"}
+[2026-03-04 19:25:23] INPUT: {"name":"sdf","email":"asfd@ksdf.asd","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"aslkdfj"}
+[2026-03-04 19:33:19] INPUT: {"name":"sdf","email":"klkjkl@KLjlk.asdkl","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"ksljdflkds"}
+[2026-03-04 19:33:19] EMAIL SENT SUCCESS
+[2026-03-04 19:37:43] INPUT: {"name":"a@d","email":"a@d.com","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"alksjdlk"}
+[2026-03-04 20:19:44] INPUT: {"name":"a@h.com","email":"a@h.com","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"a@h.com"}
+[2026-03-04 20:19:45] EMAIL SENT SUCCESS
+[2026-03-04 20:24:43] INPUT: {"name":"a@g.com","email":"a@g.com","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"a@g.com"}
+[2026-03-04 20:24:43] EMAIL SENT SUCCESS
+[2026-03-04 20:48:26] Course Enquiry INPUT: {"name":"a@g.com","email":"a@g.com","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"a@h.com"}
+[2026-03-04 20:48:26] EMAIL SENT SUCCESS
+[2026-03-04 21:15:26] Travel Insurance Raw INPUT: {"name":"abc","contact":"87987987979","email":"ask@kjlk.alkjs","age":"20","notes":"alksjdlkf"}
+[2026-03-04 21:18:14] Travel Insurance Raw INPUT: {"name":"abc","contact":"87987987979","email":"ask@kjlk.alkjs","age":"20","notes":"asdfas"}
+[2026-03-04 21:21:40] Travel Insurance Raw INPUT: {"name":"abc","contact":"87987987979","email":"ask@kjlk.alkjs","age":"20","notes":"abc"}
+[2026-03-04 21:25:45] Travel Insurance Raw INPUT: {"name":"abc","contact":"87987987979","email":"ask@kjlk.alkjs","age":"20","notes":"New Form"}
+[2026-03-04 21:25:45] EMAIL SENT SUCCESS to info@canboards.com
+[2026-03-05 05:08:00] Travel Insurance Raw INPUT: {"name":"abc","contact":"sdfasd","email":"ask@kjlk","age":"20","notes":"sdfasdf"}
+[2026-03-05 05:08:00] ERROR: Name and Email are required
+[2026-03-05 05:09:03] Travel Insurance Raw INPUT: {"name":"abc","contact":"sdfasd","email":"ask@kjlk","age":"20","notes":"sdfasdf"}
+[2026-03-05 05:09:03] ERROR: Name and Email are required
+[2026-03-05 05:10:40] Travel Insurance Raw INPUT: {"name":"aaa","contact":"asdfasd","email":"ask@kjlk","age":"20","notes":"sdfasdf"}
+[2026-03-05 05:10:40] ERROR: Name and Email are required
+[2026-03-05 05:14:11] Travel Insurance Raw INPUT: {"name":"abc","contact":"sdfasd","email":"ask@kjlk","age":"20","notes":"asdfasd"}
+[2026-03-05 05:14:11] ERROR: Name and Email are required
+[2026-03-05 05:14:19] Travel Insurance Raw INPUT: {"name":"abc","contact":"sdfasd","email":"ask@kjlk","age":"20","notes":"asdfasd"}
+[2026-03-05 05:14:19] ERROR: Name and Email are required
+[2026-03-05 05:19:11] Travel Insurance Raw INPUT: {"name":"asdf","contact":"zxcvc","email":"asadfa@ksdf.al","age":"33","notes":"dfasd"}
+[2026-03-05 05:19:11] EMAIL SENT SUCCESS to info@canboards.com
+[2026-03-05 05:23:08] Travel Insurance Raw INPUT: {"name":"klklk","contact":"lklklk","email":"klkl@klk.alk","age":"88","notes":"kllklk"}
+[2026-03-05 05:23:09] EMAIL SENT SUCCESS to info@canboards.com
+[2026-03-05 05:27:36] Travel Insurance Raw INPUT: {"name":"lklk","contact":"s","email":"abc@abc.com","age":"34","notes":"aaa"}
+[2026-03-05 05:27:36] EMAIL SENT SUCCESS to info@canboards.com
+[2026-03-05 05:31:48] Travel Insurance Raw INPUT: {"name":"sdfasd","contact":"a","email":"sdfa@SDF.ASD","age":"34","notes":"aa"}
+[2026-03-05 05:31:48] EMAIL SENT SUCCESS to info@canboards.com
+[2026-03-05 17:33:52] Travel Insurance Raw INPUT: {"name":"abc","contact":"asdf","email":"asdfds@dsfa.asd","age":"20","notes":"asdfa"}
+[2026-03-05 17:33:52] EMAIL SENT SUCCESS to info@canboards.com
+[2026-03-05 17:38:36] Travel Insurance Raw INPUT: {"name":"abc","contact":"+15062345678","email":"ksdflak@Kljl.ad","age":"20","notes":"asdfa"}
+[2026-03-05 17:38:37] EMAIL SENT SUCCESS to info@canboards.com
+[2026-03-05 18:40:02] Course Enquiry INPUT: {"name":"sdfa","contact":"+911234567890","email":"ssdf@sdfa.sdf","level":"Undergraduate","field":"Arts","program":"Arts \/ Humanities","province":"Ontario","city":"Toronto","notes":"sdfas"}
+[2026-03-05 18:40:02] EMAIL SENT SUCCESS
+[2026-03-06 17:09:48] Course Enquiry INPUT: {"name":"abc","contact":"+15027892987","email":"abc@defg.com","level":"Postgraduate","field":"SocialSciences","program":"Psychology","province":"Ontario","city":"Kingston","notes":"THis is my long text to check how it look when submitting to back end with this long description if any."}
+[2026-03-06 17:09:49] EMAIL SENT SUCCESS
+[2026-03-06 17:33:35] Travel Insurance Raw INPUT: {"name":"test","contact":"+17877772299","email":"abc@test.com","age":"20","notes":"Test message","recaptcha_token":"0cAFcWeA5Oamq1Xm3DVq38H1d3Pk6Yxv7quthF55VohJbq4kcxhy9_QvlhsD4zWhy5HAkhwEAS424IBxn9XRzlU8wb1fuidlpvnOsFohVtyXS2_NwWRw4QHpsZSZJDupDHOnaokxKU8NifIR9j9lIkKAGJD3-VF-e5vcsKSvEg-MA3xK9BxrC365qUNw9T0w0QmPpByGL__5NyaO8nTunakV7LSK_S4fr9MynlvKvOzlgD0C3SYa-mjo7C1KpkMTpsTs4fzuKaq_LKpguZLh7qqP164ItQkZzimI7yu3RfWMFH8hTyy4qzZ1MHm0KyGt6LSaxO9ChgqGUtSe4wl_vEwZDB7aN37WvzDs1o3EMtIaIfg03Sdmz7xIJ2lctBS6YXysH9rFfZY8inztVHQFjBju_OxbTjFM9vn32RZGB1Q8s0PiUsQAFSEmL7Yyle9dBb7MohL-b0L0KYW-lBpZOZly-QPByaIzVGWI7sthAQ87yznEOP0bYxXwZRiHqZ_lKHm1_a5e7uEXz_JCYEhZ0b3inZ-AoGWypZOAz9Z4QZ06jQjNH8cUkRd8soMs5OKpFNvvuvVarjgoet_DmREFmBt2l_0YYe3ZZRet_AMmfjT1Sb2s2GsmtqQ37M5hFmi6Gn8Br_tcCL_E_6yL__A71lu31vBCpwhsFG6HChWFPmSXKO37BzEd21SagLmi0GOO3ni89mZpDRdaVZZ6l7l5KgnHOBs6wt7H61klO7PMy8kPb2m9Qo8CQYQ3-SaPaq5jhdJ2UzZ6pHIPYk7zShJbWkZ38mdKRp-1pOY5jS45IBeqsu6PAqFc8pIZuoiWzXNs2UGP7vJPRehB6Y6JHjR-7jbfTiuAVITG0-ccjVemVWqiSnEUcZAXK5aECodF8cvJaXqKyAYn-JYtZ-mE1AguTne1mq6nI9s2yHdbD5Ph72Ol5FylKGFkCcchslY0ywIoska4aYyHi7x0JOFtpbjK5KsX4HR-dcRApeFtAgZOkJas59WopbYY3GJG3hFnpQTdpbeLO9UGPJGTAkS_ooOS4cuKTVkuZ_mvI5MdUL80ebd2rd-Tg0RdRpCEQQUl4s_oxxx56gWLhhslH0puHcb_Sai1tnFgqXTunJjBvQDZo2CYcizw2UNXIls5pzgl3tTuGf53NnY2N2-pojBukonEhi0mUdzav2WPBzc9er6_joWeUBp6c2o7luWiVxOc0_cJqkq9GI4Ca_RP3Te1unlWhxPOnQyaynU5DOaNMCR0bnq7e9hmfwbPsNCZg_KgwDd7cKO0j-AFY9NXCLNBrCy4pRbfliAkfCmCdB-LdI92ZafmoMAy-RG9PcimSgxhbba_pv-s-a5gEvihu7EPVz27WKeC9h9dwEinVJ6zIj-fUtAeS2ouMhKUGavdQEFFxGVT5t3RB52m_lZ1hzxgcDcfGqp3B6jfSCf7TkrYUPdykZ5rlJp5uO4zZMKZgLw0_x_bBjpp1QZvUoYVgy4QU9Hsb2yAjJtKQH6T76beiRaRe_jrh7Ot3ElavGsliX7drBM_P_HxC6IOIPrZnmVyrE4T03QAiquA9_xmb2E7DK0Sc3Gv4a9W0_2nznLdtyqqQPEwTXJJ9FkSUcGPo5FD-vV1QRZRsfck79GdKNUzztwU0LOdANjlfRSLPMvdotK3wnixoTk7QLuiqwAx8BtH5HSeRUvHXZDKeeHyUP15Oox3QCEw3EXjx_FhnxfFbb2MMWvxf-96cBYi5-pHxIW01P3a6rMaAFMKTUopm-syHL9USeo9vDvUmm8w3IfBowuUU6Zn9NZpPrgI2JI71NLt_y8pUeDulbZvgSgf5hLzxBTgAYO8BLffAlY8_4E6PVSwsBpH_iioa3POaxmQCQ57OKJDrrQJUUq6gdx9IWEroazkwq7IOCHYgJ5YEgUMLAgXKvsYntDrowSvmJQWvv1pG_iIDfsWKs4VrsuRng8lVMx5_DBtLg3axf9twyJxtJonNDiLJ8wYp1626evkO14EbLS9FgT76ReTAZxWnvxxN3qvu4HlNYWVeAkJrI-pZsWusSv2Ke-RaDHvc0JGuRPL9TMYvc4V0Rg3gj3GSWzgxAxTuKhOiVTzmPVx0wZd1L_uHYnIFlayt1VGxqef3GNlvepqRtLkhaFdbxmPUricbfPcHA4pYgADtF7Wkqy5g"}
+[2026-03-06 17:33:36] EMAIL SENT SUCCESS to info@canboards.com
+[2026-03-06 17:40:28] Travel Insurance Raw INPUT: {"name":"try ","contact":"+18379087900","email":"abc@def.com","age":"20","notes":"kjhkjhkjh","recaptcha_token":"0cAFcWeA4Nu0NwJmZNoilcPM3QT63Ycf60MRAY20_Z3JrMtj4DyTrwFa94EM_0xuUfSCdjtRtbsVpYhGdLCGKQpxYCB2Xe6sRwEgJBFjDFdDw39B50Gqz3Pf9H1ukJ51f2Nui3OM9JQk2zttiY9TzRNQ-L6cGYcqtCEE6--CdKTG1dTc6gTtl7dxR-h8Jf9ivDOJkWbC6Raw7F_3wMimJ_Nj_v1UUMFPGfQIyMLYCDVCFiSe6vTUnYho_hgvXSbDd7SSn48PT5IgeprEh6SWyJ1ApxGd2RRn-7lGJV5RTLHbemIL2ieGgjTpOigzrKM2O-Oip49GSEnDPvlRxhkBF-vfE6AnBtKE3mvXCkg5T2RLLRCPQWA-z0bWPUsvsu20hklHiX7s6hep1avKiKV4-MLJjEcXg4YcRL009ZfsXXKA52RRxMEr9CYFAeSTKWVmjyuLNzUSKKhKFc6lVyym3BO3IoY3cHlwzCveRGxMDVdq1b7x2ANqYq8HS5sHObfLs1qdpVB2JBVaOi4-rePHRBE4P5VF9igFRyqAGNIlJpZ6jpTEaJ6ETaquAY_c3mW21I2iBLD0O2z4efVZ8jj9577r4N8NYngUkCy5zIpXX8H8JB0MiZyhkrxvlNQKh1SLL_YEvhajap64E8PPXp1leUQ1hbPGgRqkTuk3U_D3pOkDIjyDUpqB5QA-TzNbjPqbtksTj3gaVeqAjBP5npxAbyLjHNJKle1zRpdYMlLZC6jAejnhoNS8ECXBib4RHNZQCb2qTKIH_UQQDVyhwJWlt2rC70GMOCxYYnoEGa9jgJBKbGJZsLoIyzGmcZr957Bl7fgpcw6r8-9a91If0Gf8jjy9CxMLMDPXK8EyNxJWfdgecvuQq3E9VB1eIs9y_9BAytM4xevYmjwJu2qyvkWrJjzU9CJUambUVMzOv6HPmvB9YnRkV9hU0wp0z5vm5n1WqwGdNzf2L5Pm_myxX5lTjmRb9aBatIxZLEA-Z5r-aLXdDa400L6YWi4Px-Cinpxtr2qm2UjLLgJenyvttsFDgCwrTS7IJRIcPasXLKbSBwvA7JwzM_wFL3lxWflm788Av3MvuCh5qIq18ODP4gdDzRDoZCHOpSIQOL8Md-gKRAflpCQEkWoGkyC392ArvB3Fvf3fv7Esrdf8z2uBvMtngws7hnxUjBC4YcALl-G8tbQ1GjL4B8awdW_I7WqkcZSKEQebmedv7qliyawRXLck27IzSNEhL9EytUlRoUcqZDQqkbi_lzZpiNK-KpVlJ375BPrubxI9lpQqoWDy_SXsWOGlhi_zaNq0gW2H55dWdO_Xn-iz3sB3DYakC-QGroqAr-ETZcPVJJ0FjQ7BrqhXhYAATaozg52hy4YtrGA2dU8Vs-x5ycJgOI3ps-24W8vt0r-2g26v-Qwjnc3vAzHFxu1jgLxpFW5XrCnxM2IDMNSWtbAtrD2VS2AmWYfjLyo_EVHT4OrfzElmQ6ZXhd5DwUDKgGgbAq673DWtU9f8GxKmNe2kUmCXJfEgYus-HfkoIOZmy3cqh7ma0r-Rj1vbnm33qSQCq2r67XB1W2kDmOvlHSSI0RSsXp1XaShrS6_Dt9nba8j1jJd9ksCHYNjJvOEHshsKczSLrWhMtoIr7YyzoJt1dHdLqk6mLE0Oyg_RDk8nQydlb1c81d5jrbuv3hjSBEUw1OU_1so-8MDxcxqpe-uQOd_fRvfzR04v2vaz8bOfe-w4ipQuf8lmbaAboLHzFjXuE21ptzptk1qqB5wj0t4BflwFX_bFFM_w3ysT95PiBuG9dVuDVFQePVzYLqWRteS2DQf9ZCq1LReGVQbGj1IJyNRxVvHpGD1r2QOr6v7OAdCXXuQ0-k_Ck1m3tQl19YSm6Kxc9gP8CuoIw0y6dfktO3hVfZfCoynKKl7J7bxAyc1GlwM6pnMYiL3lTOw5rfb1zjTQ7AKSvYBikO3mU42UHAjav2YE4qovovDflbQxrbzpjnooZ6lkP_ppxhPW10imJ80z3s5-FHxq_u4bW9o4T8NgNNKSHm1q-RvA3Oeecd6XeYW-jUvjDxbp-jKer9jTy08cP42kERfl_Bc334pZbgq9LwbXRgMbeWYlIPW7mDN0yN9jawfFE8G0g2BZlvFJSUCemsVg"}
+[2026-03-06 17:40:28] CAPTCHA RESPONSE: {
+  "success": true,
+  "challenge_ts": "2026-03-06T17:39:59Z",
+  "hostname": "canboards.com",
+  "score": 0.9,
+  "action": "form_submit"
+}
+[2026-03-06 17:40:29] EMAIL SENT SUCCESS to info@canboards.com
+[2026-04-14 23:27:55] Course Enquiry INPUT: {"name":"praha","contact":"+15144580807","email":"Prahasomal87@yahoo.com","level":"Undergraduate","field":"Business","program":"Business","province":"Ontario","city":"Toronto","notes":"Understand process"}
+[2026-04-14 23:27:55] EMAIL SENT SUCCESS
