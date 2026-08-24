@@ -1,0 +1,48 @@
+<?php
+require_once __DIR__.'/../../config/db.php';
+
+$stmt = $pdo->prepare("SELECT id, title, content FROM posts WHERE status='published' AND disabled=0");
+$stmt->execute();
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if (!$posts) {
+    echo json_encode(['success'=>true,'posts'=>[]]);
+    exit;
+}
+
+$postIds = array_column($posts, 'id');
+
+// Fetch categories
+$inQuery = implode(',', array_fill(0, count($postIds), '?'));
+$stmtCat = $pdo->prepare("
+    SELECT pc.post_id, c.id AS id, c.name
+    FROM post_categories pc
+    JOIN categories c ON c.id = pc.category_id
+    WHERE pc.post_id IN ($inQuery) AND c.disabled=0
+    ORDER BY priority ASC, p.created_at DESC
+");
+$stmtCat->execute($postIds);
+$categories = $stmtCat->fetchAll(PDO::FETCH_ASSOC);
+
+$postCategories = [];
+foreach ($categories as $c) {
+    $postCategories[$c['post_id']][] = ['id'=>$c['id'], 'name'=>$c['name']];
+}
+
+// Fetch answers
+$stmtAns = $pdo->prepare("SELECT post_id, content FROM answers WHERE post_id IN ($inQuery)");
+$stmtAns->execute($postIds);
+$answers = $stmtAns->fetchAll(PDO::FETCH_ASSOC);
+
+$postAnswers = [];
+foreach ($answers as $a) {
+    $postAnswers[$a['post_id']][] = ['content'=>$a['content']];
+}
+
+// Attach categories and answers
+foreach ($posts as &$p) {
+    $p['categories'] = $postCategories[$p['id']] ?? [];
+    $p['answers'] = $postAnswers[$p['id']] ?? [];
+}
+
+echo json_encode(['success'=>true,'posts'=>$posts]);

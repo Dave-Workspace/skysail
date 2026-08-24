@@ -1,0 +1,55 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if(!isset($_SESSION['user_id']) || $_SESSION['role']!=='admin') header("Location: admin-login.php");
+require_once __DIR__ .'/../config/config.php';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+</head>
+<body>
+
+<h2>Manage Posts</h2>
+<div id="posts"></div>
+
+<script>
+const csrf='<?= $_SESSION['csrf_token'] ?>';
+
+function loadPosts(){
+    fetch('/api/admin/posts.php',{headers:{'X-CSRF-TOKEN':csrf}})
+    .then(r=>r.json())
+    .then(d=>{
+        const div=document.getElementById('posts'); div.innerHTML='';
+        d.posts.forEach(p=>{
+            const el=document.createElement('div');
+            el.innerHTML=`<strong>${p.title}</strong> [${p.status}]<br>${p.content}`;
+            if(p.answers.length>0) p.answers.forEach(a=>{
+                const r=document.createElement('div'); r.style.color='green'; r.innerText='Admin: '+a.content; el.appendChild(r);
+            });
+            el.innerHTML += `<br><button onclick="editPost(${p.id})">Edit/Reply</button>`;
+            div.appendChild(el);
+        });
+    });
+}
+
+function editPost(postId){
+    let reply=prompt("Enter admin reply (leave blank to skip):");
+    let newStatus=prompt("Enter status (pending/published/dropped):");
+    fetch('/api/admin/post-update.php',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','X-CSRF-TOKEN':csrf},
+        body: JSON.stringify({post_id:postId,reply:reply,status:newStatus,content:'',categories:[]})
+    }).then(r=>r.json()).then(d=>{
+        if(d.success) loadPosts();
+        else alert(d.message);
+    });
+}
+
+loadPosts();
+</script>
+</body>
+</html>

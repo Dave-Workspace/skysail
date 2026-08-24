@@ -1,0 +1,4 @@
+[28-Feb-2026 23:47:14 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in /home/f7d3h5pmf88n/public_html/canboards.com/api/create-post.php on line 38
+[28-Feb-2026 23:47:14 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in /home/f7d3h5pmf88n/public_html/canboards.com/api/create-post.php on line 52
+[28-Feb-2026 23:49:27 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in /home/f7d3h5pmf88n/public_html/canboards.com/api/create-post.php on line 38
+[28-Feb-2026 23:49:27 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in /home/f7d3h5pmf88n/public_html/canboards.com/api/create-post.php on line 52

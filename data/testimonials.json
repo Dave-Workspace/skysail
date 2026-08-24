@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Monica Patel",
+    "role": "Student from India",
+    "image": "Images/C1.jpg",
+    "color": "pink-bg",
+    "rating": 5,
+    "text": "Canboards made my student visa application so simple. The digital dashboard was a game-changer!"
+  },
+  {
+    "name": "Vincent Sinclair",
+    "role": "Worker from Nigeria",
+    "image": "Images/C2.jpg",
+    "color": "purple-bg",
+    "rating": 5,
+    "text": "The RCIC support was invaluable. I got my work permit faster than I ever imagined."
+  },
+  {
+    "name": "Vidhi",
+    "role": "PR Applicant from India",
+    "image": "Images/C3.jpg",
+    "color": "yellow-bg",
+    "rating": 5,
+    "text": "Navigating the PR process felt overwhelming until I found Canboards."
+  }
+]
