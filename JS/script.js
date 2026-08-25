@@ -1610,3 +1610,62 @@ function loadCategoryPostsById(categoryId, limit = 10, containerId = "posts") {
 
 
 
+/* =========================================================
+   SKYSAIL APP CARD ANIMATION
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cards = document.querySelectorAll(
+        ".skysail-app-card"
+    );
+
+
+    if (!cards.length) {
+        return;
+    }
+
+
+    /* =====================================================
+       SCROLL REVEAL
+       ===================================================== */
+
+    const observer = new IntersectionObserver(
+        function (entries, observerInstance) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "is-visible"
+                    );
+
+                    observerInstance.unobserve(
+                        entry.target
+                    );
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.18,
+
+            rootMargin:
+                "0px 0px -40px 0px"
+        }
+    );
+
+
+    /* =====================================================
+       OBSERVE CARDS
+       ===================================================== */
+
+    cards.forEach(function (card) {
+
+        observer.observe(card);
+
+    });
+
+});
