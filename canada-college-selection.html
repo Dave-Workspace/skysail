@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.10.1/build/css/intlTelInput.css">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LcVCIIsAAAAAPlsdiUshWBeO-EL7Fl2FvSrkViL"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld2KkIsAAAAAIrAS8iRsiPZUS0Wqe5Qc8CmpuhY"></script>
 
 
 </head>
@@ -536,7 +536,10 @@
             }
         
             // GET RECAPTCHA TOKEN
-          const token = await grecaptcha.execute("6LcVCIIsAAAAAPlsdiUshWBeO-EL7Fl2FvSrkViL", { action: "form_submit" });
+          const token = await grecaptcha.execute(
+                "6Ld2KkIsAAAAAIrAS8iRsiPZUS0Wqe5Qc8CmpuhY",
+                { action: "form_submit" }
+            );
         
             const data = {
               name: form.name.value,

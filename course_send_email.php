@@ -27,7 +27,7 @@ if (!$recaptchaToken) {
     exit;
 }
 
-$secretKey = "6LcVCIIsAAAAAPCaE2pC0KOURE2tHRCOntWJvipb";
+$secretKey = "6Ld2KkIsAAAAAHsG3IP50w1OPPHlJS3cTaTD1cSw";
 
 $verifyUrl = "https://www.google.com/recaptcha/api/siteverify";
 
