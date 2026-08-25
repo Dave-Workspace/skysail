@@ -3997,152 +3997,225 @@ display: flex;
 }
 
 
-
 /* =========================================================
-   SKYSAIL APP PROCESS SECTION
-   Complete Standalone CSS
+   SKYSAIL APP SECTION
    ========================================================= */
 
-/* ---------- Main Section ---------- */
-
-.skysail-app-process {
+.skysail-app-section {
     width: 100%;
-    padding: 20px 20px 70px;
-    margin: 0;
-    overflow: hidden;
+    padding: 80px 20px;
     background: #ffffff;
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
-.skysail-app-process *,
-.skysail-app-process *::before,
-.skysail-app-process *::after {
-    box-sizing: border-box;
+.skysail-app-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
 }
 
 
-/* ---------- Section Title ---------- */
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
 
-.skysail-app-process .process-title {
-    margin: 0;
-    padding: 0;
-
+.skysail-app-heading {
     text-align: center;
+    margin-bottom: 50px;
+}
 
-    color: #35327f;
-
-    font-size: 56px;
-    line-height: 1.15;
-    font-weight: 700;
+.skysail-app-heading h2 {
+    margin: 0;
 
     font-family: inherit;
+
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    letter-spacing: -1.5px;
+
+    color: #293b68;
+}
+
+.skysail-app-heading h2 span {
+    color: #e82d3b;
 }
 
 
-/* ---------- Timeline Container ---------- */
+/* =========================================================
+   CARD GRID
+   ========================================================= */
 
-.skysail-app-process .process-timeline {
-    position: relative;
-
-    width: 92%;
-    max-width: 1800px;
-
-    margin: 85px auto 0;
-
+.skysail-app-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
 
-    column-gap: 100px;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
-    align-items: center;
+    gap: 22px;
+
+    align-items: stretch;
 }
 
 
 /* =========================================================
-   CONNECTING LINE
+   BASE CARD
    ========================================================= */
 
-.skysail-app-process .process-timeline::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    top: 50%;
-
-    width: 100%;
-    height: 4px;
-
-    background: #35327f;
-
-    transform: translateY(-50%);
-
-    z-index: 0;
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   PROCESS CARD
-   ========================================================= */
-
-.skysail-app-process .process-card {
+.skysail-app-card {
     position: relative;
 
-    z-index: 2;
-
-    width: 100%;
-    height: 270px;
+    min-width: 0;
     min-height: 270px;
 
-    padding: 38px 30px;
+    padding: 32px 24px;
 
     display: flex;
     flex-direction: column;
 
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 
     text-align: center;
 
-    border: none;
-    border-radius: 28px;
+    border-radius: 26px;
 
-    overflow: visible;
+    overflow: hidden;
+    isolation: isolate;
 
     box-shadow:
-        0 15px 40px rgba(53, 50, 127, 0.12);
+        0 15px 40px rgba(35, 48, 86, 0.12);
+
+    opacity: 0;
+    transform: translateY(35px);
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.5s ease,
+        opacity 0.5s ease,
+        box-shadow 0.45s ease;
 }
 
 
-/* CARD 1 — Study */
-.skysail-app-process .process-card:nth-child(1) {
-    background: linear-gradient(to top, rgb(200 140 30) 0%, rgb(210 160 60) 50%, rgb(220 180 90 / 50%) 100%);
+/* =========================================================
+   CARD REVEAL
+   ========================================================= */
+
+.skysail-app-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
-/* CARD 2 — Work */
-.skysail-app-process .process-card:nth-child(2) {
-    background: linear-gradient(to top, rgb(255 150 180) 0%, rgb(255 180 210) 50%, rgb(255 220 240 / 50%) 100%);
+/* =========================================================
+   STAGGERED ANIMATION
+   ========================================================= */
+
+.skysail-app-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.skysail-app-card:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.skysail-app-card:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.skysail-app-card:nth-child(4) {
+    transition-delay: 0.35s;
 }
 
 
-/* CARD 3 — Visit */
-.skysail-app-process .process-card:nth-child(3) {
-    background: linear-gradient(to top, rgb(97 220 223) 0%, rgb(100 240 200) 50%, rgb(180 250 220 / 50%) 100%);
+/* =========================================================
+   CARD GRADIENTS
+   ========================================================= */
+
+.skysail-card-blue {
+    background:
+        linear-gradient(
+            145deg,
+            #173d9a 0%,
+            #285bd1 55%,
+            #3974e8 100%
+        );
+}
+
+.skysail-card-orange {
+    background:
+        linear-gradient(
+            145deg,
+            #e66b00 0%,
+            #f58b13 55%,
+            #ffab2d 100%
+        );
+}
+
+.skysail-card-purple {
+    background:
+        linear-gradient(
+            145deg,
+            #4b3c9d 0%,
+            #6654c8 55%,
+            #8373e2 100%
+        );
+}
+
+.skysail-card-green {
+    background:
+        linear-gradient(
+            145deg,
+            #087b70 0%,
+            #119e8f 55%,
+            #31b9a7 100%
+        );
 }
 
 
-/* CARD 4 — Settle */
-.skysail-app-process .process-card:nth-child(4) {
-    background: linear-gradient(to top, rgb(255 150 50) 0%, rgb(255 180 80) 50%, rgb(255 220 150 / 50%) 100%);
+/* =========================================================
+   DECORATIVE LIGHT CIRCLES
+   ========================================================= */
+
+.skysail-app-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -90px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.11);
+
+    z-index: -1;
+
+    transition:
+        transform 0.6s ease;
+}
+
+.skysail-app-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    bottom: -75px;
+    left: -55px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    z-index: -1;
 }
 
 
@@ -4150,416 +4223,165 @@ display: flex;
    CARD HOVER
    ========================================================= */
 
-.skysail-app-process .process-card:hover {
-    transform: translateY(-6px);
+.skysail-app-card:hover {
+    transform: translateY(-10px);
 
     box-shadow:
-        0 22px 50px rgba(53, 50, 127, 0.18);
+        0 25px 55px rgba(35, 48, 86, 0.20);
+}
+
+.skysail-app-card:hover::before {
+    transform: scale(1.35);
 }
 
 
 /* =========================================================
-   CARD ICON
+   ICON CONTAINER
    ========================================================= */
 
-.skysail-app-process .process-card img {
+.skysail-card-icon {
+    width: 92px;
+    height: 92px;
+
+    flex: 0 0 92px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 24px;
+
+    background:
+        rgba(255, 255, 255, 0.16);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(6px);
+
+    animation:
+        skysailIconFloat 3.2s ease-in-out infinite;
+
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease;
+}
+
+
+/* =========================================================
+   ICON IMAGE
+   ========================================================= */
+
+.skysail-card-icon img {
+    width: 50px;
+    height: 50px;
+
     display: block;
-
-    width: 105px;
-    height: 105px;
-
-    margin: 0 0 25px;
-
-    padding: 0;
 
     object-fit: contain;
 
-    flex: 0 0 auto;
+    /*
+       Use this when your original icons
+       are coloured and you want them white.
+    */
+
+    filter:
+        brightness(0)
+        invert(1);
+
+    transition:
+        transform 0.4s ease;
 }
 
 
 /* =========================================================
-   CARD HEADING
+   ICON HOVER
    ========================================================= */
 
-.skysail-app-process .process-card h3 {
-    width: 100%;
+.skysail-app-card:hover .skysail-card-icon {
+    background:
+        rgba(255, 255, 255, 0.23);
 
-    margin: 0 0 17px;
-    padding: 0;
+    transform:
+        scale(1.06);
+}
+
+.skysail-app-card:hover .skysail-card-icon img {
+    transform:
+        scale(1.1);
+}
+
+
+/* =========================================================
+   ICON FLOAT
+   ========================================================= */
+
+@keyframes skysailIconFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+/* =========================================================
+   CARD TEXT
+   ========================================================= */
+
+.skysail-card-content {
+    width: 100%;
+}
+
+.skysail-card-content h3 {
+    margin: 0;
 
     color: #ffffff;
 
-    font-size: 30px;
-    line-height: 1.18;
+    font-size: 20px;
+    line-height: 1.3;
+
     font-weight: 700;
 
-    text-align: center;
+    letter-spacing: -0.2px;
 
-    font-family: inherit;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
 
 /* =========================================================
-   CARD DESCRIPTION
+   TABLET
    ========================================================= */
 
-.skysail-app-process .process-card p {
-    width: 100%;
-    max-width: 330px;
+@media (max-width: 991px) {
 
-    margin: 0;
-    padding: 0;
-
-    color: #ffffff;
-
-    font-size: 17px;
-    line-height: 1.55;
-    font-weight: 400;
-
-    text-align: center;
-
-    font-family: inherit;
-}
-
-
-/* =========================================================
-   CONNECTING DOT
-   ========================================================= */
-
-.skysail-app-process .process-card::after {
-    content: "";
-
-    position: absolute;
-
-    top: 50%;
-    right: -61px;
-
-    width: 21px;
-    height: 21px;
-
-    border-radius: 50%;
-
-    background: #35327f;
-
-    border: 4px solid #ffffff;
-
-    box-shadow:
-        0 5px 15px rgba(53, 50, 127, 0.25);
-
-    transform: translateY(-50%);
-
-    z-index: 10;
-
-    pointer-events: none;
-}
-
-
-/* Don't show dot after final card */
-
-.skysail-app-process .process-card:last-child::after {
-    display: none;
-}
-
-
-/* =========================================================
-   DESKTOP — 1400px TO 1600px
-   ========================================================= */
-
-@media (max-width: 1600px) {
-
-    .skysail-app-process {
-        padding-left: 15px;
-        padding-right: 15px;
+    .skysail-app-section {
+        padding: 70px 20px;
     }
 
-    .skysail-app-process .process-timeline {
-        width: 92%;
-        column-gap: 80px;
+    .skysail-app-heading {
+        margin-bottom: 40px;
     }
 
-    .skysail-app-process .process-card {
-        height: 250px;
-        min-height: 250px;
+    .skysail-app-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
-        padding: 34px 26px;
+        gap: 20px;
     }
 
-    .skysail-app-process .process-card img {
-        width: 95px;
-        height: 95px;
-
-        margin-bottom: 23px;
-    }
-
-    .skysail-app-process .process-card h3 {
-        font-size: 28px;
-    }
-
-    .skysail-app-process .process-card p {
-        font-size: 16px;
-    }
-
-    .skysail-app-process .process-card::after {
-        right: -51px;
-    }
-}
-
-
-/* =========================================================
-   LAPTOP — 1200px
-   ========================================================= */
-
-@media (max-width: 1200px) {
-
-    .skysail-app-process .process-title {
-        font-size: 48px;
-    }
-
-    .skysail-app-process .process-timeline {
-        width: 94%;
-        column-gap: 65px;
-
-        margin-top: 70px;
-    }
-
-    .skysail-app-process .process-card {
-        height: 240px;
-        min-height: 240px;
-
-        padding: 30px 22px;
-
-        border-radius: 24px;
-    }
-
-    .skysail-app-process .process-card img {
-        width: 85px;
-        height: 85px;
-
-        margin-bottom: 20px;
-    }
-
-    .skysail-app-process .process-card h3 {
-        font-size: 25px;
-        margin-bottom: 14px;
-    }
-
-    .skysail-app-process .process-card p {
-        font-size: 15px;
-        line-height: 1.5;
-    }
-
-    .skysail-app-process .process-card::after {
-        right: -42px;
-
-        width: 19px;
-        height: 19px;
-    }
-}
-
-
-/* =========================================================
-   SMALL LAPTOP / LARGE TABLET
-   ========================================================= */
-
-@media (max-width: 1000px) {
-
-    .skysail-app-process .process-timeline {
-        width: 95%;
-        column-gap: 45px;
-    }
-
-    .skysail-app-process .process-card {
-        height: 200px;
-        min-height: 200px;
-
-        padding: 28px 18px;
-    }
-
-    .skysail-app-process .process-card img {
-        width: 78px;
-        height: 78px;
-    }
-
-    .skysail-app-process .process-card h3 {
-        font-size: 22px;
-    }
-
-    .skysail-app-process .process-card p {
-        font-size: 14px;
-    }
-
-    .skysail-app-process .process-card::after {
-        right: -32px;
-    }
-}
-
-
-/* =========================================================
-   TABLET / MOBILE
-   ========================================================= */
-
-@media (max-width: 767px) {
-
-    .skysail-app-process {
-        padding: 20px 15px 60px;
-    }
-
-    .skysail-app-process .process-title {
-        font-size: 38px;
-        line-height: 1.15;
-    }
-
-    .skysail-app-process .process-timeline {
-        width: 90%;
-
-        margin-top: 55px;
-
-        display: grid;
-
-        grid-template-columns: 1fr;
-
-        row-gap: 35px;
-
-        column-gap: 0;
-    }
-
-
-    /* Vertical connecting line */
-
-    .skysail-app-process .process-timeline::before {
-        top: 0;
-        bottom: 0;
-
-        left: 50%;
-
-        right: auto;
-
-        width: 4px;
-        height: auto;
-
-        transform: translateX(-50%);
-    }
-
-
-   @media (max-width: 767px) {
-
-    .skysail-app-process {
-        padding: 25px 12px 45px;
-        overflow: hidden;
-    }
-
-    /* TITLE */
-
-    .skysail-app-process .text-center {
-        margin-bottom: 30px !important;
-    }
-
-    .skysail-app-process .rcic-title {
-        font-size: 30px;
-        line-height: 1.2;
-        margin: 0;
-    }
-
-
-    /* TIMELINE */
-
-    .skysail-app-process .process-timeline {
-        width: 100%;
-        max-width: 100%;
-
-        margin: 0 auto;
-
-        display: flex;
-        flex-direction: column;
-
-        align-items: center;
-
-        gap: 28px;
-    }
-
-
-    /* HIDE LINE */
-
-    .skysail-app-process .process-timeline::before {
-        display: none !important;
-    }
-
-
-    /* COMPACT CARD */
-
-    .skysail-app-process .process-card {
-        width: 40%;
-        max-width: 600px;
-
-        height: 170px;
-        min-height: 170px;
-
-        margin: 0 auto;
-
-        padding: 20px 18px;
-
-        border-radius: 22px;
-
-        overflow: hidden;
-    }
-
-
-    /* ICON */
-
-    .skysail-app-process .process-card img {
-        width: 70px;
-        height: 70px;
-
-        margin: 0 0 14px;
-
-        object-fit: contain;
-    }
-
-
-    /* HEADING */
-
-    .skysail-app-process .process-card h3 {
-        width: 100%;
-        max-width: 100%;
-
-        margin: 0;
-
-        font-size: 23px;
-        line-height: 1.18;
-
-        text-align: center;
-
-        overflow-wrap: break-word;
-    }
-
-
-    /* TEXT */
-
-    .skysail-app-process .process-card p {
-        width: 100%;
-        max-width: 100%;
-
-        margin: 8px 0 0;
-
-        font-size: 14px;
-        line-height: 1.45;
-
-        text-align: center;
-    }
-
-
-    /* HIDE DOT */
-
-    .skysail-app-process .process-card::after {
-        display: none !important;
-    }
-}
-
-    /* Last card doesn't need dot */
-
-    .skysail-app-process .process-card:last-child::after {
-        display: none;
+    .skysail-app-card {
+        min-height: 260px;
     }
 }
 
@@ -4568,80 +4390,121 @@ display: flex;
    MOBILE
    ========================================================= */
 
-@media (max-width: 576px) {
+@media (max-width: 600px) {
 
-    .skysail-app-process {
-        padding: 15px 12px 50px;
+    .skysail-app-section {
+        padding: 55px 16px;
     }
 
-    .skysail-app-process .process-title {
-        font-size: 32px;
+    .skysail-app-heading {
+        margin-bottom: 32px;
     }
 
-    .skysail-app-process .process-timeline {
-        width: 92%;
-        margin-top: 45px;
-        row-gap: 32px;
+    .skysail-app-heading h2 {
+        font-size: 34px;
+        letter-spacing: -1px;
     }
 
-    .skysail-app-process .process-card {
-        height: 190px;
-        min-height: 190px;
+    .skysail-app-grid {
+        grid-template-columns: 1fr;
 
-        padding: 25px 20px;
+        gap: 16px;
+    }
+
+    .skysail-app-card {
+        width: 100%;
+
+        min-height: 225px;
+
+        padding:
+            30px 24px;
 
         border-radius: 22px;
     }
 
-    .skysail-app-process .process-card img {
-        width: 75px;
-        height: 75px;
+    .skysail-card-icon {
+        width: 82px;
+        height: 82px;
 
-        margin-bottom: 18px;
+        flex-basis: 82px;
+
+        margin-bottom: 20px;
+
+        border-radius: 21px;
     }
 
-    .skysail-app-process .process-card h3 {
-        font-size: 22px;
-        margin-bottom: 13px;
+    .skysail-card-icon img {
+        width: 46px;
+        height: 46px;
     }
 
-    .skysail-app-process .process-card p {
-        max-width: 290px;
-
-        font-size: 14px;
-        line-height: 1.5;
+    .skysail-card-content h3 {
+        font-size: 19px;
     }
 }
 
 
 /* =========================================================
-   VERY SMALL MOBILE
+   SMALL MOBILE
    ========================================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 380px) {
 
-    .skysail-app-process .process-title {
-        font-size: 28px;
+    .skysail-app-section {
+        padding-left: 13px;
+        padding-right: 13px;
     }
 
-    .skysail-app-process .process-card {
-        height: 180px;
-        min-height: 180px;
-
-        padding: 22px 18px;
+    .skysail-app-heading h2 {
+        font-size: 30px;
     }
 
-    .skysail-app-process .process-card img {
-        width: 68px;
-        height: 68px;
+    .skysail-app-card {
+        min-height: 215px;
+
+        padding:
+            26px 20px;
     }
 
-    .skysail-app-process .process-card h3 {
-        font-size: 20px;
+    .skysail-card-icon {
+        width: 76px;
+        height: 76px;
+
+        flex-basis: 76px;
+
+        margin-bottom: 18px;
     }
 
-    .skysail-app-process .process-card p {
-        font-size: 13px;
+    .skysail-card-icon img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .skysail-card-content h3 {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .skysail-app-card {
+        opacity: 1;
+        transform: none;
+
+        transition: none;
+    }
+
+    .skysail-card-icon {
+        animation: none;
+    }
+
+    .skysail-app-card:hover {
+        transform: none;
     }
 }
 
@@ -4652,6 +4515,7 @@ display: flex;
 .download-app-section {
     padding: 10px 20px 70px;
     text-align: center;
+    /*margin-top: -180px;*/
 }
 
 .download-app-section h2 {
