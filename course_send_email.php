@@ -132,7 +132,7 @@ try {
 
 
     // 🔹 Email to company
-    $companyEmail = 'info@canboards.com';
+    $companyEmail = 'info@skysailimmigration.com';
 
     $subject = "Course Enquiry from $name";
 

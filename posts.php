@@ -20,10 +20,23 @@ $isAdmin    = isset($_SESSION['role']) && $_SESSION['role']==='admin';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canada Immigration Blog | Latest IRCC Updates</title>
-<meta name="description" content="Stay updated with Canada immigration news, Express Entry draws, Study Permit changes, and IRCC updates from CanBoards.">
+<meta name="description" content="Stay updated with Canada immigration news, Express Entry draws, Study Permit changes, and IRCC updates from Skysail.">
 <meta name="keywords" content="Canada immigration news, IRCC updates, Express Entry draw, Study Permit news">
-<link rel="canonical" href="https://www.canboards.com/posts.php">
-    <link rel="icon" type="image/png" href="Images/Favicon.svg">
+<link rel="canonical" href="https://www.skysailimmigration.com/posts.php">
+    <link rel="apple-touch-icon" sizes="57x57" href="Images/img/Favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="Images/img/Favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="Images/img/Favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="Images/img/Favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="Images/img/Favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="Images/img/Favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="Images/img/Favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="Images/img/Favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="Images/img/Favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="Images/img/Favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/img/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="Images/img/Favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/img/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="Images/img/Favicon/manifest.json">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/reorganized_css.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -800,14 +813,14 @@ input,textarea,select{
     </div>
 
     <header role="banner">
+        <!--<div class="RCIC-top"><img src="Images/RCIC Black.svg" alt="RCIC-IRB logo" class="img-fluid image-flip" style="height: 28px; width: auto;"></div>-->
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-header" role="navigation" aria-label="Main navigation">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="Images/Banner_1.png" alt="Canboards" class="navbar-brand-img">
+                    <img src="Images/img/logo.png" alt="Skysail" class="navbar-brand-img">
                 </a>
                 <!-- Hamburger menu button for mobile/tablet (stays right) -->
-                <button class="navbar-toggler d-flex d-md-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler d-flex d-md-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -830,13 +843,13 @@ input,textarea,select{
                             <a class="nav-link" href="other-services.html">Other</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-btn nav-btn--filled outer" href="https://app.canboards.com/client/register">Register</a>
+                            <a class="nav-link nav-btn nav-btn--filled outer" href="https://apply.skysailimmigration.com/client/register">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-btn nav-btn--filled" href="https://app.canboards.com/client/login">Login</a>
+                            <a class="nav-link nav-btn nav-btn--filled" href="https://apply.skysailimmigration.com/client/login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-btn nav-btn--filled" href="immigration-calculator.html">Calculator</a>
+                            <a class="nav-link nav-btn nav-btn--filled" href="immigration-calculator.html">PR   Calculator</a>
                         </li>
                     </ul>
                 </div>
@@ -2156,10 +2169,10 @@ const selected = [document.getElementById('visaCategory').value].filter(val => v
                         <div class="journey-text-content">
                             <h2 class="journey-title">Let's Start Your Canadian Journey</h2>
                             <p class="journey-desc">
-                                Join hundreds of successful immigrants who chose Canboards for their seamless transition to Canada.
+                                Join hundreds of successful immigrants who chose SkySail for their seamless transition to Canada.
                             </p>
                             <div class="journey-cta-wrapper">
-                                <a href="https://app.canboards.com/client/register" class="fancy_button px-4 py-2 fancy">Register Now</a>
+                                <a href="https://apply.skysailimmigration.com/client/register" class="fancy_button px-4 py-2 fancy">Register Now</a>
                             </div>
                         </div>
                     </div>
@@ -2179,34 +2192,34 @@ const selected = [document.getElementById('visaCategory').value].filter(val => v
 
     <div id="footer-spacer" style="background-color: #23235b;"></div>
 
-    <footer id="site-footer" class="mt-5">
+    <!-- Footer start here! -->
+        <footer id="site-footer" class="mt-5">
         <div class="container py-5" id="footer-content">
             <!-- Top row (above the line) -->
-            <div class="row footer-top gy-4" style="border-bottom:none">
+            <div class="row footer-top gy-4">
                 <!-- Column1: logo + address + social stacked -->
                 <div class="col-12 col-lg-4">
                     <div class="row g-3">
                         <!-- Row1: Logo -->
                         <div class="col-12">
                             <div class="footer-logo d-flex align-items-center">
-                                <img src="Images/Logo_White.png" alt="Canboards logo" class="footer-logo-large">
+                                <img src="Images/img/Logo_Footer.png" alt="Skysail logo" class="footer-logo-large">
                             </div>
                         </div>
                         <!-- Row2: Address -->
                         <div class="col-12">
                             <address>
-                                Suite 505, 171 Queens Ave<br>
-                                London, ON<br>
-                                N6A 5J7
+                                <a href="office-locations.html">
+                                    <span>CANADA  |  INDIA</span> </a>
                             </address>
                         </div>
                         <!-- Row3: Social icons -->
                         <div class="col-12">
                             <div class="footer-social">
-                                <a href="https://www.linkedin.com/company/canboards/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                                <a href="https://www.facebook.com/canboards" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="https://www.instagram.com/canboards/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="https://www.youtube.com/@CanBoards" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                                <a href="https://www.linkedin.com/company/skysailimmigration/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://www.facebook.com/immigrationskysail" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/skysailimmigration/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.youtube.com/@skysail_Immigration" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
                             </div>
                         </div>
                     </div>
@@ -2217,7 +2230,7 @@ const selected = [document.getElementById('visaCategory').value].filter(val => v
                     <div class="row g-4">
                         <!-- Can Services -->
                         <div class="col-12 col-md-4">
-                            <h6 class="mb-2">Can Services</h6>
+                            <h6 class="mb-2">SkySail Services</h6>
                             <ul>
                                 <li><a class="footer-link" href="study-in-canada.html">Study</a></li>
                                 <li><a class="footer-link" href="work-in-canada.html">Work</a></li>
@@ -2240,11 +2253,12 @@ const selected = [document.getElementById('visaCategory').value].filter(val => v
 
                         <!-- Can Resources -->
                         <div class="col-12 col-md-4">
-                            <h6 class="mb-2">Can Resources</h6>
+                            <h6 class="mb-2">Sky Resources</h6>
                             <ul>
                                 <li><a class="footer-link" href="#">Blog</a></li>
                                 <li><a class="footer-link" href="#">Webinar</a></li>
-                                <li><a class="footer-link" href="#">Can Insight</a></li>
+                                <li><a class="footer-link" href="#">Sky Insight</a></li>
+                                <li><a class="footer-link" href="office-locations.html">Our Offices</a></li>
                             </ul>
                         </div>
                     </div>
@@ -2254,22 +2268,26 @@ const selected = [document.getElementById('visaCategory').value].filter(val => v
             <!-- Bottom row (under the line) -->
             <div class="row footer-bottom align-items-center pt-3 mt-4">
                 <!-- Desktop: left | center | right
-         Mobile: stacked full-width blocks -->
+                Mobile: stacked full-width blocks -->
                 <div class="col-12 col-md-4 text-center text-md-start text-white-50 mb-3 mb-md-0">
-                    ©2025 Canboards Inc.
+                    &copy; <span id="year"></span> SkySail Immigration
                 </div>
 
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
-                    <div class="d-flex justify-content-center align-items-center gap-3">
-                        <img src="Images/capic-logo.webp"
-                             alt="CAPIC logo"
-                             class="img-fluid"
-                             style="height: 38px; width: auto;">
+                    <div class="footer-bottom-logos">
 
-                        <img src="Images/RCIC-IRB-Logo-footer.webp"
-                             alt="RCIC-IRB logo"
-                             class="img-fluid"
-                             style="height: 38px; width: auto;">
+                        <img src="Images/capic-logo.webp" alt="CAPIC logo" class="footer-certification-logo">
+
+                        <img src="Images/RCIC-IRB-Logo-footer.webp" alt="RCIC-IRB logo" class="footer-certification-logo">
+
+                        <a href="https://apps.apple.com/ca/app/skysail-immigration/id6468471315" class="footer-app-link" aria-label="Download on the App Store">
+                            <img src="Images/app-store.png" alt="Download on the App Store" class="footer-app-logo">
+                        </a>
+
+                        <a href="https://play.google.com/store/apps/details?id=com.skysail.immigration&pcampaignid=web_share" class="footer-app-link" aria-label="Get it on Google Play">
+                            <img src="Images/google-play.png" alt="Get it on Google Play" class="footer-app-logo">
+                        </a>
+
                     </div>
                 </div>
 
@@ -2279,6 +2297,22 @@ const selected = [document.getElementById('visaCategory').value].filter(val => v
             </div>
         </div>
     </footer>
+    <!-- Footer end here! -->
+
+    <!-- SkySail Emoji Back To Top -->
+    <button type="button"
+            id="skyBackToTop"
+            class="sky-emoji-top"
+            aria-label="Back to top">
+
+        <span class="sky-emoji-orb"></span>
+
+        <span class="sky-emoji-face">👆</span>
+
+        <span class="sky-emoji-sparkle sparkle-1">✨</span>
+        <span class="sky-emoji-sparkle sparkle-2">✦</span>
+    </button>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="JS/script.js"></script>

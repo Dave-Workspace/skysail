@@ -2,7 +2,7 @@
 header('Content-Type: text/plain');
 
 // API URL
-$url = 'https://app.canboards.com/api/check-email-status';
+$url = 'https://apply.skysailimmigration.com/api/check-email-status';
 
 // Sample payload
 $data = [

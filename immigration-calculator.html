@@ -1028,6 +1028,7 @@ height: 90px;
 </div>
 
 
+    <div class="overlay-bg" id="overlayBg"></div>
     <div class="calculator-container">
         <div id="main-content">
             <div class="calculator-wrapper">
@@ -3318,293 +3319,586 @@ height: 90px;
                         </div>
                     </form>
                     <!-- OINP Points Calculator -->
-                    <form id="oinp-form" class="hidden form-transition">
-                        <h1>Ontario Immigrant Nominee Program Points Calculator</h1>
-                        <!-- Stream Selector -->
-                        <div class="">
-                            <h5 class="">Select Stream:</h5>
-                            <div class="section-content">
-                                <select id="oinp_stream" name="oinp_stream">
-                                    <option value="">-- Select Stream --</option>
-                                    <option value="foreign_worker">Employer Job Offer: Foreign Worker stream</option>
-                                    <option value="international_student">Employer Job Offer: International Student stream</option>
-                                    <option value="in_demand_skills">Employer Job Offer: In-Demand Skills stream</option>
-                                    <option value="masters_graduate">Masters Graduate stream</option>
-                                    <option value="phd_graduate">PhD Graduate stream</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Work Permit Status -->
-                        <div class="section collapsed oinp-section" id="oinp-work-section" data-for="foreign_worker international_student in_demand_skills masters_graduate phd_graduate" style="display:none;">
-                            <h5 class="accordion-toggle">Work</h5>
-                            <div class="section-content">
-                                <div class="oinp-section" data-for="foreign_worker international_student in_demand_skills masters_graduate phd_graduate" style="display:none;">
-                                    <label>Work Permit Status</label>
-                                    <div class="section-content">
-                                        <label>
-                                            <input type="radio" name="work_permit_status" value="10"> Valid work or study permit
-                                        </label>
-                                        <br>
-                                        <label>
-                                            <input type="radio" name="work_permit_status" value="0"> No valid permit
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- Common Sections -->
-                                <!-- Job Offer: NOC TEER -->
-                                <div class="oinp-section" data-for="foreign_worker international_student" style="display:none;">
-                                    <label>Job Offer: NOC TEER</label>
-                                    <div class="section-content">
-                                        <select id="noc_teer">
-                                            <option value="0" data-score="0">TEER 4-5</option>
-                                            <option value="8" data-score="8">TEER 2-3</option>
-                                            <option value="10" data-score="10">TEER 0-1</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Job Offer: Broad Occupational Category -->
-                                <div class="oinp-section" data-for="foreign_worker international_student in_demand_skills" style="display:none;">
-                                    <label>Job Offer: Broad Occupational Category</label>
-                                    <div class="section-content">
-                                        <select id="broad_occup_cat">
-                                            <option value="10" data-score="10">Category 0,2,3</option>
-                                            <option value="7" data-score="7">Category 7</option>
-                                            <option value="5" data-score="5">Category 1,9</option>
-                                            <option value="4" data-score="4">Category 4,8</option>
-                                            <option value="3" data-score="3">Category 5,6</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Job Offer: Wage -->
-                                <div class="oinp-section" data-for="foreign_worker international_student in_demand_skills" style="display:none;">
-                                    <label>Job Offer: Wage ($/hr)</label>
-                                    <div class="section-content">
-                                        <select id="job_offer_wage">
-                                            <option value="10" data-score="10">40 or higher</option>
-                                            <option value="8" data-score="8">35 to 39.99</option>
-                                            <option value="7" data-score="7">30 to 34.99</option>
-                                            <option value="6" data-score="6">25 to 29.99</option>
-                                            <option value="5" data-score="5">20 to 24.99</option>
-                                            <option value="0" data-score="0">Less than 20</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Job Tenure With Employer -->
-                                <div class="oinp-section" data-for="foreign_worker international_student in_demand_skills" style="display:none;">
-                                    <label>Job Tenure With Job Offer Employer</label>
-                                    <div class="section-content">
-                                        <label>
-                                            <input type="radio" name="job_tenure" value="3"> 6 months or more
-                                        </label>
-                                        <br>
-                                        <label>
-                                            <input type="radio" name="job_tenure" value="0"> Less than 6 months
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- Earnings History -->
-                                <div class="oinp-section" data-for="foreign_worker international_student in_demand_skills masters_graduate phd_graduate" style="display:none;">
-                                    <label>Earnings History ($40,000 or more in a year)</label>
-                                    <div class="section-content">
-                                        <label>
-                                            <input type="radio" name="earnings_history" value="3"> Yes
-                                        </label>
-                                        <br>
-                                        <label>
-                                            <input type="radio" name="earnings_history" value="0"> No
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- Location of Job Offer -->
-                                <div class="oinp-section" data-for="foreign_worker international_student in_demand_skills" style="display:none;">
-                                    <label>Location of Job Offer</label>
-                                    <div class="section-content">
-                                        <select id="job_location">
-                                            <option value="10">Northern Ontario</option>
-                                            <option value="8">Outside GTA (Except Northern Ontario)</option>
-                                            <option value="3">Inside GTA (Except Toronto)</option>
-                                            <option value="0">Toronto</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="section collapsed oinp-section" id="oinp-education-section" data-for="international_student masters_graduate phd_graduate" style="display:none;">
-                            <h5 class="accordion-toggle">Education</h5>
-                            <div class="section-content">
-                                <!-- Highest Level of Education -->
-                                <div class="oinp-section" data-for="international_student masters_graduate phd_graduate" style="display:none;">
-                                    <label>Highest Level of Education</label>
-                                    <div class="section-content">
-                                        <select id="highest_education">
-                                            <option value="0">-- Select --</option>
-                                            <option value="10">PhD / Doctoral</option>
-                                            <option value="8">Master’s</option>
-                                            <option value="6">Bachelor’s or Graduate Diploma</option>
-                                            <option value="5">College or Trades Certificate</option>
-                                            <option value="0">Less than a college</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Field of Study -->
-                                <div class="oinp-section" data-for="international_student masters_graduate phd_graduate" style="display:none;">
-                                    <label>Field of Study</label>
-                                    <div class="section-content">
-                                        <select id="field_of_study">
-                                            <option value="0">-- Select --</option>
-                                            <option value="12">STEAM or Trade</option>
-                                            <option value="6">Business, Social Sciences, Education</option>
-                                            <option value="0">Arts and Humanities</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Canadian Education Experience -->
-                                <div class="oinp-section" data-for="international_student masters_graduate phd_graduate" style="display:none;">
-                                    <label>Canadian Education Experience</label>
-                                    <div class="section-content">
-                                        <select id="canadian_education_exp">
-                                            <option value="0">None</option>
-                                            <option value="5">One Canadian Credential</option>
-                                            <option value="10">More than one Canadian Credential</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Regional Immigration: Location of Study -->
-                                <div class="oinp-section" data-for="international_student masters_graduate phd_graduate" style="display:none;">
-                                    <label>Regional Immigration: Location of Study</label>
-                                    <div class="section-content">
-                                        <select id="location_of_study">
-                                            <option value="10">Northern Ontario</option>
-                                            <option value="8">Outside GTA (Except Northern Ontario)</option>
-                                            <option value="3">Inside GTA (Except Toronto)</option>
-                                            <option value="0">Toronto</option>
-                                            <option value="0">No in-person classes</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="section collapsed oinp-section" id="oinp-language-section" data-for="foreign_worker international_student masters_graduate phd_graduate in_demand_skills" style="display:none;">
-                            <h5 class="accordion-toggle">Language Proficiency</h5>
-                            <div class="section-content">
-                                <!-- Official Language Ability -->
-                                <div class="oinp-section" data-for="foreign_worker international_student masters_graduate phd_graduate in_demand_skills" style="display:none;">
-                                    <label>Official Language Ability</label>
-                                    <div class="section-content">
-                                        <select class="test-type" data-target="oinp">
-                                            <option value="">-- Select --</option>
-                                            <option value="IELTS">IELTS</option>
-                                            <option value="CELPIP">CELPIP</option>
-                                            <option value="PTECORE">PTE Core</option>
-                                            <option value="TEF">TEF</option>
-                                            <option value="TCF">TCF</option>
-                                        </select>
-                                        <div class="skills-input two-column" data-target="oinp">
-                                            <div class="skill-item">
-                                                <label>
-                                                    Speaking:
-                                                    <select class="score" data-skill="speaking"></select>
-                                                </label>
-                                            </div>
-                                            <div class="skill-item">
-                                                <label>
-                                                    Listening:
-                                                    <select class="score" data-skill="listening"></select>
-                                                </label>
-                                            </div>
-                                            <div class="skill-item">
-                                                <label>
-                                                    Reading:
-                                                    <select class="score" data-skill="reading"></select>
-                                                </label>
-                                            </div>
-                                            <div class="skill-item">
-                                                <label>
-                                                    Writing:
-                                                    <select class="score" data-skill="writing"></select>
-                                                </label>
-                                            </div>
-                                            
-                                            
-                                        </div>
-                                        <select id="official_language_ability" class="hidden">
-                                            <option value="0">-- Select --</option>
-                                            <option value="10">10</option>
-                                            <option value="10">9</option>
-                                            <option value="6">8</option>
-                                            <option value="4">7</option>
-                                            <option value="0">6</option>
-                                            <option value="0">5</option>
-                                            <option value="0">4</option>
-                                            <option value="0">3</option>
-                                            <option value="0">2</option>
-                                            <option value="0">1</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Knowledge of Official Languages -->
-                                <div class="oinp-section" data-for="foreign_worker international_student masters_graduate phd_graduate" style="display:none;">
-                                    <label>Knowledge of Official Languages</label>
-                                    <div class="section-content">
-                                        <select class="test-type" data-target="oinp_secondary">
-                                            <option value="">-- Select --</option>
-                                            <option value="IELTS">IELTS</option>
-                                            <option value="CELPIP">CELPIP</option>
-                                            <option value="PTECORE">PTE Core</option>
-                                            <option value="TEF">TEF</option>
-                                            <option value="TCF">TCF</option>
-                                        </select>
-                                        <div class="skills-input two-column" data-target="oinp_secondary">
-                                            <div class="skill-item">
-                                                <label>
-                                                    Speaking:
-                                                    <select class="score" data-skill="speaking"></select>
-                                                </label>
-                                            </div>
-                                            <div class="skill-item">
-                                                <label>
-                                                    Listening:
-                                                    <select class="score" data-skill="listening"></select>
-                                                </label>
-                                            </div>
-                                            <div class="skill-item">
-                                                <label>
-                                                    Reading:
-                                                    <select class="score" data-skill="reading"></select>
-                                                </label>
-                                            </div>
-                                            <div class="skill-item">
-                                                <label>
-                                                    Writing:
-                                                    <select class="score" data-skill="writing"></select>
-                                                </label>
-                                            </div>
-                                            
-                                            
-                                        </div>
-                                        <select id="oinp_secondary_languages" class="hidden">
-                                            <option value="0">Select</option>
-                                            <option value="10">10</option>
-                                            <option value="9">9</option>
-                                            <option value="8">8</option>
-                                            <option value="7">7</option>
-                                            <option value="6">6</option>
-                                            <option value="5">5</option>
-                                            <option value="4">4</option>
-                                            <option value="3">3</option>
-                                            <option value="2">2</option>
-                                            <option value="1">1</option>
-                                        </select>
-                                        <select id="knowledge_official_languages" class="hidden">
-                                            <option value="0"></option>
-                                            <option value="5">1 Official Language</option>
-                                            <option value="10">2 Official Languages (CLB7 + CLB6)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                                <form id="oinp-form" class="hidden form-transition">
+
+    <h1>Ontario Immigrant Nominee Program Points Calculator</h1>
+
+    <!-- =====================================================
+         APPLICANT TYPE
+         ===================================================== -->
+    <div class="section collapsed oinp-section"
+         id="oinp-applicant-section"
+         data-for="all">
+
+        <h5 class="accordion-toggle">Applicant Type</h5>
+
+        <div class="section-content">
+
+            <div class="oinp-section">
+
+                <label for="applicantType">
+                    How are you applying?
+                </label>
+
+                <select id="applicantType" name="applicantType">
+                    <option value="job">Job Offer Applicant</option>
+                    <option value="physician">Self-Employed Physician</option>
+                </select>
+
+                <small>
+                    The physician option removes the job-offer wage,
+                    job-position experience and legal-status scoring factors.
+                </small>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         EMPLOYMENT
+         ===================================================== -->
+    <div class="section collapsed oinp-section"
+         id="oinp-employment-section"
+         data-for="all">
+
+        <h5 class="accordion-toggle">
+            Employment & Labour Market Factors
+        </h5>
+
+        <div class="section-content">
+
+            <!-- NOC -->
+            <div class="oinp-section">
+
+                
+                <input
+                    type="text"
+                    id="nocCode"
+                    maxlength="5"
+                    inputmode="numeric"
+                    placeholder="Example: 31301"
+                >
+
+                <small>
+                    Enter your five-digit NOC 2021 code.
+                    The first digit determines the broad occupational category
+                    and the second digit determines the TEER category.
+                </small>
+
+                <div id="nocError" class="error"></div>
+
+            </div>
+
+
+            <!-- TEER -->
+            <div class="oinp-section">
+
+                <label for="teer">
+                    NOC TEER Category
+                </label>
+
+                <select id="teer">
+                    <option value="">Select</option>
+
+                    <option value="0-1">
+                        TEER 0 or 1 — 9 points
+                    </option>
+
+                    <option value="2-3">
+                        TEER 2 or 3 — 6 points
+                    </option>
+
+                    <option value="4-5">
+                        TEER 4 or 5 — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="teerPoints">
+                    0 points
+                </span>
+
+            </div>
+
+
+            <!-- BROAD CATEGORY -->
+            <div class="oinp-section">
+
+                <label for="broadCategory">
+                    NOC Broad Occupational Category
+                </label>
+
+                <select id="broadCategory">
+
+                    <option value="">Select</option>
+
+                    <option value="3">
+                        Category 3 — Health — 10 points
+                    </option>
+
+                    <option value="7">
+                        Category 7 — Trades, Transport & Equipment — 8 points
+                    </option>
+
+                    <option value="2">
+                        Category 2 — Natural & Applied Sciences — 6 points
+                    </option>
+
+                    <option value="0-1-4-8-9">
+                        Categories 0, 1, 4, 8, 9 — 4 points
+                    </option>
+
+                    <option value="5-6">
+                        Categories 5, 6 — 2 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="broadPoints">
+                    0 points
+                </span>
+
+            </div>
+
+
+            <!-- WAGE -->
+            <div class="oinp-section" id="wageQuestion">
+
+                <label for="hourlyWage">
+                    Hourly Wage in Ontario Job Offer
+                </label>
+
+                <input
+                    type="number"
+                    id="hourlyWage"
+                    min="0"
+                    step="0.01"
+                    placeholder="Example: 35.00"
+                >
+
+                <span class="score-preview" id="wagePoints">
+                    0 points
+                </span>
+
+            </div>
+
+
+            <!-- JOB EXPERIENCE -->
+            <div class="oinp-section" id="jobExperienceQuestion">
+
+                <label for="jobExperience">
+                    Time Worked in Job-Offer Position
+                </label>
+
+                <select id="jobExperience">
+
+                    <option value="">Select</option>
+
+                    <option value="24plus">
+                        More than 24 months — 18 points
+                    </option>
+
+                    <option value="13-24">
+                        13–24 months — 15 points
+                    </option>
+
+                    <option value="6-12">
+                        6–12 months — 12 points
+                    </option>
+
+                    <option value="under6">
+                        Less than 6 months / not currently working — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="jobExperiencePoints">
+                    0 points
+                </span>
+
+            </div>
+
+
+            <!-- ONTARIO EXPERIENCE -->
+            <div class="oinp-section hidden"
+                 id="ontarioExperienceQuestion">
+
+                <label for="ontarioExperience">
+                    Total Ontario Work Experience
+                </label>
+
+                <select id="ontarioExperience">
+
+                    <option value="">Select</option>
+
+                    <option value="24plus">
+                        More than 24 months — 12 points
+                    </option>
+
+                    <option value="13-24">
+                        13–24 months — 9 points
+                    </option>
+
+                    <option value="6-12">
+                        6–12 months — 6 points
+                    </option>
+
+                    <option value="under6">
+                        Less than 6 months — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="ontarioExperiencePoints">
+                    0 points
+                </span>
+
+            </div>
+
+
+            <!-- PHYSICIAN EXPERIENCE -->
+            <div class="oinp-section hidden"
+                 id="physicianExperienceQuestion">
+
+                <label for="physicianExperience">
+                    Cumulative Medical Practice in Ontario
+                </label>
+
+                <select id="physicianExperience">
+
+                    <option value="">Select</option>
+
+                    <option value="24plus">
+                        More than 24 months — 18 points
+                    </option>
+
+                    <option value="13-24">
+                        13–24 months — 15 points
+                    </option>
+
+                    <option value="6-12">
+                        6–12 months — 12 points
+                    </option>
+
+                    <option value="under6">
+                        Less than 6 months — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="physicianExperiencePoints">
+                    0 points
+                </span>
+
+            </div>
+
+
+            <!-- EARNINGS -->
+            <div class="oinp-section">
+
+                <label for="earnings">
+                    Highest Qualifying Canadian Annual Earnings
+                </label>
+
+                <select id="earnings">
+
+                    <option value="">Select</option>
+
+                    <option value="70k">
+                        $70,000 or more — 8 points
+                    </option>
+
+                    <option value="50k">
+                        $50,000–$69,999 — 6 points
+                    </option>
+
+                    <option value="30k">
+                        $30,000–$49,999 — 4 points
+                    </option>
+
+                    <option value="under30">
+                        Under $30,000 — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="earningsPoints">
+                    0 points
+                </span>
+
+            </div>
+
+
+            <!-- LEGAL STATUS -->
+            <div class="oinp-section" id="legalStatusQuestion">
+
+                <label for="legalStatus">
+                    Current Legal Status in Canada
+                </label>
+
+                <select id="legalStatus">
+
+                    <option value="">Select</option>
+
+                    <option value="work">
+                        Valid Work Permit — 10 points
+                    </option>
+
+                    <option value="study">
+                        Valid Study Permit — 5 points
+                    </option>
+
+                    <option value="none">
+                        No valid work/study permit — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="legalStatusPoints">
+                    0 points
+                </span>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         EDUCATION
+         ===================================================== -->
+    <div class="section collapsed oinp-section"
+         id="oinp-new-education-section"
+         data-for="all">
+
+        <h5 class="accordion-toggle">
+            Education
+        </h5>
+
+        <div class="section-content">
+
+            <div class="oinp-section">
+
+                <label for="education">
+                    Highest Level of Education
+                </label>
+
+                <select id="oinp-education">
+
+                    <option value="">Select</option>
+
+                    <option value="10">
+                        Doctorate / Medicine / Dentistry /
+                        Veterinary / Optometry — 10 points
+                    </option>
+
+                    <option value="8">
+                        Master's Degree — 8 points
+                    </option>
+
+                    <option value="6">
+                        Bachelor's Degree / equivalent — 6 points
+                    </option>
+
+                    <option value="5">
+                        College Diploma / Graduate Certificate /
+                        Trades — 5 points
+                    </option>
+
+                    <option value="0">
+                        Less than college or trade certificate — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="educationPoints">
+                    0 points
+                </span>
+
+            </div>
+
+
+            <div class="oinp-section">
+
+                <label for="canadianCredentials">
+                    Qualifying Canadian Education Credentials
+                </label>
+
+                <select id="canadianCredentials">
+
+                    <option value="">Select</option>
+
+                    <option value="10">
+                        More than one qualifying credential — 10 points
+                    </option>
+
+                    <option value="5">
+                        One qualifying credential — 5 points
+                    </option>
+
+                    <option value="0">
+                        None — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="credentialPoints">
+                    0 points
+                </span>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         LANGUAGE
+         ===================================================== -->
+    <div class="section collapsed oinp-section"
+         id="oinp-new-language-section"
+         data-for="all">
+
+        <h5 class="accordion-toggle">
+            Language Proficiency
+        </h5>
+
+        <div class="section-content">
+
+            <div class="oinp-section">
+
+                <label for="clb">
+                    Qualifying Official-Language CLB
+                </label>
+
+                <select id="clb">
+
+                    <option value="">Select</option>
+
+                    <option value="15">
+                        CLB 9 or higher — 15 points
+                    </option>
+
+                    <option value="12">
+                        CLB 8 — 12 points
+                    </option>
+
+                    <option value="8">
+                        CLB 7 — 8 points
+                    </option>
+
+                    <option value="4">
+                        CLB 6 — 4 points
+                    </option>
+
+                    <option value="0">
+                        CLB 5 or lower — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="clbPoints">
+                    0 points
+                </span>
+
+            </div>
+
+
+            <div class="oinp-section">
+
+                <label for="languages">
+                    Number of Qualifying Official Languages
+                </label>
+
+                <select id="languages">
+
+                    <option value="">Select</option>
+
+                    <option value="10">
+                        English + French — 10 points
+                    </option>
+
+                    <option value="5">
+                        One official language — 5 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="languagePoints">
+                    0 points
+                </span>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         REGIONALIZATION
+         ===================================================== -->
+    <div class="section collapsed oinp-section"
+         id="oinp-regional-section"
+         data-for="all">
+
+        <h5 class="accordion-toggle">
+            Regionalization
+        </h5>
+
+        <div class="section-content">
+
+            <div class="oinp-section">
+
+                <label for="region">
+                    Ontario Work / Practice Location
+                </label>
+
+                <select id="region">
+
+                    <option value="">Select</option>
+
+                    <option value="15">
+                        Northern Ontario — 15 points
+                    </option>
+
+                    <option value="10">
+                        Eastern Ontario — 10 points
+                    </option>
+
+                    <option value="10">
+                        Central Ontario outside GTA — 10 points
+                    </option>
+
+                    <option value="10">
+                        Southwestern Ontario — 10 points
+                    </option>
+
+                    <option value="5">
+                        GTA except Toronto — 5 points
+                    </option>
+
+                    <option value="0">
+                        Toronto — 0 points
+                    </option>
+
+                </select>
+
+                <span class="score-preview" id="regionPoints">
+                    0 points
+                </span>
+
+            </div>
+
+        </div>
+    </div>
+
+
+   
+
+    </form>
+
                 </div>
                 <!-- Draw modal (example) -->
                 <div id="modal-draw" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitleDraw">
@@ -3691,13 +3985,29 @@ height: 90px;
                                                 <td>Language Proficiency</td>
                                                 <td class="score"><span id="lng_oinp"></span>
                                             </tr>
+                        <tr>
+                <td>Regionalization</td>
+                <td class="score">
+                    <span id="regional_oinp">0</span>
+                </td>
+            </tr>
                                             <tr class="total-row">
                                                 <th>Total</th>
                                                 <td class="score"><span id="tot_oinp"></span></td>
                                             </tr>
+
                                         </tbody>
                                     </table>
                                     <div><a href="#" class="fancy-link" onclick="openDraws(event, 'OINP')" data-modal-target="modal-draw">OINP Draws →</a></div>
+                    <!-- OINP DISCLAIMER -->
+    <div class="oinp-notice">
+        <strong>Important:</strong>
+        This calculator estimates EOI scoring points only.
+        A high score does not mean that you are eligible for the
+        Ontario Workforce Priority Stream or that Ontario will issue
+        an invitation.
+        </div>
+
                                 </div>
                                 <div id="ainp-panel" class="tab-panel" role="tabpanel" aria-labelledby="tab-crs">
                                     <h2>Score Factors</h2>

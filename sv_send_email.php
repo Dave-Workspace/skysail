@@ -95,8 +95,8 @@ try {
     file_put_contents($logFile, "[".date('Y-m-d H:i:s')."] INSERT SUCCESS ID: $id".PHP_EOL, FILE_APPEND | LOCK_EX);
 
     // 🔹 Email to company
-    $companyEmail = 'info@canboards.com';
-    $companyName  = 'Canboards Team';
+    $companyEmail = 'info@skysailimmigration.com';
+    $companyName  = 'SkySail Team';
 
     $subjectCompany = "Super Visa Health Insurance Enquiry from $name";
 

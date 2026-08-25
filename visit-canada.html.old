@@ -454,7 +454,7 @@
 <div class="why-inner container d-flex align-items-center">
 <img alt="Background Lines" class="why-bg-lines" src="Images/bg-lines.png"/>
 <div class="why-left d-flex align-items-center">
-<img alt="Why SkySail" class="why-heading-img" src="Images/New_Can_Help.png"/>
+<img alt="Why Canboards" class="why-heading-img" src="Images/New_Can_Help.png"/>
 </div>
 <div class="why-right d-flex align-items-center justify-content-center">
 <div class="why-feature-stack flip-stack-v2">

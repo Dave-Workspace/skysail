@@ -95,7 +95,7 @@ try {
 
 
 // 🔹 2️⃣ Send email to company (Travel Insurance)
-$companyEmail = 'info@canboards.com';
+$companyEmail = 'info@skysailimmigration.com';
 $subject = "Travel Insurance Enquiry from $name";
 
 $message = "
