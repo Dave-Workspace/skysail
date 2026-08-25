@@ -851,6 +851,7 @@ sheetScript.onload = () => {
             oinp: {
                 form: document.getElementById('oinp-form'),
                 /*maxPoints: 1200,*/
+                maxPoints: 130,
                 calculate: calculateOINPoints,
                 panel: document.getElementById('oinp-panel'),
             }
@@ -2958,179 +2959,908 @@ sheetScript.onload = () => {
 
             return total;
         }
-        function calculateOINPoints() {
-            const stream = document.getElementById('oinp_stream').value;
+        
 
 
-            ['lng_oinp', 'wrk_oinp', 'edu_oinp', 'tot_oinp'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.textContent = 0;
-                else console.log(`Element with ID "${id}" not found.`);
-            });
+/* ============================================================
+   OINP WORKFORCE PRIORITY STREAM CALCULATOR
+   This function is isolated to the OINP calculator.
+   ============================================================ */
+
+function calculateOINPoints() {
+
+    const form = document.getElementById('oinp-form');
+
+    if (!form) return;
 
 
+    /* =========================================================
+       HELPERS
+       ========================================================= */
+
+    const getValue = id => {
+
+        const el = document.getElementById(id);
+
+        if (!el || el.value === '') {
+            return 0;
+        }
+
+        return Number(el.value) || 0;
+    };
 
 
-            //const getRadioVal = name => {
-            //  const el = document.querySelector(`input[name="${name}"]:checked`);
-            //  return el ? parseInt(el.value) : 0;
-            //};
+    const setPreview = (id, points) => {
+
+        const el = document.getElementById(id);
+
+        if (el) {
+            el.textContent = `${points} points`;
+        }
+    };
 
 
+    const setText = (id, value) => {
 
-            // Hide all sections first
-            document.querySelectorAll('.oinp-section').forEach(sec => {
-                sec.style.display = 'none';
-            });
-            // Show only those matching `data-for`
-            if (stream) {
-                document.querySelectorAll('.oinp-section').forEach(sec => {
-                    const forAttr = sec.getAttribute('data-for');
-                    if (forAttr && forAttr.split(' ').includes(stream)) {
-                        sec.style.display = 'block';
-                    }
-                });
+        const el = document.getElementById(id);
+
+        if (el) {
+            el.textContent = value;
+        }
+    };
+
+
+    /* =========================================================
+       APPLICANT TYPE
+       ========================================================= */
+
+    const applicantType =
+        document.getElementById('applicantType')?.value || 'job';
+
+    const isPhysician =
+        applicantType === 'physician';
+
+
+    /* =========================================================
+       NOC / TEER
+       ========================================================= */
+
+    const teer =
+        document.getElementById('teer')?.value || '';
+
+    let teerPoints = 0;
+
+    switch (teer) {
+
+        case '0-1':
+            teerPoints = 9;
+            break;
+
+        case '2-3':
+            teerPoints = 6;
+            break;
+
+        case '4-5':
+            teerPoints = 0;
+            break;
+    }
+
+
+    /* =========================================================
+       BROAD OCCUPATIONAL CATEGORY
+       ========================================================= */
+
+    const broadCategory =
+        document.getElementById('broadCategory')?.value || '';
+
+    let broadPoints = 0;
+
+    switch (broadCategory) {
+
+        case '3':
+            broadPoints = 10;
+            break;
+
+        case '7':
+            broadPoints = 8;
+            break;
+
+        case '2':
+            broadPoints = 6;
+            break;
+
+        case '0-1-4-8-9':
+            broadPoints = 4;
+            break;
+
+        case '5-6':
+            broadPoints = 2;
+            break;
+    }
+
+
+    setPreview('teerPoints', teerPoints);
+    setPreview('broadPoints', broadPoints);
+
+
+    /* =========================================================
+       HOURLY WAGE
+       ========================================================= */
+
+    let wagePoints = 0;
+
+    const wage = parseFloat(
+        document.getElementById('hourlyWage')?.value
+    );
+
+    if (!isNaN(wage)) {
+
+        if (wage >= 40) {
+            wagePoints = 15;
+        }
+        else if (wage >= 35) {
+            wagePoints = 12;
+        }
+        else if (wage >= 30) {
+            wagePoints = 10;
+        }
+        else if (wage >= 25) {
+            wagePoints = 8;
+        }
+        else if (wage >= 20) {
+            wagePoints = 5;
+        }
+    }
+
+
+    /* =========================================================
+       EXPERIENCE
+       ========================================================= */
+
+    let experiencePoints = 0;
+
+
+    if (isPhysician) {
+
+        const physicianExperience =
+            document.getElementById(
+                'physicianExperience'
+            )?.value || '';
+
+        switch (physicianExperience) {
+
+            case '24plus':
+                experiencePoints = 18;
+                break;
+
+            case '13-24':
+                experiencePoints = 15;
+                break;
+
+            case '6-12':
+                experiencePoints = 12;
+                break;
+
+            case 'under6':
+                experiencePoints = 0;
+                break;
+        }
+
+        setPreview(
+            'physicianExperiencePoints',
+            experiencePoints
+        );
+
+    }
+    else {
+
+        const jobExperience =
+            document.getElementById(
+                'jobExperience'
+            )?.value || '';
+
+
+        /*
+         * Less than six months in the job-offer position
+         * uses general Ontario work experience.
+         */
+
+        if (jobExperience === 'under6') {
+
+            const ontarioExperience =
+                document.getElementById(
+                    'ontarioExperience'
+                )?.value || '';
+
+            switch (ontarioExperience) {
+
+                case '24plus':
+                    experiencePoints = 12;
+                    break;
+
+                case '13-24':
+                    experiencePoints = 9;
+                    break;
+
+                case '6-12':
+                    experiencePoints = 6;
+                    break;
+
+                case 'under6':
+                    experiencePoints = 0;
+                    break;
+            }
+
+            setPreview(
+                'ontarioExperiencePoints',
+                experiencePoints
+            );
+
+        }
+        else {
+
+            switch (jobExperience) {
+
+                case '24plus':
+                    experiencePoints = 18;
+                    break;
+
+                case '13-24':
+                    experiencePoints = 15;
+                    break;
+
+                case '6-12':
+                    experiencePoints = 12;
+                    break;
+
+                case 'under6':
+                    experiencePoints = 0;
+                    break;
+            }
+
+            setPreview(
+                'jobExperiencePoints',
+                experiencePoints
+            );
+        }
+    }
+
+
+    /* =========================================================
+       CANADIAN EARNINGS
+       ========================================================= */
+
+    const earnings =
+        document.getElementById('earnings')?.value || '';
+
+    let earningsPoints = 0;
+
+    switch (earnings) {
+
+        case '70k':
+            earningsPoints = 8;
+            break;
+
+        case '50k':
+            earningsPoints = 6;
+            break;
+
+        case '30k':
+            earningsPoints = 4;
+            break;
+
+        case 'under30':
+            earningsPoints = 0;
+            break;
+    }
+
+
+    /* =========================================================
+       LEGAL STATUS
+       ========================================================= */
+
+    let legalStatusPoints = 0;
+
+    //if (!isPhysician) {
+
+        const legalStatus =
+            document.getElementById(
+                'legalStatus'
+            )?.value || '';
+
+        switch (legalStatus) {
+
+            case 'work':
+                legalStatusPoints = 10;
+                break;
+
+            case 'study':
+                legalStatusPoints = 5;
+                break;
+
+            case 'none':
+                legalStatusPoints = 0;
+                break;
+        }
+    //}
+
+
+    /* =========================================================
+       EMPLOYMENT TOTAL
+       ========================================================= */
+
+    let employmentTotalPoints = 0;
+
+    if (isPhysician) {
+
+        employmentTotalPoints =
+            teerPoints +
+            broadPoints +
+            experiencePoints +
+            earningsPoints+
+            legalStatusPoints;
+
+    }
+    else {
+
+        employmentTotalPoints =
+            teerPoints +
+            broadPoints +
+            wagePoints +
+            experiencePoints +
+            earningsPoints +
+            legalStatusPoints;
+    }
+
+
+    /* =========================================================
+       EDUCATION
+       ========================================================= */
+
+    const educationPoints =
+        getValue('oinp-education');
+
+    const canadianCredentialsPoints =
+        getValue('canadianCredentials');
+
+    const educationTotalPoints =
+        educationPoints +
+        canadianCredentialsPoints;
+
+
+    /*
+     * IMPORTANT:
+     *
+     * Highest Level of Education is read directly from
+     * #education.
+     *
+     * Example values from your new HTML:
+     *
+     * Doctorate = 10
+     * Master's = 8
+     * Bachelor's = 6
+     * College/Trades = 5
+     * Less than college = 0
+     */
+
+    setPreview(
+        'educationPoints',
+        educationPoints
+    );
+
+    setPreview(
+        'credentialPoints',
+        canadianCredentialsPoints
+    );
+
+
+    /* =========================================================
+       LANGUAGE
+       ========================================================= */
+
+    const clbPoints =
+        getValue('clb');
+
+    const officialLanguagePoints =
+        getValue('languages');
+
+    const languageTotalPoints =
+        clbPoints +
+        officialLanguagePoints;
+
+
+    /* =========================================================
+       REGIONALIZATION
+       ========================================================= */
+
+    const regionalPoints =
+        getValue('region');
+
+    setPreview(
+        'regionPoints',
+        regionalPoints
+    );
+
+
+    /* =========================================================
+       TOTAL
+       ========================================================= */
+
+    let total =
+        employmentTotalPoints +
+        educationTotalPoints +
+        languageTotalPoints +
+        regionalPoints;
+
+
+    /*
+     * Maximum:
+     *
+     * Job Offer Applicant = 130
+     * Physician = 115
+     */
+
+    const maxPoints =
+        isPhysician ? 115 : 130;
+
+
+    if (total > maxPoints) {
+        total = maxPoints;
+    }
+
+
+    /* =========================================================
+       EXISTING OINP FACTOR PANEL
+       ========================================================= */
+
+    setText(
+        'wrk_oinp',
+        employmentTotalPoints
+    );
+
+    setText(
+        'edu_oinp',
+        educationTotalPoints
+    );
+
+    setText(
+        'lng_oinp',
+        languageTotalPoints
+    );
+
+    /*
+     * NEW:
+     * Regionalization now appears in the existing
+     * OINP Factors table.
+     */
+
+    setText(
+        'regional_oinp',
+        regionalPoints
+    );
+
+    setText(
+        'tot_oinp',
+        total
+    );
+
+
+    /* =========================================================
+       EXISTING TOP SCORE BOX
+       ========================================================= */
+
+    updateTotalBox(
+        total,
+        maxPoints
+    );
+
+
+    /* =========================================================
+       PREVIEW FIELDS
+       ========================================================= */
+
+    setPreview(
+        'wagePoints',
+        wagePoints
+    );
+
+    setPreview(
+        'earningsPoints',
+        earningsPoints
+    );
+
+    setPreview(
+        'legalStatusPoints',
+        legalStatusPoints
+    );
+
+    setPreview(
+        'clbPoints',
+        clbPoints
+    );
+
+    setPreview(
+        'languagePoints',
+        officialLanguagePoints
+    );
+}
+
+
+/* ============================================================
+   OINP WORKFORCE PRIORITY - EVENT HANDLERS
+   Isolated from all other calculators.
+   ============================================================ */
+
+(function initOINPWorkforceCalculator() {
+
+    function init() {
+
+        const form = document.getElementById('oinp-form');
+
+        if (!form) return;
+
+
+        const applicantType =
+            document.getElementById('applicantType');
+
+        const nocCode =
+            document.getElementById('nocCode');
+
+        const jobExperience =
+            document.getElementById('jobExperience');
+
+        const wageQuestion =
+            document.getElementById('wageQuestion');
+
+        const jobExperienceQuestion =
+            document.getElementById('jobExperienceQuestion');
+
+        const ontarioExperienceQuestion =
+            document.getElementById('ontarioExperienceQuestion');
+
+        const physicianExperienceQuestion =
+            document.getElementById('physicianExperienceQuestion');
+
+        const legalStatusQuestion =
+            document.getElementById('legalStatusQuestion');
+
+        const resetButton =
+            document.getElementById('oinpResetButton');
+
+        const printButton =
+            document.getElementById('oinpPrintButton');
+
+
+        /* -----------------------------------------------------
+           NOC automatic TEER + broad category
+           ----------------------------------------------------- */
+
+        function updateNOC() {
+
+            const code =
+                nocCode.value.trim();
+
+            const error =
+                document.getElementById('nocError');
+
+            if (error) {
+                error.textContent = '';
             }
 
 
+            if (code === '') {
 
-            // If no stream, zero total
-            if (!stream) {
-                updateTotalBox(0, forms.oinp.maxPoints);
+                calculateOINPoints();
                 return;
             }
 
-            let total = 0;
 
-            // Shared / overlapping fields
-            if (isOINPSectionVisible('noc_teer')) {
-                total += getVal('noc_teer');
-                document.getElementById('wrk_oinp').textContent = (parseInt(document.getElementById('wrk_oinp').textContent) || 0) + getVal('noc_teer');
+            if (!/^\d{5}$/.test(code)) {
 
-            }
+                if (error) {
+                    error.textContent =
+                        'Please enter a valid five-digit NOC code.';
+                }
 
-            if (isOINPSectionVisible('broad_occup_cat')) {
-                total += getVal('broad_occup_cat');
-                document.getElementById('wrk_oinp').textContent = (parseInt(document.getElementById('wrk_oinp').textContent) || 0) + getVal('broad_occup_cat');
-
-            }
-
-            if (isOINPSectionVisible('job_offer_wage')) {
-
-                total += getVal('job_offer_wage');
-                document.getElementById('wrk_oinp').textContent = (parseInt(document.getElementById('wrk_oinp').textContent) || 0) + getVal('job_offer_wage');
-
+                calculateOINPoints();
+                return;
             }
 
 
-            if (isOINPSectionVisible('work_permit_status')) {
+            const firstDigit =
+                code.charAt(0);
 
-                total += getRadioVal('work_permit_status');
-                document.getElementById('wrk_oinp').textContent = (parseInt(document.getElementById('wrk_oinp').textContent) || 0) + getRadioVal('work_permit_status');
-
-            }
-
-            if (isOINPSectionVisible('job_tenure')) {
-
-                total += getRadioVal('job_tenure');
-                document.getElementById('wrk_oinp').textContent = (parseInt(document.getElementById('wrk_oinp').textContent) || 0) + getRadioVal('job_tenure');
-
-            }
-
-            if (isOINPSectionVisible('earnings_history')) {
-                total += getRadioVal('earnings_history');
-                document.getElementById('wrk_oinp').textContent = (parseInt(document.getElementById('wrk_oinp').textContent) || 0) + getRadioVal('earnings_history');
-
-            }
-
-            document.getElementById('tot_oinp').textContent = total;
+            const secondDigit =
+                code.charAt(1);
 
 
-            if (isOINPSectionVisible('official_language_ability')) {
-		if (stream !== 'in_demand_skills') {
-                	total += getVal('official_language_ability');
-                	document.getElementById('lng_oinp').textContent = (parseInt(document.getElementById('lng_oinp').textContent) || 0) + getVal('official_language_ability');
-		}
-            }
+            /* TEER */
 
-            if (isOINPSectionVisible('knowledge_official_languages')) {
-		if (stream !== 'in_demand_skills') {
-                	total += getVal('knowledge_official_languages');
-                	document.getElementById('lng_oinp').textContent = (parseInt(document.getElementById('lng_oinp').textContent) || 0) + getVal('knowledge_official_languages');
-		}
+            const teer =
+                document.getElementById('teer');
+
+            if (
+                secondDigit === '0' ||
+                secondDigit === '1'
+            ) {
+
+                teer.value = '0-1';
+
+            } else if (
+                secondDigit === '2' ||
+                secondDigit === '3'
+            ) {
+
+                teer.value = '2-3';
+
+            } else if (
+                secondDigit === '4' ||
+                secondDigit === '5'
+            ) {
+
+                teer.value = '4-5';
             }
 
 
-            document.getElementById('tot_oinp').textContent = total;
+            /* Broad category */
 
-            if (isOINPSectionVisible('job_location')) {
-
-                total += getVal('job_location');
-                document.getElementById('wrk_oinp').textContent = (parseInt(document.getElementById('wrk_oinp').textContent) || 0) + getVal('job_location');
-
-            }
-
-            document.getElementById('tot_oinp').textContent = total;
-
-            if (isOINPSectionVisible('location_of_study')) {
-
-                total += getVal('location_of_study');
-                document.getElementById('edu_oinp').textContent = (parseInt(document.getElementById('edu_oinp').textContent) || 0) + getVal('location_of_study');
-
-            }
+            const broadCategory =
+                document.getElementById('broadCategory');
 
 
-            document.getElementById('tot_oinp').textContent = total;
+            if (firstDigit === '3') {
 
+                broadCategory.value = '3';
 
-            if (isOINPSectionVisible('highest_education')) {
+            } else if (firstDigit === '7') {
 
-                total += getVal('highest_education');
-                document.getElementById('edu_oinp').textContent = (parseInt(document.getElementById('edu_oinp').textContent) || 0) + getVal('highest_education');
-            }
+                broadCategory.value = '7';
 
+            } else if (firstDigit === '2') {
 
-            if (isOINPSectionVisible('field_of_study')) {
+                broadCategory.value = '2';
 
-                total += getVal('field_of_study');
-                document.getElementById('edu_oinp').textContent = (parseInt(document.getElementById('edu_oinp').textContent) || 0) + getVal('field_of_study');
-            }
+            } else if (
+                firstDigit === '0' ||
+                firstDigit === '1' ||
+                firstDigit === '4' ||
+                firstDigit === '8' ||
+                firstDigit === '9'
+            ) {
 
+                broadCategory.value =
+                    '0-1-4-8-9';
 
-            if (isOINPSectionVisible('canadian_education_exp')) {
+            } else if (
+                firstDigit === '5' ||
+                firstDigit === '6'
+            ) {
 
-                total += getVal('canadian_education_exp');
-                document.getElementById('edu_oinp').textContent = (parseInt(document.getElementById('edu_oinp').textContent) || 0) + getVal('canadian_education_exp');
+                broadCategory.value =
+                    '5-6';
             }
 
 
-
-            /* // Stream-specific additions
-             if (stream === 'foreign_worker' || stream === 'international_student') {
-               total += getVal('highest_education');
-               total += getVal('field_of_study');
-               total += getVal('canadian_education_exp');
-         
-             }
-         
-             // For masters_graduate or phd_graduate, you may adjust which fields count
-             if (stream === 'masters_graduate' || stream === 'phd_graduate') {
-               // Some fields may not apply; you could subtract or omit them above
-               total += getVal('highest_education');
-               total += getVal('field_of_study');
-               total += getVal('canadian_education_exp');
-         
-             }*/
-
-            // Ensure we don’t exceed max
-            const maxPts = forms.oinp.maxPoints;
-            if (total > maxPts) total = maxPts;
-
-            document.getElementById('tot_oinp').textContent = total;
-
-
-            updateTotalBox(total);
+            calculateOINPoints();
         }
+
+
+        /* -----------------------------------------------------
+           Applicant type
+           ----------------------------------------------------- */
+
+        function updateApplicantType() {
+
+            const type =
+                applicantType.value;
+
+
+            if (type === 'physician') {
+
+                wageQuestion.classList.add('hidden');
+
+                jobExperienceQuestion.classList.add('hidden');
+
+                ontarioExperienceQuestion.classList.add('hidden');
+
+                //legalStatusQuestion.classList.add('hidden');
+
+                physicianExperienceQuestion.classList.remove('hidden');
+
+
+            } else {
+
+                wageQuestion.classList.remove('hidden');
+
+                jobExperienceQuestion.classList.remove('hidden');
+
+                legalStatusQuestion.classList.remove('hidden');
+
+                physicianExperienceQuestion.classList.add('hidden');
+
+
+                if (
+                    jobExperience.value === 'under6'
+                ) {
+
+                    ontarioExperienceQuestion.classList.remove('hidden');
+
+                } else {
+
+                    ontarioExperienceQuestion.classList.add('hidden');
+                }
+            }
+
+
+            calculateOINPoints();
+        }
+
+
+        /* -----------------------------------------------------
+           Select changes
+           ----------------------------------------------------- */
+
+        form.querySelectorAll('select').forEach(
+            function (select) {
+
+                select.addEventListener(
+                    'change',
+                    function () {
+
+                        if (
+                            select === applicantType
+                        ) {
+
+                            updateApplicantType();
+
+                        } else if (
+                            select === jobExperience
+                        ) {
+
+                            updateApplicantType();
+
+                        } else {
+
+                            calculateOINPoints();
+                        }
+                    }
+                );
+            }
+        );
+
+
+        /* -----------------------------------------------------
+           Wage
+           ----------------------------------------------------- */
+
+        const hourlyWage =
+            document.getElementById('hourlyWage');
+
+        if (hourlyWage) {
+
+            hourlyWage.addEventListener(
+                'input',
+                calculateOINPoints
+            );
+        }
+
+
+        /* -----------------------------------------------------
+           NOC
+           ----------------------------------------------------- */
+
+        if (nocCode) {
+
+            nocCode.addEventListener(
+                'input',
+                updateNOC
+            );
+        }
+
+
+        /* -----------------------------------------------------
+           Reset
+           ----------------------------------------------------- */
+
+        if (resetButton) {
+
+            resetButton.addEventListener(
+                'click',
+                function () {
+
+                    /*
+                     * Only reset fields belonging to OINP.
+                     * Other calculators are untouched.
+                     */
+
+                    form.querySelectorAll(
+                        'input, select'
+                    ).forEach(
+                        function (element) {
+
+                            if (
+                                element.tagName === 'SELECT'
+                            ) {
+
+                                element.selectedIndex = 0;
+
+                            } else {
+
+                                element.value = '';
+                            }
+                        }
+                    );
+
+
+                    applicantType.value = 'job';
+
+
+                    document.getElementById(
+                        'nocError'
+                    ).textContent = '';
+
+
+                    updateApplicantType();
+
+                    calculateOINPoints();
+                }
+            );
+        }
+
+
+        /* -----------------------------------------------------
+           Print
+           ----------------------------------------------------- */
+
+        if (printButton) {
+
+            printButton.addEventListener(
+                'click',
+                function () {
+
+                    window.print();
+
+                }
+            );
+        }
+
+
+        /* -----------------------------------------------------
+           Initial state
+           ----------------------------------------------------- */
+
+        if (applicantType) {
+
+            applicantType.value = 'job';
+
+            updateApplicantType();
+        }
+
+        calculateOINPoints();
+    }
+
+
+    /*
+     * Your existing page may already be loaded when this
+     * code executes, so support both situations.
+     */
+
+    if (document.readyState === 'loading') {
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            init
+        );
+
+    } else {
+
+        init();
+    }
+
+})();
+
+
+
 
 
         function isOINPSectionVisible(controlNameOrId) {
