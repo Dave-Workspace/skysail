@@ -6203,7 +6203,7 @@ height : 100px;
 }
 
 .process .pl1234x-line-process.site-section {
-    margin-top: 0 !important;
+    margin-top: -40px;
     margin-bottom: 4rem !important;
     padding-bottom: 80px;
 }
@@ -8108,7 +8108,7 @@ height : 100px;
 
 /* Scroll arrow indicator (desktop & mobile) */
 .categoryNav .service-nav::after {
-    content: "→";
+    /*content: "→";*/
     position: absolute;
     right: 5px;
     top: 50%;
