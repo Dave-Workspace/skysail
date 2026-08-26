@@ -1477,38 +1477,7 @@
     <script src="JS/script.js"></script>
     <script src="JS/main.js"></script>
     <script src="JS/button.js"></script>
-    <script>
-(function() {
-  const zapBadge = () => {
-    // 1. Target all elements created under the elfsight template system
-    const targets = document.querySelectorAll('[class*="elfsight-app"], [id*="elfsight"]');
-    
-    targets.forEach(el => {
-      // Check the element surface
-      const outerLink = el.querySelector('a[href*="utm_campaign=free-widget"]');
-      if (outerLink) outerLink.remove();
 
-      // Dive into the internal Shadow DOM wall barrier
-      if (el.shadowRoot) {
-        const innerLink = el.shadowRoot.querySelector('a[href*="utm_campaign=free-widget"]');
-        if (innerLink) {
-          innerLink.remove();
-          console.log("Badge eliminated.");
-        }
-        
-        // Also eliminate via class name fallback if Elfsight scrambles URLs
-        const innerBadgeClass = el.shadowRoot.querySelector('.es-badge-container');
-        if (innerBadgeClass) innerBadgeClass.remove();
-      }
-    });
-  };
-
-  // Run aggressively every 50ms during initial rendering window
-  const killLoop = setInterval(zapBadge, 50);
-  // Clear the loop after 5 seconds to preserve website memory performance
-  setTimeout(() => clearInterval(killLoop), 5000);
-})();
-</script>
 
 
 </body>
