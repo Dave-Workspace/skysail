@@ -1037,10 +1037,25 @@ height: 90px;
                     <form id="selector-form">
                         <!-- Top Level Calculator Type -->
                         <label for="calculatorType"><strong>Select Calculator Type:</strong></label>
-                        <select id="calculatorType" style="margin-bottom:20px;">
+                        <!--<select id="calculatorType" style="margin-bottom:20px;">
                             <option value="federal">Express Entry Calculator</option>
                             <option value="provincial">Provincial Nominee Program Calculator</option>
-                        </select>
+                        </select>-->
+                        <!-- Radio Button for Express Entry -->
+                         <div style="margin-bottom: 20px;">
+                            <label style="margin-right: 15px; cursor: pointer;">
+                                <input type="radio" name="calcRadio" value="federal" checked
+                                    onclick="document.getElementById('calculatorType').value = this.value; document.getElementById('calculatorType').dispatchEvent(new Event('change'));"> 
+                                Express Entry Calculator
+                            </label>
+
+                            <!-- Radio Button for PNP -->
+                            <label style="cursor: pointer;">
+                                <input type="radio" name="calcRadio" value="provincial"
+                                    onclick="document.getElementById('calculatorType').value = this.value; document.getElementById('calculatorType').dispatchEvent(new Event('change'));"> 
+                                Provincial Nominee Program Calculator
+                            </label>
+                        </div>
                         <div id="pnpDropdownWrapper">
                             <label for="pnpSelector"><strong>Select Program:</strong></label>
                             <select id="pnpSelector" style="margin-bottom:20px;">
