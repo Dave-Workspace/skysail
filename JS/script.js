@@ -62,7 +62,7 @@ const menus = {
 study: `
 <section class="service-nav-wrapper">
 <div class="service-nav-header">
-
+<h4>Other <span class="highlight-red">Study</span> Services</h4>
 </div>
 <div class="service-nav-outer"><div class="service-nav">
 <a href="ielts-celpip-preparation.html">IELTS / CELPIP</a>
