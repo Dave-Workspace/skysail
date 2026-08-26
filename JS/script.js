@@ -62,7 +62,7 @@ const menus = {
 study: `
 <section class="service-nav-wrapper">
 <div class="service-nav-header">
-<h4>Our <span class="highlight-red">Study</span> Services</h4>
+<h4>Other <span class="highlight-red">Study</span> Services</h4>
 </div>
 <div class="service-nav-outer"><div class="service-nav">
 <a href="ielts-celpip-preparation.html">IELTS / CELPIP</a>
@@ -79,7 +79,7 @@ study: `
 work: `
 <section class="service-nav-wrapper">
 <div class="service-nav-header">
-<h4>Our <span class="highlight-red">Work</span> Services</h4>
+<h4>Other <span class="highlight-red">Work</span> Services</h4>
 </div>
 <div class="service-nav-outer"><div class="service-nav">
 <a href="work-permit-application.html">Work Permit</a>
@@ -92,7 +92,7 @@ work: `
 visit: `
 <section class="service-nav-wrapper">
 <div class="service-nav-header">
-<h4>Our <span class="highlight-red">Visit</span> Services</h4>
+<h4>Other <span class="highlight-red">Visit</span> Services</h4>
 </div>
 <div class="service-nav-outer"><div class="service-nav">
 <a href="visitor-visa.html">Visitor Visa</a>
@@ -120,7 +120,7 @@ settle: `
 other: `
 <section class="service-nav-wrapper">
 <div class="service-nav-header">
-<h4>Our <span class="highlight-red">Other</span> Services</h4>
+<h4>Other <span class="highlight-red">Other</span> Services</h4>
 </div>
 <div class="service-nav-outer"><div class="service-nav">
 <a href="atip-gcms-notes.html">ATIP / GCMS</a>
