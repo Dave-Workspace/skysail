@@ -9,8 +9,8 @@
 
 /* ===== Extracted inline script #1 ===== */
 window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function gtag(){dataLayer.push(arguments);
+}  gtag('js', new Date());
 
   gtag('config', 'G-Y404KZ61CH');
 
@@ -985,106 +985,7 @@ document.querySelectorAll('marquee').forEach(function (marquee) {
     window.gtag('config', 'G-Y404KZ61CH');
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    // Preserve the original marquee hover pause/resume behavior without inline events.
-    document.querySelectorAll('marquee[data-marquee-pause]').forEach(function (marquee) {
-      marquee.addEventListener('mouseenter', function () {
-        if (typeof marquee.stop === 'function') marquee.stop();
-      });
-      marquee.addEventListener('mouseleave', function () {
-        if (typeof marquee.start === 'function') marquee.start();
-      });
-    });
-
-    const input = document.querySelector('#contact');
-    const form = document.getElementById('VVIForm');
-
-    if (!input || !form || typeof window.intlTelInput !== 'function') return;
-
-    const iti = window.intlTelInput(input, {
-      initialCountry: 'auto',
-      separateDialCode: true,
-      autoPlaceholder: 'aggressive',
-      loadUtils: () => import('https://cdn.jsdelivr.net/npm/intl-tel-input@25.10.1/build/js/utils.js'),
-      geoIpLookup: function (success, failure) {
-        fetch('https://ipapi.co/json')
-          .then(res => res.json())
-          .then(data => success(data.country_code))
-          .catch(() => failure());
-      }
-    });
-
-    input.addEventListener('blur', async function () {
-      if (!input.value.trim()) return;
-      await iti.promiseUtilsLoaded;
-      if (iti.isValidNumber()) {
-        input.classList.remove('is-invalid');
-        input.classList.add('is-valid');
-      } else {
-        input.classList.add('is-invalid');
-        input.classList.remove('is-valid');
-      }
-    });
-
-    form.addEventListener('submit', async function (event) {
-      event.preventDefault();
-      await iti.promiseUtilsLoaded;
-
-      let valid = true;
-      if (!form.checkValidity()) {
-        form.classList.add('was-validated');
-        valid = false;
-      }
-
-      if (input.value.trim() && !iti.isValidNumber()) {
-        input.classList.add('is-invalid');
-        alert('Invalid number for selected country');
-        valid = false;
-      }
-
-      if (!valid) return;
-
-      if (typeof window.grecaptcha === 'undefined') {
-        alert('Security verification is unavailable. Please try again later.');
-        return;
-      }
-
-      try {
-        const token = await window.grecaptcha.execute('6LcVCIIsAAAAAPlsdiUshWBeO-EL7Fl2FvSrkViL', { action: 'form_submit' });
-
-        const data = {
-          name: form.name.value,
-          contact: input.value.trim() ? iti.getNumber() : '',
-          email: form.email.value,
-          age: form.age.value,
-          notes: form.notes.value,
-          recaptcha_token: token
-        };
-
-        const response = await fetch('vvi_send_email.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-
-        if (result.status === 'success') {
-          alert('Enquiry submitted successfully! Our team will contact you soon.');
-          form.reset();
-          form.classList.remove('was-validated');
-          input.classList.remove('is-valid', 'is-invalid');
-        } else {
-          alert('Error: ' + (result.message || 'Unknown error'));
-        }
-      } catch (error) {
-        console.error(error);
-        alert('Error submitting form. Please try again later.');
-      }
-    });
-  });
-})();
-
+  
 
 /* Permanent Residency / Settle page — page-specific JavaScript only. */
 (function () {
@@ -1761,130 +1662,7 @@ document.querySelectorAll('marquee').forEach(function (marquee) {
 
 
 
-/* Super Visa — PAGE-SPECIFIC JAVASCRIPT ONLY.
-   No unique JavaScript is required on this page.
-   Shared header/menu, marquee, sticky-card progress and common interactions
-   remain in the existing JS/main.js. */
 
-
-/* Page-specific form/phone validation logic extracted from the original HTML. */
-document.addEventListener("DOMContentLoaded", function () {
-
-  const input = document.querySelector("#contact");
-  const form = document.getElementById("PGPForm");
-
-  // This form is page-specific. Never let a missing field/plugin break the
-  // shared JavaScript used by every page.
-  if (!input || !form || typeof window.intlTelInput !== "function") return;
-
-  const iti = window.intlTelInput(input, {
-    initialCountry: "auto",
-    separateDialCode: true,
-    autoPlaceholder: "aggressive",
-    loadUtils: () =>
-      import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.10.1/build/js/utils.js"),
-    geoIpLookup: function (success, failure) {
-      fetch("https://ipapi.co/json")
-        .then(res => res.json())
-        .then(data => success(data.country_code))
-        .catch(() => failure());
-    }
-  });
-
-  // Validate phone on blur
-  input.addEventListener("blur", async function () {
-
-    if (!input.value.trim()) return;
-
-    await iti.promiseUtilsLoaded;
-
-    if (iti.isValidNumber()) {
-      input.classList.remove("is-invalid");
-      input.classList.add("is-valid");
-    } else {
-      input.classList.add("is-invalid");
-      input.classList.remove("is-valid");
-    }
-
-  });
-
-  // Form submit
-  form.addEventListener("submit", async function (event) {
-
-    event.preventDefault();
-
-    await iti.promiseUtilsLoaded;
-
-    let valid = true;
-
-    // Check normal form validation
-    if (!form.checkValidity()) {
-      form.classList.add("was-validated");
-      valid = false;
-    }
-
-    // Phone validation
-    if (input.value.trim() && !iti.isValidNumber()) {
-      input.classList.add("is-invalid");
-      alert("Invalid number for selected country");
-      valid = false;
-    }
-
-    if (!valid) return;
-
-        // GET RECAPTCHA TOKEN
-        if (typeof window.grecaptcha === "undefined" || typeof window.grecaptcha.execute !== "function") {
-          alert("Security verification is unavailable. Please try again later.");
-          return;
-        }
-
-        const token = await window.grecaptcha.execute("6LcVCIIsAAAAAPlsdiUshWBeO-EL7Fl2FvSrkViL", { action: "form_submit" });
-
-    const data = {
-      name: form.name.value,
-      contact: input.value.trim() ? iti.getNumber() : "",
-      email: form.email.value,
-      age: form.age.value,
-      notes: form.notes.value,
-    recaptcha_token: token   // ← ADD THIS
-    };
-
-    fetch("sv_send_email.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => {
-
-      if (res.status === "success") {
-
-        alert("Enquiry submitted successfully! Our team will contact you soon.");
-
-        form.reset();
-        form.classList.remove("was-validated");
-        input.classList.remove("is-valid","is-invalid");
-
-      } else {
-        alert("Error: " + (res.message || "Unknown error"));
-      }
-
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Error submitting form. Please try again later.");
-    });
-
-  });
-
-});
-
-//document.querySelector('.accordion-header').addEventListener('click', function () {
-//  const accordion = this.closest('.funds-accordion');
-//  accordion.classList.toggle('open');
-//});
 
 
 /* =========================================================
@@ -2488,7 +2266,7 @@ document.addEventListener("DOMContentLoaded", function () {
               return;
             }
 
-            const token = await window.grecaptcha.execute("6LcVCIIsAAAAAPlsdiUshWBeO-EL7Fl2FvSrkViL", { action: "form_submit" });
+            const token = await window.grecaptcha.execute("6Ld2KkIsAAAAAIrAS8iRsiPZUS0Wqe5Qc8CmpuhY", { action: "form_submit" });
         
             const data = {
               name: form.name.value,
