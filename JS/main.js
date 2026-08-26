@@ -986,6 +986,7 @@ document.querySelectorAll('marquee').forEach(function (marquee) {
   }
 
   
+});
 
 /* Permanent Residency / Settle page — page-specific JavaScript only. */
 (function () {
