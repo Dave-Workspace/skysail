@@ -1477,6 +1477,22 @@
     <script src="JS/script.js"></script>
     <script src="JS/main.js"></script>
     <script src="JS/button.js"></script>
+    <script>
+  // Wait for the Elfsight widget to inject its HTML, then remove the badge
+  const observer = new MutationObserver((mutations, obs) => {
+    const badge = document.querySelector('a[href*="utm_campaign=free-widget"]');
+    if (badge) {
+      badge.remove(); // Physically deletes the element from your website
+      obs.disconnect(); // Stop looking once it is gone
+    }
+  });
+
+  // Start observing your webpage body for changes
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+</script>
 
 </body>
 
