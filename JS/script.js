@@ -105,7 +105,7 @@ visit: `
 settle: `
 <section class="service-nav-wrapper">
 <div class="service-nav-header">
-<h4>Our <span class="highlight-red">Settle</span> Services</h4>
+<h4>Other <span class="highlight-red">Settle</span> Services</h4>
 </div>
 <div class="service-nav-outer"><div class="service-nav">
 <a href="citizenship-application.html">Citizenship</a>
