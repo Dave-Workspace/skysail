@@ -1478,33 +1478,35 @@
     <script src="JS/main.js"></script>
     <script src="JS/button.js"></script>
     <script>
-(() => {
-  // Global checker function to bypass Shadow DOM walls
-  const removeElfsightBadge = () => {
-    // 1. Find all custom elements Elfsight uses on the page
-    const widgets = document.querySelectorAll('[class^="elfsight-app"]');
+(function() {
+  const zapBadge = () => {
+    // 1. Target all elements created under the elfsight template system
+    const targets = document.querySelectorAll('[class*="elfsight-app"], [id*="elfsight"]');
     
-    widgets.forEach(widget => {
-      // 2. Check if the element contains a Shadow Root barrier
-      if (widget.shadowRoot) {
-        // 3. Search strictly inside the Shadow DOM for the free badge link
-        const badge = widget.shadowRoot.querySelector('a[href*="utm_campaign=free-widget"]');
-        if (badge) {
-          badge.remove(); // Obliterate the element
-          console.log("Elfsight badge successfully removed from Shadow DOM.");
+    targets.forEach(el => {
+      // Check the element surface
+      const outerLink = el.querySelector('a[href*="utm_campaign=free-widget"]');
+      if (outerLink) outerLink.remove();
+
+      // Dive into the internal Shadow DOM wall barrier
+      if (el.shadowRoot) {
+        const innerLink = el.shadowRoot.querySelector('a[href*="utm_campaign=free-widget"]');
+        if (innerLink) {
+          innerLink.remove();
+          console.log("Badge eliminated.");
         }
+        
+        // Also eliminate via class name fallback if Elfsight scrambles URLs
+        const innerBadgeClass = el.shadowRoot.querySelector('.es-badge-container');
+        if (innerBadgeClass) innerBadgeClass.remove();
       }
     });
   };
 
-  // Run immediately on script load
-  removeElfsightBadge();
-
-  // Run on a repetitive short loop to catch asynchronous layouts as they load
-  const intervalCheck = setInterval(removeElfsightBadge, 100);
-
-  // Safely stop looping after 6 seconds to optimize website memory
-  setTimeout(() => clearInterval(intervalCheck), 6000);
+  // Run aggressively every 50ms during initial rendering window
+  const killLoop = setInterval(zapBadge, 50);
+  // Clear the loop after 5 seconds to preserve website memory performance
+  setTimeout(() => clearInterval(killLoop), 5000);
 })();
 </script>
 
