@@ -1669,3 +1669,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+/* Testimonial JS Start */
+(() => {
+    // This function executes safely without creating global conflicts
+    const initializeScopedReadMore = () => {
+        // Strictly look for buttons inside your specific news-section component
+        const buttons = document.querySelectorAll(".news-section .read-more-btn");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function(event) {
+                // Prevent any background click events or slider interruptions
+                event.stopPropagation(); 
+                
+                const quote = this.previousElementSibling; 
+                
+                // Confirm the target element exists and belongs to this component scope
+                if (quote && quote.classList.contains("news-quote")) {
+                    quote.classList.toggle("expanded");
+                    
+                    if (quote.classList.contains("expanded")) {
+                        this.textContent = "Read Less";
+                    } else {
+                        this.textContent = "Read More";
+                    }
+                }
+            });
+        });
+    };
+
+    // Initialize safely depending on your page load state
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeScopedReadMore);
+    } else {
+        initializeScopedReadMore();
+    }
+})();
+
+/* Testiminial JS End */
