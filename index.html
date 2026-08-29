@@ -40,10 +40,10 @@
 
   <div id="header"></div>
 
-<link rel="stylesheet" href="/menu.css">
+<link rel="stylesheet" href="menu.css">
 
 <script>
-fetch("/menu.html")
+fetch("menu.html")
     .then(response => {
         if (!response.ok) {
             throw new Error("Failed to load menu.html");
@@ -56,7 +56,7 @@ fetch("/menu.html")
         // IMPORTANT:
         // Load menu.js only AFTER menu.html exists
         const script = document.createElement("script");
-        script.src = "/menu.js";
+        script.src = "menu.js";
         document.body.appendChild(script);
     })
     .catch(error => {
