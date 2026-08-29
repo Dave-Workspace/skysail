@@ -300,50 +300,31 @@ flex-wrap: wrap;
         <div class="visually-hidden">Loading Calculator…</div>
     </div>
 
-    <header role="banner">
-        <!--<div class="RCIC-top"><img src="Images/RCIC Black.svg" alt="RCIC-IRB logo" class="img-fluid image-flip" style="height: 28px; width: auto;"></div>-->
-        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-header" role="navigation" aria-label="Main navigation">
-            <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="Images/img/logo.png" alt="Skysail" class="navbar-brand-img">
-                </a>
-                <!-- Hamburger menu button for mobile/tablet (stays right) -->
-                <button class="navbar-toggler d-flex d-md-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div id="header"></div>
 
-                <!-- Keep the collapsed nav on the right side by using justify-content-end -->
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav align-items-md-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="study-in-canada.html">Study</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="work-in-canada.html">Work</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="visit-canada.html">Visit</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="permanent-residency-canada.html">Settle</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="other-services.html">Other</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-btn nav-btn--filled outer" href="https://apply.skysailimmigration.com/client/register">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-btn nav-btn--filled" href="https://apply.skysailimmigration.com/client/login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-btn nav-btn--filled" href="immigration-calculator.html">PR   Calculator</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<link rel="stylesheet" href="CSS/menu.css">
+
+<script>
+fetch("menu.html")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to load menu.html");
+        }
+        return response.text();
+    })
+    .then(html => {
+        document.getElementById("header").innerHTML = html;
+
+        // IMPORTANT:
+        // Load menu.js only AFTER menu.html exists
+        const script = document.createElement("script");
+        script.src = "JS/menu.js";
+        document.body.appendChild(script);
+    })
+    .catch(error => {
+        console.error("Menu loading error:", error);
+    });
+</script>
 
 <div class="announcement-bar">
 

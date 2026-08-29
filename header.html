@@ -1,0 +1,25 @@
+<div id="header"></div>
+
+<link rel="stylesheet" href="CSS/menu.css">
+
+<script>
+fetch("menu.html")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to load menu.html");
+        }
+        return response.text();
+    })
+    .then(html => {
+        document.getElementById("header").innerHTML = html;
+
+        // IMPORTANT:
+        // Load menu.js only AFTER menu.html exists
+        const script = document.createElement("script");
+        script.src = "JS/menu.js";
+        document.body.appendChild(script);
+    })
+    .catch(error => {
+        console.error("Menu loading error:", error);
+    });
+</script>
