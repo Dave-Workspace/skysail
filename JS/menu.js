@@ -65,7 +65,7 @@
             kicker: "Settle in Canada",
             title: "Start Your Permanent Residency Journey",
             description: "Explore permanent residence pathways and find the right immigration program for your Canadian future.",
-            landing: "settle-in-canada.html",
+            landing: "permanent-residency-canada.html",
             landingText: "Explore Settlement Options →",
             image: "Images/Settle_Main_3.png",
 
@@ -83,7 +83,7 @@
             kicker: "Other Services",
             title: "More Canadian Immigration Solutions",
             description: "Explore additional immigration services, citizenship options and application support.",
-            landing: "immigration-services.html",
+            landing: "other-services.html",
             landingText: "Explore All Services →",
             image: "Images/Other_Main.png",
 
