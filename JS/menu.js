@@ -12,19 +12,19 @@
             kicker: "Study in Canada",
             title: "Start Your Canadian Study Journey",
             description: "Explore Canadian colleges and universities, language requirements, study permits, student visa services and post-graduation opportunities.",
-            landing: "/study-in-canada.html",
+            landing: "study-in-canada.html",
             landingText: "Explore Study in Canada →",
             image: "Images/Study.png",
 
             services: [
-                ["IELTS / CELPIP", "Test Booking & Preparation", "/ielts-celpip-preparation.html", "amber", "ielts"],
-                ["SOP Writing", "Statement of Purpose", "/statement-of-purpose.html", "cyan", "sop"],
-                ["Student Visa", "Application Support", "/student-visa-application.html", "pink", "studentVisa"],
-                ["PGWP", "Post Graduation Work Permit / PGWP", "/post-graduation-work-permit.html", "purple", "pgwp"],
-                ["Study Permit Extension", "Extend Your Study Permit", "/study-permit-extension.html", "amber", "permitExtension"],
-                ["TRV Application", "Temporary Resident Visa", "/temporary-resident-visa.html", "cyan", "studyTrv"],
-                ["ATIP / GCMS Notes", "Application Information", "/atip-gcms-notes.html", "pink", "folder"],
-                ["Co-op Permit", "Work Permit", "/co-op-work-permit.html", "purple", "coop"],
+                ["IELTS / CELPIP", "Test Booking & Preparation", "ielts-celpip-preparation.html", "amber", "ielts"],
+                ["SOP Writing", "Statement of Purpose", "statement-of-purpose.html", "cyan", "sop"],
+                ["Student Visa", "Application Support", "student-visa-application.html", "pink", "studentVisa"],
+                ["PGWP", "Post Graduation Work Permit / PGWP", "post-graduation-work-permit.html", "purple", "pgwp"],
+                ["Study Permit Extension", "Extend Your Study Permit", "study-permit-extension.html", "amber", "permitExtension"],
+                ["TRV Application", "Temporary Resident Visa", "temporary-resident-visa.html", "cyan", "studyTrv"],
+                ["ATIP / GCMS Notes", "Application Information", "atip-gcms-notes.html", "pink", "folder"],
+                ["Co-op Permit", "Work Permit", "co-op-work-permit.html", "purple", "coop"],
                 ["Language Coaching", "English & Communication Skills", "#", "cyan", "languageCoaching"]
             ]
         },
@@ -33,15 +33,15 @@
             kicker: "Work in Canada",
             title: "Build Your Canadian Work Journey",
             description: "Explore work permits, LMIA pathways, employer-supported applications and Canadian work opportunities.",
-            landing: "/work-in-canada.html",
+            landing: "work-in-canada.html",
             landingText: "Explore Work in Canada →",
             image: "Images/Can_Work_1.png",
 
             services: [
-                ["Work Permit Extension", "Extend Your Status", "/work-permit-application.html", "amber", "workPermit"],
-                ["PGWP", "Post Graduation Work Permit", "/post-graduation-work-permit.html", "cyan", "pgwp"],
-                ["Bridging Open Work Permit", "BOWP Application", "/bridging-open-work-permit.html", "pink", "workExtension"],
-                ["Dependent Work Permit", "Spouse & Family Work Permit", "/dependent-work-permit.html", "purple", "spousalWorkPermit"]               
+                ["Work Permit Extension", "Extend Your Status", "work-permit-application.html", "amber", "workPermit"],
+                ["PGWP", "Post Graduation Work Permit", "post-graduation-work-permit.html", "cyan", "pgwp"],
+                ["Bridging Open Work Permit", "BOWP Application", "bridging-open-work-permit.html", "pink", "workExtension"],
+                ["Dependent Work Permit", "Spouse & Family Work Permit", "dependent-work-permit.html", "purple", "spousalWorkPermit"]               
             ]
         },
 
@@ -49,15 +49,15 @@
             kicker: "Visit Canada",
             title: "Plan Your Visit to Canada",
             description: "Get support with visitor visas, family visits, invitations and temporary resident applications.",
-            landing: "/visit-canada.html",
+            landing: "visit-canada.html",
             landingText: "Explore Visit Canada →",
             image: "Images/Visit_Main.png",
 
             services: [
-                ["Visitor Visa", "Tourism & Family Visits", "/visitor-visa.html", "amber", "visitorVisa"],
-                ["Convention Visit", "Attend Graduation Ceremonies", "/convocation-visit-visa.html", "cyan", "familyVisit"],
-                ["Visa Extension", "Extend Your Stay", "/visitor-visa-extension.html", "pink", "visaExtension"],
-                ["Super Visa", "Parents & Grandparents", "/super-visa.html", "purple", "superVisa"]
+                ["Visitor Visa", "Tourism & Family Visits", "visitor-visa.html", "amber", "visitorVisa"],
+                ["Convention Visit", "Attend Graduation Ceremonies", "convocation-visit-visa.html", "cyan", "familyVisit"],
+                ["Visa Extension", "Extend Your Stay", "visitor-visa-extension.html", "pink", "visaExtension"],
+                ["Super Visa", "Parents & Grandparents", "super-visa.html", "purple", "superVisa"]
             ]
         },
 
@@ -65,17 +65,17 @@
             kicker: "Settle in Canada",
             title: "Start Your Permanent Residency Journey",
             description: "Explore permanent residence pathways and find the right immigration program for your Canadian future.",
-            landing: "/settle-in-canada.html",
+            landing: "settle-in-canada.html",
             landingText: "Explore Settlement Options →",
             image: "Images/Settle_Main_3.png",
 
             services: [
-                ["Citizenship", "Canadian Citizenship", "/citizenship-application.html", "amber", "citizenship"],
-                ["Dependent PR", "Family Sponsorship Support", "/dependent-pr-process.html", "cyan", "peopleRoof"],
-                ["PGP", "Parent & Grandparent PR", "/parents-grandparents-program.html", "pink", "peopleArrows"],
-                ["PR Card", "Renewal / Replacement", "/pr-card-renewal.html", "purple", "prCard"],
-                ["Express Entry", "FSW / CEC / FSTP", "/express-entry-pr.html", "cyan", "expressEntry"],
-                ["PR Travel Document", "PRTD Application", "/permanent-resident-travel-document.html", "pink", "permit"]
+                ["Citizenship", "Canadian Citizenship", "citizenship-application.html", "amber", "citizenship"],
+                ["Dependent PR", "Family Sponsorship Support", "dependent-pr-process.html", "cyan", "peopleRoof"],
+                ["PGP", "Parent & Grandparent PR", "parents-grandparents-program.html", "pink", "peopleArrows"],
+                ["PR Card", "Renewal / Replacement", "pr-card-renewal.html", "purple", "prCard"],
+                ["Express Entry", "FSW / CEC / FSTP", "express-entry-pr.html", "cyan", "expressEntry"],
+                ["PR Travel Document", "PRTD Application", "permanent-resident-travel-document.html", "pink", "permit"]
             ]
         },
 
@@ -83,15 +83,15 @@
             kicker: "Other Services",
             title: "More Canadian Immigration Solutions",
             description: "Explore additional immigration services, citizenship options and application support.",
-            landing: "/immigration-services",
+            landing: "immigration-services.html",
             landingText: "Explore All Services →",
             image: "Images/Other_Main.png",
 
             services: [
-                ["ATIP / GCMS Notes", "Request Application Notes", "/atip-gcms-notes.html", "amber", "folder"],
-                ["Amendment of Legal Documents", "Correct or Update Documents", "/authorization-legal-documents.html", "cyan", "fileSignature"],
-                ["Reconsideration Request", "Review a Refused Application", "/request-fair-review.html", "pink", "magnifyingGlass"],
-                ["Procedural Fairness Letter", "PFL Response Support", "/process-fairness-letter.html", "purple", "scaleBalanced"]
+                ["ATIP / GCMS Notes", "Request Application Notes", "atip-gcms-notes.html", "amber", "folder"],
+                ["Amendment of Legal Documents", "Correct or Update Documents", "authorization-legal-documents.html", "cyan", "fileSignature"],
+                ["Reconsideration Request", "Review a Refused Application", "request-fair-review.html", "pink", "magnifyingGlass"],
+                ["Procedural Fairness Letter", "PFL Response Support", "process-fairness-letter.html", "purple", "scaleBalanced"]
             ]
         }
 
