@@ -2184,8 +2184,7 @@ const selected = [document.getElementById('visaCategory').value].filter(val => v
                         <!-- Row2: Address -->
                         <div class="col-12">
                             <address>
-                                <a href="office-locations.html">
-                                    <span>Canada |  India</span> </a>
+                                <span> <a href="office-locations.html#Canada-offices" class="footer-link">Canada</a> | <a href="office-locations.html#India-offices" class="footer-link">India</a></span>
                             </address>
                         </div>
                         <!-- Row3: Social icons -->
